@@ -11,7 +11,8 @@ export default {
         HeaderColor: "#EFF2FF",
         onColor: "#4CDA64",
         Lightgray: "#B6B6B6",
-        Darkgray: "#797979"
+        Darkgray: "#797979",
+        TextColor: "#1f2937"
       }
     }
   },

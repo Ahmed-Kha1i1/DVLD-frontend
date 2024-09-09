@@ -2,9 +2,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard";
-import AppLayout from "./ui/AppLayout";
-import PageNotFount from "./ui/PageNotFount";
-
+import AppLayout from "./GlobalUI/AppLayout";
+import PageNotFount from "./GlobalUI/PageNotFount";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
