@@ -4,14 +4,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "4F65DF",
-        secondary: "4F89DF",
-        mainColor: "F6F7FB",
-        sectionColor: "FFFFFF",
-        HeadTextColor: "B6B6B6",
-        TextColor: "797979",
-        HeaderColor: "EFF2FF",
-        onColor: "4CDA64"
+        primary: "#4F65DF",
+        secondary: "#4F89DF",
+        mainColor: "#F6F7FB",
+        sectionColor: "#FFFFFF",
+        HeaderColor: "#EFF2FF",
+        onColor: "#4CDA64",
+        Lightgray: "#B6B6B6",
+        Darkgray: "#797979"
       }
     }
   },
