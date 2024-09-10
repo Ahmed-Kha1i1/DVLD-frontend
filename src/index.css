@@ -46,4 +46,7 @@
     @apply inline-block;
     top: calc(50% - 12px);
   }
+  .disabled {
+    @apply opacity-50 pointer-events-none;
+  }
 }

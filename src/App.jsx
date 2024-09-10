@@ -5,6 +5,7 @@ import Dashboard from "./Pages/Dashboard";
 import AppLayout from "./GlobalUI/AppLayout";
 import PageNotFount from "./GlobalUI/PageNotFount";
 import Applications from "./Pages/Applications";
+import ApplicationDetails from "./Pages/ApplicationDetails";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -23,6 +24,7 @@ function App() {
             <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="applications" element={<Applications />} />
+            <Route path="applications/:id" element={<ApplicationDetails />} />
           </Route>
           <Route path="*" element={<PageNotFount />} />
         </Routes>

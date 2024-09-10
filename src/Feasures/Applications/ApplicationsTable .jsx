@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import ApplicationRow from "../../GlobalUI/ApplicationRow";
+import { useState } from "react";
+import ApplicationRow from "./ApplicationRow";
 import ContextMenu from "../../GlobalUI/ContextMenu";
 import Table from "../../GlobalUI/Table";
 import ApplicationContextMenu from "./ApplicationContextMenu";
@@ -7,6 +8,7 @@ import useApplications from "./useApplications";
 
 function ApplicationsTable() {
   const { isLoading, error, applications } = useApplications();
+  const [selectedApplication, setSelectedApplication] = useState(null);
   const columns = "grid-cols-[0.6fr_1.2fr_0.6fr_1.5fr_1fr_0.5fr_1fr]";
 
   if (isLoading) return <span>Loading</span>;
@@ -31,13 +33,19 @@ function ApplicationsTable() {
             <ContextMenu.Row
               id={application.localApplicationId}
               key={application.localApplicationId}
+              action={() => {
+                setSelectedApplication(application);
+              }}
             >
               <ApplicationRow application={application} columns={columns} />
             </ContextMenu.Row>
           )}
         />
         <ContextMenu.Menu>
-          <ApplicationContextMenu />
+          <ApplicationContextMenu
+            SelectedApplication={selectedApplication}
+            key={selectedApplication?.localApplicationId}
+          />
         </ContextMenu.Menu>
       </ContextMenu>
     </Table>

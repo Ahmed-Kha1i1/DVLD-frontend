@@ -2,11 +2,24 @@
 import { BiSolidRightArrow } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 
-function Item({ text, icon, hasArraw, type = "secondary", to = "" }) {
+function Item({
+  text,
+  icon,
+  hasArraw,
+  type = "secondary",
+  to = "",
+  disabled = false
+}) {
   let btnType =
-    type === "primary" ? "btn-primary" : "secondary" ? "btn-secondary" : "";
+    type === "primary"
+      ? "btn-primary"
+      : type === "secondary"
+      ? "btn-secondary"
+      : "";
 
-  let styles = `cursor-pointer hover:bg-gray-200 transition-colors flex items-center px-4 ${btnType}`;
+  let styles = `cursor-pointer hover:bg-gray-200  transition-colors flex items-center px-4 ${btnType} ${
+    disabled ? "disabled" : ""
+  }`;
 
   const innerElements = (
     <>
@@ -28,7 +41,7 @@ function Item({ text, icon, hasArraw, type = "secondary", to = "" }) {
     );
   }
 
-  return <li className={styles}>{innerElements}</li>;
+  return <div className={styles}>{innerElements}</div>;
 }
 
 export default Item;

@@ -1,4 +1,5 @@
-const BASE_URL = " https://localhost:7036";
+import { BASE_URL } from "../Feasures/Constants";
+
 export async function getApplications() {
   try {
     let res = await fetch(`${BASE_URL}/api/LocalApplications/All`);
