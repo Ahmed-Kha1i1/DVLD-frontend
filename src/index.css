@@ -20,10 +20,18 @@
 @layer components {
   .btn-primary {
     span:nth-child(1) {
-      @apply text-primary text-2xl;
+      @apply text-primary text-2xl icon;
     }
     span:nth-child(2) {
       @apply font-bold text-TextColor text-xl;
+    }
+  }
+  .btn-secondary {
+    span:nth-child(1) {
+      @apply text-secondary text-base icon;
+    }
+    span:nth-child(2) {
+      @apply font-semibold text-TextColor text-base;
     }
   }
 }

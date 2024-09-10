@@ -5,7 +5,11 @@ import Menu from "../../GlobalUI/Menu";
 function ManageApplicationMenu() {
   return (
     <Menu>
-      <Item text="Local Driving License Applications" icon={<FaIdCard />} />
+      <Item
+        text="Local Driving License Applications"
+        icon={<FaIdCard />}
+        to="/applications"
+      />
       <Item
         text="International Driving License Applications"
         icon={<FaIdCard />}

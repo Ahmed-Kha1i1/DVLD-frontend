@@ -4,6 +4,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard";
 import AppLayout from "./GlobalUI/AppLayout";
 import PageNotFount from "./GlobalUI/PageNotFount";
+import Applications from "./Pages/Applications";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -21,6 +22,7 @@ function App() {
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
+            <Route path="applications" element={<Applications />} />
           </Route>
           <Route path="*" element={<PageNotFount />} />
         </Routes>

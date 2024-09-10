@@ -8,7 +8,7 @@ export default {
         secondary: "#4F89DF",
         mainColor: "#F6F7FB",
         sectionColor: "#FFFFFF",
-        HeaderColor: "#EFF2FF",
+        HeaderColor: "#E6ECFF",
         onColor: "#4CDA64",
         Lightgray: "#B6B6B6",
         Darkgray: "#797979",
