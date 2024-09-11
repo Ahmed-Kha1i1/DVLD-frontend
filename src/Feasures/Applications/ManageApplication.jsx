@@ -1,7 +1,6 @@
 import { SiPaperswithcode } from "react-icons/si";
 import Item from "../../GlobalUI/item";
 import ManageApplicationMenu from "./ManageApplicationMenu";
-import Menu from "../../GlobalUI/Menu";
 import Menus from "../../GlobalUI/Menus";
 
 function ManageApplication() {
@@ -15,11 +14,9 @@ function ManageApplication() {
             hasArraw={true}
           />
         </Menus.Button>
-        <Menu isRight={true}>
-          <Menus.Menu name="ManageApplicationMenu">
-            <ManageApplicationMenu />
-          </Menus.Menu>
-        </Menu>
+        <Menus.Menu name="ManageApplicationMenu">
+          <ManageApplicationMenu />
+        </Menus.Menu>
       </ul>
     </li>
   );

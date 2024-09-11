@@ -1,8 +1,8 @@
 import { BASE_URL } from "../Constants";
 
-export async function getApplications() {
+export async function getPeople() {
   try {
-    let res = await fetch(`${BASE_URL}/api/LocalApplications/All`);
+    let res = await fetch(`${BASE_URL}/api/People/All`);
 
     const data = await res.json();
 

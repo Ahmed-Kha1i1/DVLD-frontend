@@ -28,7 +28,11 @@ function Menu({ children, name }) {
 
   if (openId !== name) return null;
 
-  return <span ref={ref}>{children}</span>;
+  return (
+    <span ref={ref} onClick={() => close()}>
+      {children}
+    </span>
+  );
 }
 
 Menus.Button = Button;

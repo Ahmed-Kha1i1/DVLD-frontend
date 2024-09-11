@@ -7,7 +7,7 @@ import Menus from "../../GlobalUI/Menus";
 function LicenseServicesMenu() {
   return (
     <Menus>
-      <Menu>
+      <Menu isRight={true}>
         <DrivingLicense />
         <Item text="Renew Driving License" icon={<FaIdCard />} />
         <Item

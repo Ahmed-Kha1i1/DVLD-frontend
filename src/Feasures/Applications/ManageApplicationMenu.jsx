@@ -4,16 +4,21 @@ import Menu from "../../GlobalUI/Menu";
 
 function ManageApplicationMenu() {
   return (
-    <Menu>
-      <Item
-        text="Local Driving License Applications"
-        icon={<FaIdCard />}
-        to="/applications"
-      />
-      <Item
-        text="International Driving License Applications"
-        icon={<FaIdCard />}
-      />
+    <Menu isRight={true}>
+      <li>
+        <Item
+          text="Local Driving License Applications"
+          icon={<FaIdCard />}
+          to="/applications"
+        />
+      </li>
+      <li>
+        <Item
+          text="International Driving License Applications"
+          icon={<FaIdCard to="InternationalApplications" />}
+          to="InternationalLicenses"
+        />
+      </li>
     </Menu>
   );
 }

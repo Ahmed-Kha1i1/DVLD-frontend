@@ -4,7 +4,7 @@ import Menu from "../../GlobalUI/Menu";
 
 function DrivingLicenseMenu() {
   return (
-    <Menu>
+    <Menu isRight={true}>
       <Item text="Local License" icon={<FaIdCard />} />
       <Item text="International License" icon={<FaIdCard />} />
     </Menu>

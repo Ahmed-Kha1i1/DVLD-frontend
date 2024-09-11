@@ -11,9 +11,23 @@ function Controls() {
     <Menus>
       <ul className="py-2 flex gap-6">
         <Application />
-        <Item text="Persons" icon={<FaPeopleGroup />} type="primary" />
-        <Item text="Drivers" icon={<IoPeopleSharp />} type="primary" />
-        <Item text="Users" icon={<ImUsers />} type="primary" />
+        <Item
+          text="Persons"
+          icon={<FaPeopleGroup />}
+          type="primary"
+          to="People"
+        />
+        <li>
+          <Item
+            text="Drivers"
+            icon={<IoPeopleSharp />}
+            type="primary"
+            to="Drivers"
+          />
+        </li>
+        <li>
+          <Item text="Users" icon={<ImUsers />} type="primary" to="Users" />
+        </li>
         <AccountSettings />
       </ul>
     </Menus>

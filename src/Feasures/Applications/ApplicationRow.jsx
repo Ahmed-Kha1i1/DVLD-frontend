@@ -1,3 +1,4 @@
+import Row from "../../GlobalUI/Row";
 import StatusText from "../../GlobalUI/StatusText";
 
 /* eslint-disable react/prop-types */
@@ -13,7 +14,7 @@ function ApplicationRow({ application, columns }) {
   } = application;
 
   return (
-    <div className={`grid ${columns} p-1 text-TextColor`}>
+    <Row columns={columns}>
       <div>{localApplicationId}</div>
       <div>{className}</div>
       <div>{nationalNo}</div>
@@ -21,7 +22,7 @@ function ApplicationRow({ application, columns }) {
       <div>{applicationDate}</div>
       <div>{passedTestCount}</div>
       <StatusText type={status} />
-    </div>
+    </Row>
   );
 }
 

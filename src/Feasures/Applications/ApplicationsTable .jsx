@@ -5,20 +5,22 @@ import ContextMenu from "../../GlobalUI/ContextMenu";
 import Table from "../../GlobalUI/Table";
 import ApplicationContextMenu from "./ApplicationContextMenu";
 import useApplications from "./useApplications";
+import Spiner from "../../GlobalUI/Spiner";
+import Error from "../../GlobalUI/Error";
 
 function ApplicationsTable() {
   const { isLoading, error, applications } = useApplications();
   const [selectedApplication, setSelectedApplication] = useState(null);
   const columns = "grid-cols-[0.6fr_1.2fr_0.6fr_1.5fr_1fr_0.5fr_1fr]";
 
-  if (isLoading) return <span>Loading</span>;
+  if (isLoading) return <Spiner />;
 
-  if (error?.message) return <span>{error.message}</span>;
+  if (error) return <Error message={error?.message} />;
 
   return (
     <Table columns={columns}>
       <Table.Header>
-        <div>ِApplication Id</div>
+        <div>Id</div>
         <div>Driving Class</div>
         <div>National No.</div>
         <div>Full Name</div>

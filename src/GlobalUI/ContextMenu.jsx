@@ -80,6 +80,7 @@ function Menu({ children }) {
         left: `${position.left}px`,
         top: `${position.top}px`
       }}
+      onClick={() => handleClose()}
     >
       {children}
     </div>

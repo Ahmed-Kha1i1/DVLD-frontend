@@ -1,6 +1,6 @@
 import { FaIdCard } from "react-icons/fa6";
 
-import DrivingLicenseMenu from "./DetainLicensesMenu";
+import DrivingLicenseMenu from "./DrivingLicenseMenu";
 import Menus from "../../GlobalUI/Menus";
 import Menu from "../../GlobalUI/Menu";
 import Item from "../../GlobalUI/item";
@@ -15,11 +15,9 @@ function DrivingLicense() {
             hasArraw={true}
           />
         </Menus.Button>
-        <Menu isRight={true}>
-          <Menus.Menu name="DrivingLicenseMenu">
-            <DrivingLicenseMenu />
-          </Menus.Menu>
-        </Menu>
+        <Menus.Menu name="DrivingLicenseMenu">
+          <DrivingLicenseMenu />
+        </Menus.Menu>
       </ul>
     </li>
   );

@@ -7,3 +7,10 @@ export const Statuses = {
 };
 
 export const applicationsQuery = "applications";
+export const applicationTypesQuery = "applicationTypes";
+export const detainedLicensesQuery = "detainedLicenses";
+export const internationalLicensesQuery = "internationalApplications";
+export const testTypesQuery = "pestTypes";
+export const peopleQuery = "people";
+export const usersQuery = "users";
+export const driversQuery = "drivers";

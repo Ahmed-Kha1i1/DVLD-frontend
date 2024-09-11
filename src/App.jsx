@@ -6,6 +6,13 @@ import AppLayout from "./GlobalUI/AppLayout";
 import PageNotFount from "./GlobalUI/PageNotFount";
 import Applications from "./Pages/Applications";
 import ApplicationDetails from "./Pages/ApplicationDetails";
+import InternationalLicenses from "./Pages/InternationalLicenses";
+import ApplicationTypes from "./Pages/ApplicationTypes";
+import TestTypes from "./Pages/TestTypes";
+import DetainedLicenses from "./Pages/DetainedLicenses";
+import People from "./Pages/People";
+import Users from "./Pages/Users";
+import Drivers from "./Pages/Drivers";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -25,6 +32,16 @@ function App() {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="applications" element={<Applications />} />
             <Route path="applications/:id" element={<ApplicationDetails />} />
+            <Route
+              path="InternationalLicenses"
+              element={<InternationalLicenses />}
+            />
+            <Route path="ApplicationTypes" element={<ApplicationTypes />} />
+            <Route path="TestTypes" element={<TestTypes />} />
+            <Route path="DetainedLicenses" element={<DetainedLicenses />} />
+            <Route path="People" element={<People />} />
+            <Route path="Users" element={<Users />} />
+            <Route path="Drivers" element={<Drivers />} />
           </Route>
           <Route path="*" element={<PageNotFount />} />
         </Routes>

@@ -4,7 +4,7 @@ import PageTitle from "../GlobalUI/PageTitle";
 function Applications() {
   return (
     <div>
-      <PageTitle title="Manage People" />
+      <PageTitle title="Manage Applications" />
       <ApplicationsTable />
     </div>
   );

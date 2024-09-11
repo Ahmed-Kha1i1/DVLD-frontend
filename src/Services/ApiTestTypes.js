@@ -1,8 +1,8 @@
 import { BASE_URL } from "../Constants";
 
-export async function getApplications() {
+export async function getTestTypes() {
   try {
-    let res = await fetch(`${BASE_URL}/api/LocalApplications/All`);
+    let res = await fetch(`${BASE_URL}/api/TestTypes/All`);
 
     const data = await res.json();
 

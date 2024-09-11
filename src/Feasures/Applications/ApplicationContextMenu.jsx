@@ -3,7 +3,7 @@ import { FaIdCard } from "react-icons/fa6";
 import Item from "../../GlobalUI/item";
 import Menu from "../../GlobalUI/Menu";
 import PerformTests from "./PerformTests";
-import { Statuses } from "../Constants";
+import { Statuses } from "../../Constants";
 
 function ApplicationContextMenu({ SelectedApplication }) {
   return (

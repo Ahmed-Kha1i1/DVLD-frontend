@@ -2,7 +2,6 @@ import { FaIdCard } from "react-icons/fa";
 import Item from "../../GlobalUI/item";
 import Menus from "../../GlobalUI/Menus";
 import LicenseServicesMenu from "./LicenseServicesMenu";
-import Menu from "../../GlobalUI/Menu";
 
 function LicensesServices() {
   return (
@@ -15,11 +14,9 @@ function LicensesServices() {
             hasArraw={true}
           />
         </Menus.Button>
-        <Menu isRight={true}>
-          <Menus.Menu name="LicenseServicesMenu">
-            <LicenseServicesMenu />
-          </Menus.Menu>
-        </Menu>
+        <Menus.Menu name="LicenseServicesMenu">
+          <LicenseServicesMenu />
+        </Menus.Menu>
       </ul>
     </li>
   );
