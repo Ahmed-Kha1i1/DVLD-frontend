@@ -1,6 +1,7 @@
-import Row from "../../GlobalUI/Row";
+import BoolColumn from "../../GlobalUI/BoolColumn";
+import { FormatDateTime } from "../../Utils/helpers";
 /* eslint-disable react/prop-types */
-function InternationalLicenseRow({ InternationalLicense, columns }) {
+function InternationalLicenseRow({ InternationalLicense }) {
   const {
     applicationID,
     createdByUserID,
@@ -12,16 +13,16 @@ function InternationalLicenseRow({ InternationalLicense, columns }) {
     issuedUsingLocalLicenseID
   } = InternationalLicense;
   return (
-    <Row columns={columns}>
+    <>
       <div>{internationalLicenseID}</div>
       <div>{applicationID}</div>
       <div>{issuedUsingLocalLicenseID}</div>
       <div>{driverID}</div>
-      <div>{issueDate}</div>
-      <div>{expirationDate}</div>
-      <div>{isActive.toString()}</div>
+      <div>{FormatDateTime(issueDate)}</div>
+      <div>{FormatDateTime(expirationDate)}</div>
+      <BoolColumn value={isActive} />
       <div>{createdByUserID}</div>
-    </Row>
+    </>
   );
 }
 

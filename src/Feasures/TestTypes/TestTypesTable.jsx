@@ -26,7 +26,7 @@ function TestTypesTable() {
       <ContextMenu>
         <Table.Body
           items={TestTypes}
-          render={(TestType) => (
+          render={(TestType, IsDark) => (
             <ContextMenu.Row
               id={TestType.testTypeID}
               key={TestType.testTypeID}
@@ -34,7 +34,9 @@ function TestTypesTable() {
                 setSelectedTestType(TestType);
               }}
             >
-              <TestTypeRow TestType={TestType} columns={columns} />
+              <Table.Row isDark={IsDark} id={TestType.testTypeID}>
+                <TestTypeRow TestType={TestType} />
+              </Table.Row>
             </ContextMenu.Row>
           )}
         />

@@ -1,8 +1,8 @@
-import Row from "../../GlobalUI/Row";
 import StatusText from "../../GlobalUI/StatusText";
+import { FormatDateTime } from "../../Utils/helpers";
 
 /* eslint-disable react/prop-types */
-function ApplicationRow({ application, columns }) {
+function ApplicationRow({ application }) {
   const {
     localApplicationId,
     className,
@@ -14,15 +14,15 @@ function ApplicationRow({ application, columns }) {
   } = application;
 
   return (
-    <Row columns={columns}>
+    <>
       <div>{localApplicationId}</div>
       <div>{className}</div>
       <div>{nationalNo}</div>
       <div>{fullName}</div>
-      <div>{applicationDate}</div>
+      <div>{FormatDateTime(applicationDate)}</div>
       <div>{passedTestCount}</div>
       <StatusText type={status} />
-    </Row>
+    </>
   );
 }
 

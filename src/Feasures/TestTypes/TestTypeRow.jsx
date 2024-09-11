@@ -1,15 +1,15 @@
-import Row from "../../GlobalUI/Row";
+import { formatCurrency } from "../../Utils/helpers";
 /* eslint-disable react/prop-types */
-function TestTypeRow({ TestType, columns }) {
+function TestTypeRow({ TestType }) {
   const { testTypeID, testTypeTitle, testTypeDescription, testTypeFees } =
     TestType;
   return (
-    <Row columns={columns}>
+    <>
       <div>{testTypeID}</div>
       <div>{testTypeTitle}</div>
       <div>{testTypeDescription}</div>
-      <div>{testTypeFees}</div>
-    </Row>
+      <div>{formatCurrency(testTypeFees)}</div>
+    </>
   );
 }
 

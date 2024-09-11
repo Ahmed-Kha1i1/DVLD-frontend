@@ -1,6 +1,5 @@
-import Row from "../../GlobalUI/Row";
 /* eslint-disable react/prop-types */
-function PersonRow({ Person, columns }) {
+function PersonRow({ Person }) {
   const {
     address,
     countryName,
@@ -12,19 +11,20 @@ function PersonRow({ Person, columns }) {
     personID,
     phone
   } = Person;
+  var date = new Date(dateOfBirth);
 
   return (
-    <Row columns={columns}>
+    <>
       <div>{personID}</div>
       <div>{nationalNo}</div>
       <div>{fullName}</div>
-      <div>{email}</div>
+      <div className="text-sky-600">{email}</div>
       <div>{phone}</div>
       <div>{address}</div>
-      <div>{dateOfBirth}</div>
+      <div>{date.toLocaleDateString()}</div>
       <div>{countryName}</div>
       <div>{gendor}</div>
-    </Row>
+    </>
   );
 }
 

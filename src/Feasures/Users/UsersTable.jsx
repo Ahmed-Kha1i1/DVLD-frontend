@@ -27,7 +27,7 @@ function UsersTable() {
       <ContextMenu>
         <Table.Body
           items={Users}
-          render={(User) => (
+          render={(User, IsDark) => (
             <ContextMenu.Row
               id={User.userId}
               key={User.userId}
@@ -35,7 +35,9 @@ function UsersTable() {
                 setSelectedUser(User);
               }}
             >
-              <UserRow User={User} columns={columns} />
+              <Table.Row isDark={IsDark} id={User.userId}>
+                <UserRow User={User} />
+              </Table.Row>
             </ContextMenu.Row>
           )}
         />

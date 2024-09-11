@@ -32,7 +32,7 @@ function DetainedLicensesTable() {
       <ContextMenu>
         <Table.Body
           items={DetainedLicenses}
-          render={(DetainedLicense) => (
+          render={(DetainedLicense, IsDark) => (
             <ContextMenu.Row
               id={DetainedLicense.detainID}
               key={DetainedLicense.detainID}
@@ -40,10 +40,9 @@ function DetainedLicensesTable() {
                 setSelectedDetainedLicense(DetainedLicense);
               }}
             >
-              <DetainedLicenseRow
-                DetainedLicense={DetainedLicense}
-                columns={columns}
-              />
+              <Table.Row isDark={IsDark} id={DetainedLicense.detainID}>
+                <DetainedLicenseRow DetainedLicense={DetainedLicense} />
+              </Table.Row>
             </ContextMenu.Row>
           )}
         />

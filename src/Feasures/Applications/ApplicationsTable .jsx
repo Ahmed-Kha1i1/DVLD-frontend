@@ -31,7 +31,7 @@ function ApplicationsTable() {
       <ContextMenu>
         <Table.Body
           items={applications}
-          render={(application) => (
+          render={(application, IsDark) => (
             <ContextMenu.Row
               id={application.localApplicationId}
               key={application.localApplicationId}
@@ -39,7 +39,9 @@ function ApplicationsTable() {
                 setSelectedApplication(application);
               }}
             >
-              <ApplicationRow application={application} columns={columns} />
+              <Table.Row isDark={IsDark} id={application.localApplicationId}>
+                <ApplicationRow application={application} />
+              </Table.Row>
             </ContextMenu.Row>
           )}
         />

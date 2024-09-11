@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useContext } from "react";
 import Empty from "../../src/GlobalUI/Empty";
+import { useContextMenu } from "../Hooks/useContextMenu";
 const TableContext = createContext();
 
 function Table({ children, columns }) {
@@ -24,16 +25,28 @@ function Header({ children }) {
 
 function Body({ items, render }) {
   if (!items.length) return <Empty>No data to show at the moment</Empty>;
+
   return (
-    <ul className={`bg-sectionColor px-6 divide-y`}>
-      {items.data.map(render)}
+    <ul className={`bg-sectionColor  divide-y`}>
+      {items.data.map((item, index) => render(item, index % 2 !== 0))}
     </ul>
   );
 }
 
-function Row({ children }) {
-  //const { columns } = useContext(TableContext);
-  return <div className="columns">{children}</div>;
+function Row({ children, isDark, id }) {
+  const { columns } = useContext(TableContext);
+  const { openId } = useContextMenu();
+
+  console.log(id === openId);
+  return (
+    <div
+      className={`grid ${columns} p-4 text-slate-800 text-lg ${
+        id === openId ? "bg-secondary" : isDark ? "bg-gray-100" : ""
+      }`}
+    >
+      {children}
+    </div>
+  );
 }
 
 Table.Row = Row;

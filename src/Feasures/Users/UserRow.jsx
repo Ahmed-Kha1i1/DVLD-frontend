@@ -1,16 +1,16 @@
-import Row from "../../GlobalUI/Row";
+import BoolColumn from "../../GlobalUI/BoolColumn";
 /* eslint-disable react/prop-types */
-function UserRow({ User, columns }) {
+function UserRow({ User }) {
   const { fullName, isActive, personId, userId, username } = User;
 
   return (
-    <Row columns={columns}>
+    <>
       <div>{userId}</div>
       <div>{personId}</div>
       <div>{fullName}</div>
       <div>{username}</div>
-      <div>{isActive}</div>
-    </Row>
+      <BoolColumn value={isActive} />
+    </>
   );
 }
 

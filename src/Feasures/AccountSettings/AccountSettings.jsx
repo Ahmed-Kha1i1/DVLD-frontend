@@ -11,7 +11,6 @@ function AccountSettings() {
           text="Account Settings"
           icon={<MdOutlineManageAccounts />}
           type="primary"
-          to="/"
         />
       </Menus.Button>
       <Menus.Menu name="AccountSettingsMenu">

@@ -33,7 +33,7 @@ function InternationalLicensesTable() {
       <ContextMenu>
         <Table.Body
           items={InternationalLicenses}
-          render={(InternationalLicense) => (
+          render={(InternationalLicense, IsDark) => (
             <ContextMenu.Row
               id={InternationalLicense.internationalLicenseID}
               key={InternationalLicense.internationalLicenseID}
@@ -41,10 +41,14 @@ function InternationalLicensesTable() {
                 setSelectedInternationalLicense(InternationalLicense);
               }}
             >
-              <InternationalLicenseRow
-                InternationalLicense={InternationalLicense}
-                columns={columns}
-              />
+              <Table.Row
+                isDark={IsDark}
+                id={InternationalLicense.internationalLicenseID}
+              >
+                <InternationalLicenseRow
+                  InternationalLicense={InternationalLicense}
+                />
+              </Table.Row>
             </ContextMenu.Row>
           )}
         />

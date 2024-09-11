@@ -29,7 +29,7 @@ function DriversTable() {
       <ContextMenu>
         <Table.Body
           items={Drivers}
-          render={(Driver) => (
+          render={(Driver, IsDark) => (
             <ContextMenu.Row
               id={Driver.driverID}
               key={Driver.driverID}
@@ -37,7 +37,9 @@ function DriversTable() {
                 setSelectedDriver(Driver);
               }}
             >
-              <DriverRow Driver={Driver} columns={columns} />
+              <Table.Row isDark={IsDark} id={Driver.driverID}>
+                <DriverRow Driver={Driver} />
+              </Table.Row>
             </ContextMenu.Row>
           )}
         />

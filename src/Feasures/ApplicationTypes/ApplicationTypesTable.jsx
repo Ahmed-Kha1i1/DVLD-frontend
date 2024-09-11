@@ -26,7 +26,7 @@ function ApplicationTypesTable() {
       <ContextMenu>
         <Table.Body
           items={ApplicationTypes}
-          render={(ApplicationType) => (
+          render={(ApplicationType, IsDark) => (
             <ContextMenu.Row
               id={ApplicationType.applicationTypeID}
               key={ApplicationType.applicationTypeID}
@@ -34,10 +34,9 @@ function ApplicationTypesTable() {
                 setSelectedApplicationType(ApplicationType);
               }}
             >
-              <ApplicationTypeRow
-                ApplicationType={ApplicationType}
-                columns={columns}
-              />
+              <Table.Row isDark={IsDark} id={ApplicationType.applicationTypeID}>
+                <ApplicationTypeRow ApplicationType={ApplicationType} />
+              </Table.Row>
             </ContextMenu.Row>
           )}
         />

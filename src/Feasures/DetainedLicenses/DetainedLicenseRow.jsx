@@ -1,6 +1,7 @@
-import Row from "../../GlobalUI/Row";
+import BoolColumn from "../../GlobalUI/BoolColumn";
+import { formatCurrency, FormatDateTime } from "../../Utils/helpers";
 /* eslint-disable react/prop-types */
-function DetainedLicenseRow({ DetainedLicense, columns }) {
+function DetainedLicenseRow({ DetainedLicense }) {
   const {
     detainID,
     fineFees,
@@ -13,17 +14,17 @@ function DetainedLicenseRow({ DetainedLicense, columns }) {
     releaseDate
   } = DetainedLicense;
   return (
-    <Row columns={columns}>
+    <>
       <div>{detainID}</div>
       <div>{licenseID}</div>
-      <div>{detainDate}</div>
-      <div>{fineFees}</div>
+      <div>{FormatDateTime(detainDate)}</div>
+      <div>{formatCurrency(fineFees)}</div>
       <div>{nationalNo}</div>
       <div>{fullName}</div>
-      <div>{isReleased.toString()}</div>
-      <div>{releaseDate ?? "NULL"}</div>
-      <div>{releaseApplicationID ?? "NULL"}</div>
-    </Row>
+      <BoolColumn value={isReleased} />
+      <div>{releaseDate ? FormatDateTime(releaseDate) : ""}</div>
+      <div>{releaseApplicationID ?? ""}</div>
+    </>
   );
 }
 

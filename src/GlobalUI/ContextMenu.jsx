@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useRef, useState } from "react";
+import { useState } from "react";
 import useOutsideClick from "../Hooks/useOutsideClick";
 import useScroll from "../Hooks/useScroll";
-
-const ContextMenuContext = createContext();
+import { useContextMenu, ContextMenuContext } from "../Hooks/useContextMenu";
 
 function ContextMenu({ children }) {
   const [openId, setOpenId] = useState("");
@@ -21,7 +20,7 @@ function ContextMenu({ children }) {
 }
 
 function Row({ id, children, action }) {
-  const { open, setPosition, openId } = useContext(ContextMenuContext);
+  const { open, setPosition } = useContextMenu();
 
   function handleOpen(e) {
     e.preventDefault();
@@ -36,7 +35,7 @@ function Row({ id, children, action }) {
   }
   return (
     <li
-      className={`${openId === id ? "bg-secondary" : ""}`}
+      // className={`${openId === id ? "bg-secondary" : ""}`}
       onContextMenu={handleOpen}
     >
       {children}
@@ -45,8 +44,7 @@ function Row({ id, children, action }) {
 }
 
 function Menu({ children }) {
-  const { openId, close, position, setPosition } =
-    useContext(ContextMenuContext);
+  const { openId, close, position, setPosition } = useContextMenu();
   const ref = useOutsideClick(handleClose);
 
   useScroll(handleClose);
@@ -57,7 +55,7 @@ function Menu({ children }) {
   }
 
   if (!openId) return null;
-  console.log(ref.current);
+
   if (ref.current?.firstElementChild) {
     const Height = ref.current?.firstElementChild.offsetHeight;
     const Width = ref.current?.firstElementChild.offsetWidth;

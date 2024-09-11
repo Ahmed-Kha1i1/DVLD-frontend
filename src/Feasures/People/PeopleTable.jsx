@@ -10,7 +10,7 @@ import PersonRow from "./PersonRow.jsx";
 
 function PeopleTable() {
   const { isLoading, error, People } = usePeople();
-  console.log(People);
+
   const [selectedPerson, setSelectedPerson] = useState(null);
 
   const columns = "grid-cols-[0.6fr_1fr_2fr_1.5fr_1fr_2fr_1.5fr_1.2fr_0.8fr]";
@@ -34,7 +34,7 @@ function PeopleTable() {
       <ContextMenu>
         <Table.Body
           items={People}
-          render={(Person) => (
+          render={(Person, IsDark) => (
             <ContextMenu.Row
               id={Person.personID}
               key={Person.personID}
@@ -42,7 +42,9 @@ function PeopleTable() {
                 setSelectedPerson(Person);
               }}
             >
-              <PersonRow Person={Person} columns={columns} />
+              <Table.Row isDark={IsDark} id={Person.personID}>
+                <PersonRow Person={Person} />
+              </Table.Row>
             </ContextMenu.Row>
           )}
         />
