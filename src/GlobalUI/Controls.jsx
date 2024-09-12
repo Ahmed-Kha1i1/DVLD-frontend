@@ -9,7 +9,7 @@ import Item from "./item";
 function Controls() {
   return (
     <Menus>
-      <ul className="py-2 flex gap-6">
+      <ul className="py-2 flex gap-6 px-12 border-Lightgray border-b">
         <Application />
         <Item
           text="Persons"

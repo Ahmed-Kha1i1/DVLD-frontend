@@ -4,7 +4,7 @@ import UserInfo from "./UserInfo";
 
 function UserBar() {
   return (
-    <div className="flex items-center justify-between py-4 border-Lightgray border-b">
+    <div className="flex items-center justify-between py-4 border-Lightgray border-b px-16">
       <Logo className="text-center" />
       <Search />
       <UserInfo />
