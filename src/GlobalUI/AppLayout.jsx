@@ -3,9 +3,9 @@ import Header from "./Header";
 
 function AppLayout() {
   return (
-    <div>
+    <div className="flex h-screen flex-col">
       <Header />
-      <div className="px-16 py-10">
+      <div className="basis-full px-16 py-10">
         <Outlet />
       </div>
     </div>

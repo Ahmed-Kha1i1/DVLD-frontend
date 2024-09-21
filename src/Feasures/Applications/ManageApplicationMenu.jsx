@@ -16,7 +16,7 @@ function ManageApplicationMenu() {
         <Item
           text="International Driving License Applications"
           icon={<FaIdCard to="InternationalApplications" />}
-          to="InternationalLicenses"
+          to="international-licenses"
         />
       </li>
     </Menu>

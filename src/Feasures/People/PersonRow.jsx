@@ -1,3 +1,5 @@
+import { FormatDateAsNumber } from "../../Utils/helpers";
+
 /* eslint-disable react/prop-types */
 function PersonRow({ Person }) {
   const {
@@ -5,23 +7,29 @@ function PersonRow({ Person }) {
     countryName,
     dateOfBirth,
     email,
-    fullName,
+    firstName,
+    secondName,
+    thirdName,
+    lastName,
     gendor,
     nationalNo,
     personID,
-    phone
+    phone,
   } = Person;
-  var date = new Date(dateOfBirth);
 
   return (
     <>
       <div>{personID}</div>
       <div>{nationalNo}</div>
-      <div>{fullName}</div>
+      <div>
+        {`${firstName} ${secondName} ${
+          thirdName ? thirdName : " "
+        } ${lastName}`}
+      </div>
       <div className="text-sky-600">{email}</div>
       <div>{phone}</div>
       <div>{address}</div>
-      <div>{date.toLocaleDateString()}</div>
+      <div>{FormatDateAsNumber(dateOfBirth)}</div>
       <div>{countryName}</div>
       <div>{gendor}</div>
     </>

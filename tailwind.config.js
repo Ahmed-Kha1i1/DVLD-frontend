@@ -12,9 +12,12 @@ export default {
         onColor: "#4CDA64",
         Lightgray: "#B6B6B6",
         Darkgray: "#797979",
-        TextColor: "#1f2937"
-      }
-    }
+        TextColor: "#1f2937",
+      },
+      fontFamily: {
+        Cairo: "Cairo, sans-serif",
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 };

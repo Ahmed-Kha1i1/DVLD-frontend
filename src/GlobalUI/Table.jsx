@@ -37,7 +37,6 @@ function Row({ children, isDark, id }) {
   const { columns } = useContext(TableContext);
   const { openId } = useContextMenu();
 
-  console.log(id === openId);
   return (
     <div
       className={`grid ${columns} p-4 text-slate-800 text-lg ${

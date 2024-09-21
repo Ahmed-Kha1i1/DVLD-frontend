@@ -9,24 +9,24 @@ import Item from "./item";
 function Controls() {
   return (
     <Menus>
-      <ul className="py-2 flex gap-6 px-12 border-Lightgray border-b">
+      <ul className="flex gap-6 border-b border-Lightgray px-12 py-2">
         <Application />
         <Item
           text="Persons"
           icon={<FaPeopleGroup />}
           type="primary"
-          to="People"
+          to="people"
         />
         <li>
           <Item
             text="Drivers"
             icon={<IoPeopleSharp />}
             type="primary"
-            to="Drivers"
+            to="drivers"
           />
         </li>
         <li>
-          <Item text="Users" icon={<ImUsers />} type="primary" to="Users" />
+          <Item text="Users" icon={<ImUsers />} type="primary" to="users" />
         </li>
         <AccountSettings />
       </ul>

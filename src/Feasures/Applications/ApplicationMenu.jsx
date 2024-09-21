@@ -17,11 +17,15 @@ function ApplicationMenu() {
           <Item
             text="Manage Application Types"
             icon={<MdManageHistory />}
-            to="ApplicationTypes"
+            to="application-types"
           />
         </li>
         <li>
-          <Item text="Manage Test Types" icon={<SiMinetest />} to="TestTypes" />
+          <Item
+            text="Manage Test Types"
+            icon={<SiMinetest />}
+            to="test-types"
+          />
         </li>
         <ManageApplication />
         <Item text="Show Driver Info Licenses" icon={<RiFileUserFill />} />

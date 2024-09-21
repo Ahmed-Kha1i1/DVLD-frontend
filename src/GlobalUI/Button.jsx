@@ -1,13 +1,21 @@
 /* eslint-disable react/prop-types */
 
-function Button({ text, type = "primary", icon }) {
-  let btnType = type === "primary" ? "btn-primary" : "";
-
+function Button({
+  text,
+  icon,
+  bgColor = "Lightgray",
+  textColor = "black",
+  width = "44",
+  disabled,
+  onClick,
+  styles,
+}) {
   return (
     <button
-      className={`hover:bg-gray-200 p-2 flex items-center transition-colors  ${btnType}`}
+      onClick={() => onClick?.()}
+      className={`w-${width} flex items-center rounded-md bg-${bgColor} px-4 py-3 text-2xl text-white ${styles ? styles : ""} ${disabled ? "disabled" : ""}`}
     >
-      <span className="mr-2 icon">{icon}</span>
+      <span className={`mr-4 text-2xl text-${textColor}`}>{icon}</span>
       <span>{text}</span>
     </button>
   );

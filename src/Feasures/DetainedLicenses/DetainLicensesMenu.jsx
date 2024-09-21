@@ -1,6 +1,7 @@
 import { FaIdCard } from "react-icons/fa";
-import Item from "../../GlobalUI/Item";
+
 import Menu from "../../GlobalUI/Menu";
+import Item from "../../GlobalUI/item";
 
 function DetainLicensesMenu() {
   return (
@@ -9,7 +10,7 @@ function DetainLicensesMenu() {
         <Item
           text="Manage Detained Licenses"
           icon={<FaIdCard />}
-          to="DetainedLicenses"
+          to="detained-licenses"
         />
       </li>
       <Item text="Detain License" icon={<FaIdCard />} />
