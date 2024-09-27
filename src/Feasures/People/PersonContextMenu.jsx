@@ -14,8 +14,12 @@ function PersonContextMenu({ selectedPerson }) {
         />
       </li>
       <hr />
-      <Item text="Add New" icon={<FaIdCard />} />
-      <Item text="Edit" icon={<FaIdCard />} />
+      <Item text="Add New" icon={<FaIdCard />} to="add-new" />
+      <Item
+        text="Edit"
+        icon={<FaIdCard />}
+        to={`${selectedPerson.personID}/edit`}
+      />
       <li>
         <Item
           text="Delete"

@@ -1,5 +1,5 @@
 import StatusText from "../../GlobalUI/StatusText";
-import { FormatDateTime } from "../../Utils/helpers";
+import { FormatDateTime } from "../../Utils/FormatUtils";
 
 /* eslint-disable react/prop-types */
 function ApplicationRow({ application }) {
@@ -10,7 +10,7 @@ function ApplicationRow({ application }) {
     fullName,
     applicationDate,
     passedTestCount,
-    status
+    status,
   } = application;
 
   return (

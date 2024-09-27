@@ -15,7 +15,6 @@ function DriverInternationalLicensesTable() {
   const columns = "grid-cols-[1fr_1fr_1fr_1.3fr_1.3fr_0.5fr]";
 
   if (isLoading) return <Spiner />;
-  console.log(driverInternationalLicenses);
 
   if (error) return <Error message={error?.message} />;
 

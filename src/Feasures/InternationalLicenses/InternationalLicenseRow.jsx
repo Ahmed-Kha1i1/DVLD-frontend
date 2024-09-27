@@ -1,5 +1,5 @@
 import BoolColumn from "../../GlobalUI/BoolColumn";
-import { FormatDateTime } from "../../Utils/helpers";
+import { FormatDateTime } from "../../Utils/FormatUtils";
 /* eslint-disable react/prop-types */
 function InternationalLicenseRow({ InternationalLicense }) {
   const {
@@ -10,7 +10,7 @@ function InternationalLicenseRow({ InternationalLicense }) {
     internationalLicenseID,
     isActive,
     issueDate,
-    issuedUsingLocalLicenseID
+    issuedUsingLocalLicenseID,
   } = InternationalLicense;
   return (
     <>

@@ -1,4 +1,4 @@
-import { FormatDateAsNumber } from "../../Utils/helpers";
+import { FormatDateAsNumber } from "../../Utils/FormatUtils";
 
 /* eslint-disable react/prop-types */
 function PersonRow({ Person }) {
@@ -11,7 +11,7 @@ function PersonRow({ Person }) {
     secondName,
     thirdName,
     lastName,
-    gendor,
+    gender,
     nationalNo,
     personID,
     phone,
@@ -31,7 +31,7 @@ function PersonRow({ Person }) {
       <div>{address}</div>
       <div>{FormatDateAsNumber(dateOfBirth)}</div>
       <div>{countryName}</div>
-      <div>{gendor}</div>
+      <div>{gender}</div>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Dashboard from "./Pages/Dashboard";
 import AppLayout from "./GlobalUI/AppLayout";
 import PageNotFount from "./GlobalUI/PageNotFount";
@@ -20,15 +21,17 @@ import UserLayout from "./Feasures/Users/UserLayout";
 import DriverLayout from "./Feasures/Drivers/DriverLayout";
 import DriverDetails from "./Pages/DriverDetails";
 import DeletePerson from "./Pages/DeletePerson";
-import { Toaster } from "react-hot-toast";
 import DeleteUser from "./Pages/DeleteUser";
 import DriverLicenses from "./Pages/DriverLicenses";
 import DriverInternationalLicenses from "./Pages/DriverInternationalLicenses";
+import AddNewPerson from "./Pages/AddNewPerson";
+import EditPerson from "./Pages/EditPerson";
+import EditContacts from "./Pages/EditContacts";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 60 * 1000,
+      staleTime: 600 * 1000,
     },
   },
 });
@@ -54,11 +57,12 @@ function App() {
 
             <Route path="people">
               <Route index element={<People />} />
+              <Route path="add-new" element={<AddNewPerson />} />
               <Route element={<PersonLayout />}>
                 <Route path=":id">
                   <Route path="profile" element={<PersonDetails />} />
-                  <Route path="edit" element={<PersonDetails />} />
-                  <Route path="edit-contact" element={<PersonDetails />} />
+                  <Route path="edit" element={<EditPerson />} />
+                  <Route path="edit-contact" element={<EditContacts />} />
                   <Route path="send-email" element={<PersonDetails />} />
                   <Route path="delete" element={<DeletePerson />} />
                 </Route>
@@ -71,7 +75,7 @@ function App() {
                 <Route path=":id">
                   <Route path="profile" element={<UserDetails />} />
                   <Route path="edit" element={<UserDetails />} />
-                  <Route path="edit-contact" element={<UserDetails />} />
+                  <Route path="edit-contact" element={<EditContacts />} />
                   <Route path="edit-user" element={<UserDetails />} />
                   <Route path="send-email" element={<UserDetails />} />
                   <Route path="delete" element={<DeleteUser />} />
@@ -85,7 +89,7 @@ function App() {
                 <Route path=":id">
                   <Route path="profile" element={<DriverDetails />} />
                   <Route path="edit" element={<DriverDetails />} />
-                  <Route path="edit-contact" element={<DriverDetails />} />
+                  <Route path="edit-contact" element={<EditContacts />} />
                   <Route path="local-licenses" element={<DriverLicenses />} />
                   <Route
                     path="international-licenses"
@@ -112,7 +116,7 @@ function App() {
             color: "black",
           },
           success: {
-            duration: 3000,
+            duration: 5000,
             theme: {
               primary: "green",
               secondary: "black",

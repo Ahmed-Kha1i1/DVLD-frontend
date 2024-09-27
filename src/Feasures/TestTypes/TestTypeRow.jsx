@@ -1,4 +1,4 @@
-import { formatCurrency } from "../../Utils/helpers";
+import { formatCurrency } from "../../Utils/FormatUtils";
 /* eslint-disable react/prop-types */
 function TestTypeRow({ TestType }) {
   const { testTypeID, testTypeTitle, testTypeDescription, testTypeFees } =

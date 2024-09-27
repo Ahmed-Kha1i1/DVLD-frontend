@@ -2,7 +2,8 @@
 import Info from "../../GlobalUI/Info";
 import Card from "../../GlobalUI/Card";
 import InfoLine from "../../GlobalUI/InfoLine";
-import { calculateAge, FormatDateAsNumber } from "../../Utils/helpers";
+import { FormatDateAsNumber } from "../../Utils/FormatUtils";
+import { calculateAge } from "../../Utils/dateUtils";
 import { BsFillPersonVcardFill } from "react-icons/bs";
 import CardTitle from "../../GlobalUI/CardTitle";
 function PersonCard({ person }) {
@@ -27,7 +28,7 @@ function PersonCard({ person }) {
             Age {calculateAge(person.dateOfBirth)}
           </span>
         </Info>
-        <Info title="gender" text={person.gendor} />
+        <Info title="gender" text={person.gender} />
       </InfoLine>
       <InfoLine>
         <Info title="country" text={person.countryName} />

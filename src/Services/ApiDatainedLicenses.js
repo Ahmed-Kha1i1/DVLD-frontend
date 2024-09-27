@@ -1,15 +1,6 @@
 import { BASE_URL } from "../Constants";
+import fetchData from "./Fetch";
 
 export async function getDatainedLicenses() {
-  try {
-    let res = await fetch(`${BASE_URL}/api/DetainedLicenses/All`);
-
-    const data = await res.json();
-
-    if (!res.ok) throw new Error(data.message);
-
-    return data.data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
+  return (await fetchData(`${BASE_URL}/api/DetainedLicenses/All`)).data;
 }

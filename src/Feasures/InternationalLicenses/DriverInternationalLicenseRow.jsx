@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import BoolColumn from "../../GlobalUI/BoolColumn";
-import { FormatDateTime } from "../../Utils/helpers";
+import { FormatDateTime } from "../../Utils/FormatUtils";
 function DriverInternationalLicenseRow({ driverInternationalLicense }) {
   const {
     internationalLicenseID,

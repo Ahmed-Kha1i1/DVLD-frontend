@@ -10,7 +10,7 @@ import PersonRow from "./PersonRow.jsx";
 
 function PeopleTable() {
   const { isLoading, error, People } = usePeople();
-
+  
   const [selectedPerson, setSelectedPerson] = useState(null);
 
   const columns = "grid-cols-[0.6fr_1fr_2fr_1.5fr_1fr_2fr_1.5fr_1.2fr_0.8fr]";
@@ -29,7 +29,7 @@ function PeopleTable() {
         <div>Address</div>
         <div>Date of Birth</div>
         <div>Nationality</div>
-        <div>Gendor</div>
+        <div>Gender</div>
       </Table.Header>
       <ContextMenu>
         <Table.Body

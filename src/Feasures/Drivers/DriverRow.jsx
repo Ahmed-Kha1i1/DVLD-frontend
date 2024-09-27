@@ -1,4 +1,4 @@
-import { FormatDateTime } from "../../Utils/helpers";
+import { FormatDateTime } from "../../Utils/FormatUtils";
 /* eslint-disable react/prop-types */
 function DriverRow({ Driver }) {
   const {
@@ -7,7 +7,7 @@ function DriverRow({ Driver }) {
     fullName,
     nationalNo,
     numberofActiveLicenses,
-    personID
+    personID,
   } = Driver;
 
   return (

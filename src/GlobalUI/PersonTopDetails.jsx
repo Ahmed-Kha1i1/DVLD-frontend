@@ -1,9 +1,9 @@
 import { BASE_URL } from "../Constants";
 
 /* eslint-disable react/prop-types */
-function PersonTopDetails({ person }) {
+function PersonTopDetails({ person, className }) {
   return (
-    <div className="flex min-h-24 items-center">
+    <div className={`flex min-h-24 items-center ${className}`}>
       <img
         src={
           person.imageName

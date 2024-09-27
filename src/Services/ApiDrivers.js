@@ -1,59 +1,20 @@
 import { BASE_URL } from "../Constants";
+import fetchData from "./Fetch";
 
 export async function getDrivers() {
-  try {
-    let res = await fetch(`${BASE_URL}/api/Drivers/All`);
-
-    const data = await res.json();
-
-    if (!res.ok) throw new Error(data.message);
-
-    return data.data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
+  return (await fetchData(`${BASE_URL}/api/Drivers/All`)).data;
 }
 
 export async function GetDriverLicenses(id) {
-  try {
-    let res = await fetch(`${BASE_URL}/api/Drivers/${id}/Licenses`);
-
-    const data = await res.json();
-
-    if (!res.ok) throw new Error(data.message);
-
-    return data.data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
+  return (await fetchData(`${BASE_URL}/api/Drivers/${id}/Licenses`)).data;
 }
 
 export async function GetDriverInternationalLicenses(id) {
-  try {
-    let res = await fetch(
-      `${BASE_URL}/api/Drivers/${id}/InternationalLicenses`,
-    );
-
-    const data = await res.json();
-
-    if (!res.ok) throw new Error(data.message);
-
-    return data.data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
+  return (
+    await fetchData(`${BASE_URL}/api/Drivers/${id}/InternationalLicenses`)
+  ).data;
 }
 
 export async function getDriver(id) {
-  try {
-    let res = await fetch(`${BASE_URL}/api/Drivers/${id}`);
-
-    const data = await res.json();
-
-    if (!res.ok) throw new Error(data.message);
-
-    return data.data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
+  return (await fetchData(`${BASE_URL}/api/Drivers/${id}`)).data;
 }

@@ -12,10 +12,12 @@ function Button({
 }) {
   return (
     <button
-      onClick={() => onClick?.()}
-      className={`w-${width} flex items-center rounded-md bg-${bgColor} px-4 py-3 text-2xl text-white ${styles ? styles : ""} ${disabled ? "disabled" : ""}`}
+      onClick={(e) => onClick?.(e)}
+      className={`btn w-${width} flex items-center bg-${bgColor} text-white ${styles ? styles : ""} ${disabled ? "disabled" : ""}`}
     >
-      <span className={`mr-4 text-2xl text-${textColor}`}>{icon}</span>
+      <span className={`${icon ? "mr-4" : ""} text-2xl text-${textColor}`}>
+        {icon}
+      </span>
       <span>{text}</span>
     </button>
   );
