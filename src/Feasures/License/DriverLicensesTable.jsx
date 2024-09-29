@@ -1,10 +1,10 @@
 import { useState } from "react";
 import useDriverLicenses from "./useDriverLicenses";
-import Spiner from "../../GlobalUI/Spiner";
-import Error from "../../GlobalUI/Error";
-import Table from "../../GlobalUI/Table";
-import ContextMenu from "../../GlobalUI/ContextMenu";
-import LicenseContextMenu from "../../GlobalUI/LicenseContextMenu";
+import Spiner from "../../Core/ui/Spiner";
+import Error from "../../Core/ui/Error";
+import Table from "../../Core/ui/Table";
+import ContextMenu from "../../Core/ui/ContextMenu";
+import LicenseContextMenu from "../../Core/ui/LicenseContextMenu";
 import { useParams } from "react-router-dom";
 import DriverLicenseRow from "./DriverLicenseRow";
 function DriverLicensesTable() {

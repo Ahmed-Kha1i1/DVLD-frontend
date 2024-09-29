@@ -1,7 +1,7 @@
 import { FaIdCard } from "react-icons/fa";
 
-import Menu from "../../GlobalUI/Menu";
-import Item from "../../GlobalUI/item";
+import Menu from "../../Core/ui/Menu";
+import Item from "../../Core/ui/Item";
 
 function DetainLicensesMenu() {
   return (

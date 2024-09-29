@@ -1,16 +1,16 @@
 import { useState } from "react";
 
 import usePeople from "./usePeople.js";
-import Spiner from "../../GlobalUI/Spiner.jsx";
-import Error from "../../GlobalUI/Error.jsx";
-import Table from "../../GlobalUI/Table.jsx";
-import ContextMenu from "../../GlobalUI/ContextMenu.jsx";
+import Spiner from "../../Core/ui/Spiner.jsx";
+import Error from "../../Core/ui/Error.jsx";
+import Table from "../../Core/ui/Table.jsx";
+import ContextMenu from "../../Core/ui/ContextMenu.jsx";
 import PersonContextMenu from "./PersonContextMenu.jsx";
 import PersonRow from "./PersonRow.jsx";
 
 function PeopleTable() {
   const { isLoading, error, People } = usePeople();
-  
+
   const [selectedPerson, setSelectedPerson] = useState(null);
 
   const columns = "grid-cols-[0.6fr_1fr_2fr_1.5fr_1fr_2fr_1.5fr_1.2fr_0.8fr]";

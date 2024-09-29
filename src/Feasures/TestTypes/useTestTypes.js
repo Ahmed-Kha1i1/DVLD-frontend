@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { getTestTypes } from "../../Services/ApiTestTypes";
+import { getTestTypes } from "../../Core/Services/ApiTestTypes";
 import { testTypesQuery } from "../../Constants";
 
 export default function useTestTypes() {
   const {
     isLoading,
     error,
-    data: TestTypes
+    data: TestTypes,
   } = useQuery({
     queryKey: [testTypesQuery],
-    queryFn: getTestTypes
+    queryFn: getTestTypes,
   });
 
   return { isLoading, error, TestTypes };

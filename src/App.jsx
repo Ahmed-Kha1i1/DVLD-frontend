@@ -2,36 +2,37 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import Dashboard from "./Pages/Dashboard";
-import AppLayout from "./GlobalUI/AppLayout";
-import PageNotFount from "./GlobalUI/PageNotFount";
-import Applications from "./Pages/Applications";
-import ApplicationDetails from "./Pages/ApplicationDetails";
-import InternationalLicenses from "./Pages/InternationalLicenses";
-import ApplicationTypes from "./Pages/ApplicationTypes";
-import TestTypes from "./Pages/TestTypes";
-import DetainedLicenses from "./Pages/DetainedLicenses";
-import People from "./Pages/People";
-import Users from "./Pages/Users";
-import Drivers from "./Pages/Drivers";
-import PersonDetails from "./Pages/PersonDetails";
+import Dashboard from "./Core/Pages/Dashboard";
+import AppLayout from "./Core/ui/AppLayout";
+import PageNotFount from "./Core/ui/PageNotFount";
+import Applications from "./Core/Pages/Applications";
+import ApplicationDetails from "./Core/Pages/ApplicationDetails";
+import InternationalLicenses from "./Core/Pages/InternationalLicenses";
+import ApplicationTypes from "./Core/Pages/ApplicationTypes";
+import TestTypes from "./Core/Pages/TestTypes";
+import DetainedLicenses from "./Core/Pages/DetainedLicenses";
+import People from "./Core/Pages/People";
+import Users from "./Core/Pages/Users";
+import Drivers from "./Core/Pages/Drivers";
+import PersonDetails from "./Core/Pages/PersonDetails";
 import PersonLayout from "./Feasures/People/PersonLayout";
-import UserDetails from "./Pages/UserDetails";
+import UserDetails from "./Core/Pages/UserDetails";
 import UserLayout from "./Feasures/Users/UserLayout";
 import DriverLayout from "./Feasures/Drivers/DriverLayout";
-import DriverDetails from "./Pages/DriverDetails";
-import DeletePerson from "./Pages/DeletePerson";
-import DeleteUser from "./Pages/DeleteUser";
-import DriverLicenses from "./Pages/DriverLicenses";
-import DriverInternationalLicenses from "./Pages/DriverInternationalLicenses";
-import AddNewPerson from "./Pages/AddNewPerson";
-import EditPerson from "./Pages/EditPerson";
-import EditContacts from "./Pages/EditContacts";
+import DriverDetails from "./Core/Pages/DriverDetails";
+import DeletePerson from "./Core/Pages/DeletePerson";
+import DeleteUser from "./Core/Pages/DeleteUser";
+import DriverLicenses from "./Core/Pages/DriverLicenses";
+import DriverInternationalLicenses from "./Core/Pages/DriverInternationalLicenses";
+import AddNewPerson from "./Core/Pages/AddNewPerson";
+import EditPerson from "./Core/Pages/EditPerson";
+import EditContacts from "./Core/Pages/EditContacts";
+import AddNewUser from "./Core/Pages/AddNewUser";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 600 * 1000,
+      staleTime: 10 * 60 * 1000,
     },
   },
 });
@@ -71,6 +72,7 @@ function App() {
 
             <Route path="users">
               <Route index element={<Users />} />
+              <Route path="add-new" element={<AddNewUser />} />
               <Route element={<UserLayout />}>
                 <Route path=":id">
                   <Route path="profile" element={<UserDetails />} />

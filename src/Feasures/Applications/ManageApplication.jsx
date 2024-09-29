@@ -1,7 +1,7 @@
 import { SiPaperswithcode } from "react-icons/si";
-import Item from "../../GlobalUI/item";
+import Item from "../../Core/ui/Item";
 import ManageApplicationMenu from "./ManageApplicationMenu";
-import Menus from "../../GlobalUI/Menus";
+import Menus from "../../Core/ui/Menus";
 
 function ManageApplication() {
   return (

@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { addNewPerson } from "../../Services/ApiPeople";
+import { addNewPerson } from "../../Core/Services/ApiPeople";
 import toast from "react-hot-toast";
 import { peopleQuery, reponseStatuses } from "../../Constants";
 

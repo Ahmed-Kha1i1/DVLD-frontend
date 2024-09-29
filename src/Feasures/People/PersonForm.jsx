@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
-import Form from "../../GlobalUI/Form";
+import Form from "../../Core/ui/Form";
 import PersonFields from "../../Feasures/People/PersonFields";
 import usePersonForm from "./usePersonForm";
-import SaveButton from "../../GlobalUI/SaveButton";
+import SaveButton from "../../Core/ui/SaveButton";
 
 function PersonForm({ personToEdit = {} }) {
   const {

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { FaIdCard } from "react-icons/fa6";
-import Item from "../../GlobalUI/item";
-import Menu from "../../GlobalUI/Menu";
+import Item from "../../Core/ui/Item";
+import Menu from "../../Core/ui/Menu";
 
 function DriverContextMenu({ SelectedDriver }) {
   return (

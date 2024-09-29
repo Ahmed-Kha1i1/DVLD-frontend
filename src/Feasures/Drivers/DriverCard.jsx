@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { BsFillPersonVcardFill } from "react-icons/bs";
-import Card from "../../GlobalUI/Card";
-import CardTitle from "../../GlobalUI/CardTitle";
-import Info from "../../GlobalUI/Info";
-import InfoLine from "../../GlobalUI/InfoLine";
-import { FormatDateAsNumber } from "../../Utils/FormatUtils";
+import Card from "../../Core/ui/Card";
+import CardTitle from "../../Core/ui/CardTitle";
+import Info from "../../Core/ui/Info";
+import InfoLine from "../../Core/ui/InfoLine";
+import { FormatDateAsNumber } from "../../Core/utils/FormatUtils";
 
 function DriverCard({ driver }) {
   return (

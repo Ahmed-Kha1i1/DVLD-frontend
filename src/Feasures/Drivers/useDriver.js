@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getDriver } from "../../Services/ApiDrivers";
+import { getDriver } from "../../Core/Services/ApiDrivers";
 
 export default function useDriver(id) {
   const {

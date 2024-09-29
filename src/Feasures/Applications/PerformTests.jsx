@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { FaIdCard } from "react-icons/fa6";
-import Item from "../../GlobalUI/item";
-import Menus from "../../GlobalUI/Menus";
+import Item from "../../Core/ui/Item";
+import Menus from "../../Core/ui/Menus";
 import PerformTestsMenu from "./PerformTestsMenu";
 
 function PerformTests({ disabled, passedTestCount }) {

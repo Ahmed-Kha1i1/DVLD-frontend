@@ -1,8 +1,8 @@
 import { FaIdCard } from "react-icons/fa6";
-import Item from "../../GlobalUI/item";
-import Menu from "../../GlobalUI/Menu";
+import Item from "../../Core/ui/Item";
+import Menu from "../../Core/ui/Menu";
 import DrivingLicense from "./DrivingLicense";
-import Menus from "../../GlobalUI/Menus";
+import Menus from "../../Core/ui/Menus";
 
 function LicenseServicesMenu() {
   return (

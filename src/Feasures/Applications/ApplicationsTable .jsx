@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import ApplicationRow from "./ApplicationRow";
-import ContextMenu from "../../GlobalUI/ContextMenu";
-import Table from "../../GlobalUI/Table";
+import ContextMenu from "../../Core/ui/ContextMenu";
+import Table from "../../Core/ui/Table";
 import ApplicationContextMenu from "./ApplicationContextMenu";
 import useApplications from "./useApplications";
-import Spiner from "../../GlobalUI/Spiner";
-import Error from "../../GlobalUI/Error";
+import Spiner from "../../Core/ui/Spiner";
+import Error from "../../Core/ui/Error";
 
 function ApplicationsTable() {
   const { isLoading, error, applications } = useApplications();

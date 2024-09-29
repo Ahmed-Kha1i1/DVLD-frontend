@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { RiFileUserFill } from "react-icons/ri";
-import Item from "../../GlobalUI/item";
-import Menu from "../../GlobalUI/Menu";
+import Item from "../../Core/ui/Item";
+import Menu from "../../Core/ui/Menu";
 
 function PerformTestsMenu({ passedTestCount }) {
   return (

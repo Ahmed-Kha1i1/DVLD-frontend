@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import Card from "../../GlobalUI/Card";
-import CardTitle from "../../GlobalUI/CardTitle";
-import Info from "../../GlobalUI/Info";
+import Card from "../../Core/ui/Card";
+import CardTitle from "../../Core/ui/CardTitle";
+import Info from "../../Core/ui/Info";
 import { GoPersonFill } from "react-icons/go";
-import Active from "../../GlobalUI/Active";
+import Active from "../../Core/ui/Active";
 
 function UserCard({ user }) {
   return (

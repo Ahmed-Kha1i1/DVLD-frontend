@@ -1,6 +1,6 @@
 import { CgProfile } from "react-icons/cg";
-import Sidebar from "../../GlobalUI/Sidebar";
-import Link from "../../GlobalUI/link";
+import Sidebar from "../../Core/ui/Sidebar";
+import Link from "../../Core/ui/Link";
 import { useParams } from "react-router-dom";
 import { RiMailSendLine } from "react-icons/ri";
 import { CiEdit } from "react-icons/ci";

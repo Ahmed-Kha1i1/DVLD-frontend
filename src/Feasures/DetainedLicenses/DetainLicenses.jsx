@@ -1,8 +1,8 @@
 import { FaHandPaper } from "react-icons/fa";
 
-import Menus from "../../GlobalUI/Menus";
+import Menus from "../../Core/ui/Menus";
 import DetainLicensesMenu from "./DetainLicensesMenu";
-import Item from "../../GlobalUI/item";
+import Item from "../../Core/ui/Item";
 
 function DetainLicenses() {
   return (

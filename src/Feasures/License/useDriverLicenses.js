@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { GetDriverLicenses } from "../../Services/ApiDrivers";
+import { GetDriverLicenses } from "../../Core/Services/ApiDrivers";
 import { driverLicensesQuery } from "../../Constants";
 
 export default function useDriverLicenses(id) {

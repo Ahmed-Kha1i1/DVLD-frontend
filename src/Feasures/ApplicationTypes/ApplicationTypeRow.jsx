@@ -1,4 +1,4 @@
-import { formatCurrency } from "../../Utils/FormatUtils";
+import { formatCurrency } from "../../Core/utils/FormatUtils";
 /* eslint-disable react/prop-types */
 function ApplicationTypeRow({ ApplicationType }) {
   const { applicationTypeID, applicationTypeTitle, applicationFees } =

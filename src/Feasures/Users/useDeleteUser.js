@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { usersQuery } from "../../Constants";
-import { deleteUser as deleteUserApi } from "../../Services/ApiUsers";
+import { deleteUser as deleteUserApi } from "../../Core/Services/ApiUsers";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 

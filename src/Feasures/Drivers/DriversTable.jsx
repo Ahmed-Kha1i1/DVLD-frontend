@@ -1,9 +1,9 @@
 import { useState } from "react";
 import useDrivers from "./useDrivers.js";
-import Spiner from "../../GlobalUI/Spiner.jsx";
-import Error from "../../GlobalUI/Error.jsx";
-import Table from "../../GlobalUI/Table.jsx";
-import ContextMenu from "../../GlobalUI/ContextMenu.jsx";
+import Spiner from "../../Core/ui/Spiner.jsx";
+import Error from "../../Core/ui/Error.jsx";
+import Table from "../../Core/ui/Table.jsx";
+import ContextMenu from "../../Core/ui/ContextMenu.jsx";
 import DriverContextMenu from "./DriverContextMenu.jsx";
 import DriverRow from "./DriverRow.jsx";
 function DriversTable() {

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Main from "../../GlobalUI/Main";
-import Layout from "../../GlobalUI/Layout";
+import Main from "../../Core/ui/Main";
+import Layout from "../../Core/ui/Layout";
 import DriverSidebar from "./DriverSidebar";
 
 function DriverLayout() {

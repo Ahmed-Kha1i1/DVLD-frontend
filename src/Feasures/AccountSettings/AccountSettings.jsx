@@ -1,7 +1,7 @@
 import { MdOutlineManageAccounts } from "react-icons/md";
-import Menus from "../../GlobalUI/Menus";
+import Menus from "../../Core/ui/Menus";
 import AccountSettingsMenu from "./AccountSettingsMenu";
-import Item from "../../GlobalUI/item";
+import Item from "../../Core/ui/Item";
 
 function AccountSettings() {
   return (

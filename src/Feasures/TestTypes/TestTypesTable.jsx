@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Error from "../../GlobalUI/Error";
-import Spiner from "../../GlobalUI/Spiner";
+import Error from "../../Core/ui/Error";
+import Spiner from "../../Core/ui/Spiner";
 import useTestTypes from "./useTestTypes";
-import ContextMenu from "../../GlobalUI/ContextMenu";
-import Table from "../../GlobalUI/Table";
+import ContextMenu from "../../Core/ui/ContextMenu";
+import Table from "../../Core/ui/Table";
 import TestTypeRow from "./TestTypeRow";
 import TestTypeContextMenu from "./TestTypeContextMenu";
 function TestTypesTable() {

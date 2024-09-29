@@ -1,5 +1,5 @@
-import StatusText from "../../GlobalUI/StatusText";
-import { FormatDateTime } from "../../Utils/FormatUtils";
+import StatusText from "../../Core/ui/StatusText";
+import { FormatDateTime } from "../../Core/utils/FormatUtils";
 
 /* eslint-disable react/prop-types */
 function ApplicationRow({ application }) {

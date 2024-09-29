@@ -1,4 +1,4 @@
-import BoolColumn from "../../GlobalUI/BoolColumn";
+import BoolColumn from "../../Core/ui/BoolColumn";
 /* eslint-disable react/prop-types */
 function UserRow({ User }) {
   const { fullName, isActive, personId, userId, username } = User;

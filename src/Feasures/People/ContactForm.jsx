@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import ContactFields from "../../GlobalUI/ContactFields";
-import Form from "../../GlobalUI/Form";
-import SaveButton from "../../GlobalUI/SaveButton";
+import ContactFields from "../../Core/ui/ContactFields";
+import Form from "../../Core/ui/Form";
+import SaveButton from "../../Core/ui/SaveButton";
 import usePersonForm from "./usePersonForm";
 
 function ContactForm({ personToEdit }) {

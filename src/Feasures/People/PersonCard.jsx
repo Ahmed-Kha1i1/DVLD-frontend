@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
-import Info from "../../GlobalUI/Info";
-import Card from "../../GlobalUI/Card";
-import InfoLine from "../../GlobalUI/InfoLine";
-import { FormatDateAsNumber } from "../../Utils/FormatUtils";
-import { calculateAge } from "../../Utils/dateUtils";
+import Info from "../../Core/ui/Info";
+import Card from "../../Core/ui/Card";
+import InfoLine from "../../Core/ui/InfoLine";
+import { FormatDateAsNumber } from "../../Core/utils/FormatUtils";
+import { calculateAge } from "../../Core/utils/dateUtils";
 import { BsFillPersonVcardFill } from "react-icons/bs";
-import CardTitle from "../../GlobalUI/CardTitle";
+import CardTitle from "../../Core/ui/CardTitle";
+import Empty from "../../Core/ui/Empty";
 function PersonCard({ person }) {
+  if (!person) return <Empty>No person to show</Empty>;
   return (
     <Card>
       <CardTitle text="Person Details" icon={<BsFillPersonVcardFill />} />

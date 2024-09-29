@@ -1,7 +1,7 @@
 import { MdManageHistory } from "react-icons/md";
-import Item from "../../GlobalUI/item";
-import Menu from "../../GlobalUI/Menu";
-import Menus from "../../GlobalUI/Menus";
+import Item from "../../Core/ui/Item";
+import Menu from "../../Core/ui/Menu";
+import Menus from "../../Core/ui/Menus";
 
 function AccountSettingsMenu() {
   return (

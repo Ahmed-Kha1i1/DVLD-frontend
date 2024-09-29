@@ -1,10 +1,10 @@
 import { useState } from "react";
 import useApplicationTypes from "./useApplicationTypes";
 import ApplicationTypeContextMenu from "./ApplicationTypeContextMenu";
-import Spiner from "../../GlobalUI/Spiner";
-import Error from "../../GlobalUI/Error";
-import Table from "../../GlobalUI/Table";
-import ContextMenu from "../../GlobalUI/ContextMenu";
+import Spiner from "../../Core/ui/Spiner";
+import Error from "../../Core/ui/Error";
+import Table from "../../Core/ui/Table";
+import ContextMenu from "../../Core/ui/ContextMenu";
 import ApplicationTypeRow from "./ApplicationTypeRow";
 
 function ApplicationTypesTable() {

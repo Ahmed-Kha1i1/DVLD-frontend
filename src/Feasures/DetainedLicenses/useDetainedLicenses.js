@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { getDatainedLicenses } from "../../Services/ApiDatainedLicenses";
+import { getDatainedLicenses } from "../../Core/Services/ApiDatainedLicenses";
 import { detainedLicensesQuery } from "../../Constants";
 
 export default function useDetainedLicenses() {
   const {
     isLoading,
     error,
-    data: DetainedLicenses
+    data: DetainedLicenses,
   } = useQuery({
     queryKey: [detainedLicensesQuery],
-    queryFn: getDatainedLicenses
+    queryFn: getDatainedLicenses,
   });
 
   return { isLoading, error, DetainedLicenses };

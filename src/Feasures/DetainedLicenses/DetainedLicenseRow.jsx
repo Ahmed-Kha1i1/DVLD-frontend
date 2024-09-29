@@ -1,5 +1,5 @@
-import BoolColumn from "../../GlobalUI/BoolColumn";
-import { formatCurrency, FormatDateTime } from "../../Utils/FormatUtils";
+import BoolColumn from "../../Core/ui/BoolColumn";
+import { formatCurrency, FormatDateTime } from "../../Core/utils/FormatUtils";
 /* eslint-disable react/prop-types */
 function DetainedLicenseRow({ DetainedLicense }) {
   const {

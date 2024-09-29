@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getUser } from "../../Services/ApiUsers";
+import { getUser } from "../../Core/Services/ApiUsers";
 
 export default function useUser(id) {
   const {

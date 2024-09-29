@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
 import { ImageUpload } from "../../Constants";
-import Countries from "../../GlobalUI/Countries";
-import ImageUploader from "../../GlobalUI/ImageUploader";
-import { calculateDateRange } from "../../Utils/dateUtils";
-import TextInput from "../../GlobalUI/TextInput";
-import SelectInput from "../../GlobalUI/SelectInput";
+import Countries from "../../Core/ui/Countries";
+import ImageUploader from "../../Core/ui/ImageUploader";
+import { calculateDateRange } from "../../Core/utils/dateUtils";
+import TextInput from "../../Core/ui/TextInput";
+import SelectInput from "../../Core/ui/SelectInput";
 import {
   validateBirthdateRule,
   validateGenderRule,
   validateImageRule,
   validateNameRule,
-} from "../../Utils/validationRules";
-import DateInput from "../../GlobalUI/DateInput";
-import ContactFields from "../../GlobalUI/ContactFields";
+} from "../../Core/utils/validationRules";
+import DateInput from "../../Core/ui/DateInput";
+import ContactFields from "../../Core/ui/ContactFields";
 
 const { minDate, maxDate } = calculateDateRange(100, 18);
 

@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Main from "../../GlobalUI/Main";
+import Main from "../../Core/ui/Main";
 import UserSidebar from "./UserSidebar";
-import Layout from "../../GlobalUI/Layout";
+import Layout from "../../Core/ui/Layout";
 
 function UserLayout() {
   return (

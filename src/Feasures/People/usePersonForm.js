@@ -1,10 +1,13 @@
 import { useForm } from "react-hook-form";
-import { generateDefault, generateNewPerson } from "../../Utils/personUtils";
-import useCountries from "../../Hooks/useCountries";
+import {
+  generateDefault,
+  generateNewPerson,
+} from "../../Core/utils/personUtils";
+import useCountries from "../../Core/Hooks/useCountries";
 import { useState } from "react";
 import useCreatePerson from "./useCreatePerson";
 import useUpdatePerson from "./useUpdatePerson";
-import { validatePersonUniques } from "../../Utils/apiUtils";
+import { validatePersonUniques } from "../../Core/utils/apiUtils";
 import { useNavigate } from "react-router-dom";
 
 function usePersonForm(personToEdit) {

@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { FaUserTimes } from "react-icons/fa";
-import Card from "../../GlobalUI/Card";
-import CardTitle from "../../GlobalUI/CardTitle";
+import Card from "../../Core/ui/Card";
+import CardTitle from "../../Core/ui/CardTitle";
 import { MdDelete } from "react-icons/md";
-import Model from "../../GlobalUI/Model";
-import Button from "../../GlobalUI/Button";
-import ConfirmDelete from "../../GlobalUI/ConfirmDelete";
+import Model from "../../Core/ui/Model";
+import Button from "../../Core/ui/Button";
+import ConfirmDelete from "../../Core/ui/ConfirmDelete";
 import { useDeleteUser } from "./useDeleteUser";
 
 function DeleteUserCard({ id }) {

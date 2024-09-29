@@ -1,4 +1,4 @@
-import { FormatDateAsNumber } from "../../Utils/FormatUtils";
+import { FormatDateAsNumber } from "../../Core/utils/FormatUtils";
 
 /* eslint-disable react/prop-types */
 function PersonRow({ Person }) {
