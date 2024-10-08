@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import Error from "../ui/Error";
-import Spiner from "../ui/Spiner";
+import Spinner from "../ui/Spinner";
 import usePerson from "../../Feasures/People/usePerson";
 import PersonTopDetails from "../ui/PersonTopDetails";
 import DeletePersonCard from "../../Feasures/People/DeletePersonCard";
@@ -9,7 +9,7 @@ function DeletePerson() {
   const { id } = useParams();
   const { isLoading, error, person } = usePerson(id);
 
-  if (isLoading) return <Spiner />;
+  if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
 

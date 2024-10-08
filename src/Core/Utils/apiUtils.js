@@ -5,52 +5,52 @@ import {
   isPhoneUnique,
 } from "../Services/ApiPeople";
 
-export async function validatePersonUniques(person, personToEdit, setError) {
-  let hasError = false;
+function handleUniqueError(setError, fieldName, isUnique, message) {
+  if (!isUnique) {
+    setError(fieldName, {
+      type: "manual",
+      message,
+    });
+    return true;
+  }
+  return false;
+}
 
+export async function validatePersonUniques(person, editId, setError) {
   try {
     const [nationalNoResult, emailResult, phoneResult] = await Promise.all([
-      person.nationalNo !== personToEdit.nationalNo
-        ? isNationalNoUnique(person.nationalNo.trim())
-        : undefined,
-      person.email !== personToEdit.email
-        ? isEmailUnique(person.email.trim())
-        : undefined,
-      person.phone !== personToEdit.phone
-        ? isPhoneUnique(person.phone.trim())
-        : undefined,
+      isNationalNoUnique(person.nationalNo.trim(), editId),
+      isEmailUnique(person.email.trim(), editId),
+      isPhoneUnique(person.phone.trim(), editId),
     ]);
 
-    if (nationalNoResult && nationalNoResult.nationalNoUnique === false) {
-      setError("nationalNo", {
-        type: "manual",
-        message: "National No already exists.",
-      });
-      hasError = true;
-    }
+    const hasNationalNoError = handleUniqueError(
+      setError,
+      "nationalNo",
+      nationalNoResult.nationalNoUnique,
+      "National No already exists.",
+    );
 
-    if (emailResult && emailResult.emailUnique === false) {
-      setError("email", {
-        type: "manual",
-        message: "Email already exists.",
-      });
-      hasError = true;
-    }
+    const hasEmailError = handleUniqueError(
+      setError,
+      "email",
+      emailResult.emailUnique,
+      "Email already exists.",
+    );
 
-    if (phoneResult && phoneResult.phoneUnique === false) {
-      setError("phone", {
-        type: "manual",
-        message: "Phone number already exists.",
-      });
-      hasError = true;
-    }
+    const hasPhoneError = handleUniqueError(
+      setError,
+      "phone",
+      phoneResult.phoneUnique,
+      "Phone number already exists.",
+    );
+
+    // Return false if any errors were found
+    return !(hasNationalNoError || hasEmailError || hasPhoneError);
   } catch (error) {
     toast.error(
-      "Internal Server Error: Please contact with your system administrator.",
+      "Internal Server Error: Please contact your system administrator.",
     );
     return false;
   }
-  return !hasError; // Return true if no errors, false if errors found
 }
-
-export async function validateContactsUniques() {}

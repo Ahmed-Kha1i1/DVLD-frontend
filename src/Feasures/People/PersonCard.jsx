@@ -7,22 +7,20 @@ import { calculateAge } from "../../Core/utils/dateUtils";
 import { BsFillPersonVcardFill } from "react-icons/bs";
 import CardTitle from "../../Core/ui/CardTitle";
 import Empty from "../../Core/ui/Empty";
+import PersonTopDetails from "../../Core/ui/PersonTopDetails";
 function PersonCard({ person }) {
   if (!person) return <Empty>No person to show</Empty>;
+
   return (
     <Card>
       <CardTitle text="Person Details" icon={<BsFillPersonVcardFill />} />
+      <PersonTopDetails person={person} className="py-5" />
       <InfoLine>
         <Info title="Id" text={person.personID} />
+      </InfoLine>
+      <InfoLine>
         <Info title="national No." text={person.nationalNo} />
-      </InfoLine>
-      <InfoLine>
-        <Info title="first Name" text={person.firstName} />
-        <Info title="second Name" text={person.secondName} />
-      </InfoLine>
-      <InfoLine>
-        <Info title="third Name" text={person.thirdName} />
-        <Info title="last Name" text={person.lastName} />
+        <Info title="country" text={person.countryName} />
       </InfoLine>
       <InfoLine>
         <Info title="Birthday" text={FormatDateAsNumber(person.dateOfBirth)}>
@@ -32,10 +30,7 @@ function PersonCard({ person }) {
         </Info>
         <Info title="gender" text={person.gender} />
       </InfoLine>
-      <InfoLine>
-        <Info title="country" text={person.countryName} />
-        <Info title="last Name" text={person.lastName} />
-      </InfoLine>
+
       <InfoLine>
         <Info title="email" text={person.email} />
         <Info title="phone" text={person.phone} />

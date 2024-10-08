@@ -1,5 +1,5 @@
 import useUsers from "./useUsers.js";
-import Spiner from "../../Core/ui/Spiner.jsx";
+import Spinner from "../../Core/ui/Spinner.jsx";
 import Error from "../../Core/ui/Error.jsx";
 import Table from "../../Core/ui/Table.jsx";
 import ContextMenu from "../../Core/ui/ContextMenu.jsx";
@@ -12,7 +12,7 @@ function UsersTable() {
 
   const columns = "grid-cols-[0.4fr_0.4fr_2fr_0.5fr_0.6fr]";
 
-  if (isLoading) return <Spiner />;
+  if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
   return (

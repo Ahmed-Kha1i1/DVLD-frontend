@@ -18,3 +18,7 @@ export async function GetDriverInternationalLicenses(id) {
 export async function getDriver(id) {
   return (await fetchData(`${BASE_URL}/api/Drivers/${id}`)).data;
 }
+
+export async function getPersonByDriverId(id) {
+  return (await fetchData(`${BASE_URL}/api/Drivers/${id}`)).data;
+}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useDetainedLicenses from "./useDetainedLicenses.js";
-import Spiner from "../../Core/ui/Spiner.jsx";
+import Spinner from "../../Core/ui/Spinner.jsx";
 import Error from "../../Core/ui/Error.jsx";
 import Table from "../../Core/ui/Table.jsx";
 import ContextMenu from "../../Core/ui/ContextMenu.jsx";
@@ -13,7 +13,7 @@ function DetainedLicensesTable() {
 
   const columns = "grid-cols-[0.5fr_0.6fr_1fr_0.5fr_0.6fr_1.5fr_0.7fr_1fr_1fr]";
 
-  if (isLoading) return <Spiner />;
+  if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
   return (

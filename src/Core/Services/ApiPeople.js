@@ -1,5 +1,7 @@
 import { BASE_URL } from "../../Constants";
+import { persondetailTypes } from "../../Feasures/People/peopleKeys";
 import fetchData, { createFormData } from "./Fetch";
+
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -7,10 +9,11 @@ export async function getPeople() {
   return (await fetchData(`${BASE_URL}/api/People/All`)).data;
 }
 
-export async function getPerson(identifier, type = "id") {
-  if (type.toLowerCase() === "id") {
-    return await getPerson(identifier);
-  } else if (type.toLowerCase() === "nationalnumber") {
+export async function getPerson(identifier, type = persondetailTypes.ID) {
+  console.log("get person by: ", identifier, type);
+  if (type === persondetailTypes.ID) {
+    return await getPersonById(identifier);
+  } else if (type === persondetailTypes.NATIONAL_NUMBER) {
     return await getPersonByNationalNo(identifier);
   } else {
     throw new Error(`Unsupported fetch type: ${type}`);
@@ -18,36 +21,32 @@ export async function getPerson(identifier, type = "id") {
 }
 
 export async function getPersonById(id) {
-  console.log("id fethed");
-
   return (await fetchData(`${BASE_URL}/api/People/${id}`)).data;
 }
 
 export async function getPersonByNationalNo(nationalNumber) {
-  console.log("na fethed");
   return (
     await fetchData(`${BASE_URL}/api/People/NationalNumber/${nationalNumber}`)
   ).data;
 }
 
 export async function deletePerson(id) {
-  return (
-    await fetchData(`${BASE_URL}/api/People/${id}`, {
-      method: "DELETE",
-    })
-  ).message;
+  const result = await fetchData(`${BASE_URL}/api/People/${id}`, {
+    method: "DELETE",
+  });
+  return result.data.personId;
 }
 
 export async function addNewPerson(person) {
   let formData = createFormData(person);
-  const data = await fetchData(`${BASE_URL}/api/People`, {
+  const result = await fetchData(`${BASE_URL}/api/People`, {
     method: "POST",
     body: formData,
   });
   return {
-    id: data.data?.personID,
-    status: data.status,
-    message: data.message ? data.message : null,
+    id: result?.data?.personID,
+    status: result.status,
+    message: result.message ? result.message : null,
   };
 }
 
@@ -68,19 +67,23 @@ export async function updateContactPerson(id, contactPerson) {
   return data.data;
 }
 
-export async function isNationalNoUnique(nationalNo) {
+export async function isNationalNoUnique(nationalNo, id) {
   const data = await fetchData(
-    `${BASE_URL}/api/People/Unique/NationalNo/${nationalNo}`,
+    `${BASE_URL}/api/People/Unique/NationalNo/${nationalNo}${id && `?id=${id}`}`,
   );
   return { nationalNoUnique: data.data };
 }
 
-export async function isEmailUnique(email) {
-  const data = await fetchData(`${BASE_URL}/api/People/Unique/Email/${email}`);
+export async function isEmailUnique(email, id) {
+  const data = await fetchData(
+    `${BASE_URL}/api/People/Unique/Email/${email}${id && `?id=${id}`}`,
+  );
   return { emailUnique: data.data };
 }
 
-export async function isPhoneUnique(phone) {
-  const data = await fetchData(`${BASE_URL}/api/People/Unique/Phone/${phone}`);
+export async function isPhoneUnique(phone, id) {
+  const data = await fetchData(
+    `${BASE_URL}/api/People/Unique/Phone/${phone}${id && `?id=${id}`}`,
+  );
   return { phoneUnique: data.data };
 }

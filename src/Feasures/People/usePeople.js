@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPeople } from "../../Core/Services/ApiPeople";
-import { peopleQuery } from "../../Constants";
+import { peopleKeys } from "./peopleKeys";
 
 export default function usePeople() {
   const {
@@ -8,7 +8,7 @@ export default function usePeople() {
     error,
     data: People,
   } = useQuery({
-    queryKey: [peopleQuery],
+    queryKey: peopleKeys.lists(),
     queryFn: getPeople,
   });
 

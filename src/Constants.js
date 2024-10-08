@@ -1,6 +1,6 @@
 export const BASE_URL = "http://localhost:5263";
 
-export const Statuses = {
+export const applicationStatuses = {
   New: "New",
   Cancelled: "Cancelled",
   Completed: "Completed",
@@ -23,14 +23,4 @@ export const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
   "value",
 ).set;
 
-export const applicationsQuery = "applications";
-export const applicationTypesQuery = "applicationTypes";
-export const detainedLicensesQuery = "detainedLicenses";
-export const internationalLicensesQuery = "internationalApplications";
-export const testTypesQuery = "pestTypes";
-export const peopleQuery = "people";
-export const usersQuery = "users";
-export const driverInternationalLicensesQuery = "driverInternationalLicenses";
-export const driverLicensesQuery = "driverLicenses";
-export const driversQuery = "drivers";
-export const CountriesQuery = "countries";
+export const defaultTimeStale = 10 * 60 * 1000;

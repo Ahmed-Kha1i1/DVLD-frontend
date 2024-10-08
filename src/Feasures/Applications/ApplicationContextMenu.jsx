@@ -3,7 +3,7 @@ import { FaIdCard } from "react-icons/fa6";
 import Item from "../../Core/ui/Item";
 import Menu from "../../Core/ui/Menu";
 import PerformTests from "./PerformTests";
-import { Statuses } from "../../Constants";
+import { applicationStatuses } from "../../Constants";
 
 function ApplicationContextMenu({ SelectedApplication }) {
   return (
@@ -19,24 +19,24 @@ function ApplicationContextMenu({ SelectedApplication }) {
       <Item
         text="Edit"
         icon={<FaIdCard />}
-        disabled={SelectedApplication.status !== Statuses.New}
+        disabled={SelectedApplication.status !== applicationStatuses.New}
       />
       <Item
         text="Delete"
         icon={<FaIdCard />}
-        disabled={SelectedApplication.status !== Statuses.New}
+        disabled={SelectedApplication.status !== applicationStatuses.New}
       />
       <hr />
       <Item
         text="Cancel"
         icon={<FaIdCard />}
-        disabled={SelectedApplication.status !== Statuses.New}
+        disabled={SelectedApplication.status !== applicationStatuses.New}
       />
       <hr />
       <PerformTests
         disabled={
           SelectedApplication.passedTestCount === 3 ||
-          SelectedApplication.status !== Statuses.New
+          SelectedApplication.status !== applicationStatuses.New
         }
         passedTestCount={SelectedApplication.passedTestCount}
       />
@@ -46,14 +46,14 @@ function ApplicationContextMenu({ SelectedApplication }) {
         icon={<FaIdCard />}
         disabled={
           SelectedApplication.passedTestCount !== 3 ||
-          SelectedApplication.status !== Statuses.New
+          SelectedApplication.status !== applicationStatuses.New
         }
       />
       <hr />
       <Item
         text="Show License"
         icon={<FaIdCard />}
-        disabled={SelectedApplication.status !== Statuses.Completed}
+        disabled={SelectedApplication.status !== applicationStatuses.Completed}
       />
       <hr />
       <Item text="Show Person License History" icon={<FaIdCard />} />

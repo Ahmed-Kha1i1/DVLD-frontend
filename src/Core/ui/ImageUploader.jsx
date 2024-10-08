@@ -29,7 +29,7 @@ function ImageUploader({ accept, register, error, imageSrc, setImageSrc }) {
   };
   return (
     <div className="relative col-span-2 mb-5 flex items-center justify-center gap-10">
-      <div className="image-uploader flex flex-col gap-10">
+      <div className="image-uploader abs-error flex flex-col gap-10">
         <FormRow label="Upload picture" isRequired={false} error={error}>
           <input
             type="file"

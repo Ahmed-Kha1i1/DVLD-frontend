@@ -1,5 +1,14 @@
 /* eslint-disable react/prop-types */
-function Select({ options = [], onSelect }) {
+/*
+structure
+[
+  {
+    optionText,
+    optionValue,
+  }
+]
+*/
+function Select({ options = [], onSelect, defaultValue }) {
   function onSelectOption(e) {
     onSelect(e.target.value);
   }
@@ -8,10 +17,11 @@ function Select({ options = [], onSelect }) {
     <select
       className="input border border-r-0 px-4 text-lg"
       onChange={onSelectOption}
+      defaultValue={defaultValue}
     >
       {options.map((option) => (
-        <option key={option} value={option}>
-          {option}
+        <option key={option.optionValue} value={option.optionValue}>
+          {option.optionText}
         </option>
       ))}
     </select>

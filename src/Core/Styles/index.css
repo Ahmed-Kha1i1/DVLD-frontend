@@ -81,10 +81,6 @@
     label {
       @apply btn cursor-pointer bg-secondary text-xl font-bold text-TextColor;
     }
-    .error {
-      @apply absolute;
-      top: calc(100% - 12px);
-    }
   }
 }
 @layer utilities {
@@ -122,6 +118,12 @@
   }
   .tab-selected {
     @apply bg-white text-primary;
+  }
+  .abs-error {
+    .error {
+      @apply absolute;
+      top: calc(100% - 12px);
+    }
   }
 }
 

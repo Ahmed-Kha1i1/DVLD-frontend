@@ -4,13 +4,15 @@ import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
 import useOutsideClick from "../Hooks/useOutsideClick";
 import Button from "./Button";
+import Popup from "./Popup";
 
 const ModelContext = createContext();
-
+let modalFunctions = {};
 function Modal({ children }) {
   const [modalName, setModalName] = useState("");
   const close = () => setModalName("");
   const open = setModalName;
+  modalFunctions = { close, open };
   return (
     <ModelContext.Provider
       value={{
@@ -29,29 +31,27 @@ function Open({ opens: opensWindowName, render }) {
 
   return <div>{render(() => open(opensWindowName))}</div>;
 }
-function Window({ children, name }) {
+function Window({ children, name, className }) {
   const { close, modalName } = useContext(ModelContext);
   const ref = useOutsideClick(close);
   if (name !== modalName) return null;
 
   return createPortal(
-    <div className="fixed left-0 top-0 z-40 flex h-screen w-screen items-center justify-center backdrop-blur-sm">
-      <div
-        className="popup-enter shadow-all rounded-2xl bg-white p-10"
-        ref={ref}
-      >
-        <Button
-          onClick={close}
-          icon={<HiXMark />}
-          styles="ml-auto"
-          width="fit"
-        ></Button>
-        <div>{cloneElement(children, { onCloseModal: close })}</div>;
-      </div>
-    </div>,
+    <Popup referance={ref} className={className}>
+      <Button
+        onClick={close}
+        icon={<HiXMark />}
+        styles="ml-auto"
+        width="fit"
+      ></Button>
+      <div>{cloneElement(children, { onCloseModal: close })}</div>;
+    </Popup>,
     document.body,
   );
 }
+
+Modal.closeWindow = () => modalFunctions.close();
+Modal.openWindow = (name) => modalFunctions.open(name);
 
 Modal.Open = Open;
 Modal.Window = Window;

@@ -1,8 +1,5 @@
 /* eslint-disable react/prop-types */
-function Error({ children }) {
-  return <p className="my-3 text-lg text-red-700">{children}</p>;
-}
-
+import InputError from "./InputError";
 function FormRow({ label, error, children, className, isRequired = false }) {
   return (
     <div className={`flex flex-col ${className}`}>
@@ -20,7 +17,7 @@ function FormRow({ label, error, children, className, isRequired = false }) {
         </label>
         {children}
       </div>
-      <div className="error min-h-14">{error && <Error>{error}</Error>}</div>
+      <InputError>{error}</InputError>
     </div>
   );
 }

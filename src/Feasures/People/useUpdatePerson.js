@@ -1,23 +1,19 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { updatePerson } from "../../Core/Services/ApiPeople";
 import toast from "react-hot-toast";
-import { peopleQuery } from "../../Constants";
+import usePersonCacheUpdater from "./usePersonCacheUpdater";
 
 export default function useUpdatePerson() {
-  const queryClient = useQueryClient();
+  const { update } = usePersonCacheUpdater();
 
+  function onSuccess(newPerson) {
+    toast.success("Person successfully updated!");
+    update(newPerson);
+  }
   const { mutate: UpdatePerson, isPending: isUpdating } = useMutation({
     mutationFn: ({ editId, newPerson }) => updatePerson(editId, newPerson),
 
-    onSuccess: (result) => {
-      toast.success("Person successfully updated!");
-      queryClient.invalidateQueries({
-        queryKey: [peopleQuery],
-      });
-
-      queryClient.setQueryData([peopleQuery, result.personID], () => result);
-    },
-    onError: (error) => toast.error(error.message),
+    onSuccess: onSuccess,
   });
 
   return { isUpdating, UpdatePerson };

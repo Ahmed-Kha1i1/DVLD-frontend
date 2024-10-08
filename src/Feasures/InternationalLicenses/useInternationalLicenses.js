@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getInternationalLicenses } from "../../Core/Services/ApiInternationalLicenses";
-import { internationalLicensesQuery } from "../../Constants";
+import { internationalLicensesKeys } from "./internationalLicensesKeys";
 
 export default function useInternationalLicenses() {
   const {
@@ -8,7 +8,7 @@ export default function useInternationalLicenses() {
     error,
     data: InternationalLicenses,
   } = useQuery({
-    queryKey: [internationalLicensesQuery],
+    queryKey: internationalLicensesKeys.lists(),
     queryFn: getInternationalLicenses,
   });
 

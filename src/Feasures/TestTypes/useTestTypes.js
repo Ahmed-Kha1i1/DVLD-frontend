@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getTestTypes } from "../../Core/Services/ApiTestTypes";
-import { testTypesQuery } from "../../Constants";
+import { testTypesKeys } from "./testTypesKeys";
 
 export default function useTestTypes() {
   const {
@@ -8,7 +8,7 @@ export default function useTestTypes() {
     error,
     data: TestTypes,
   } = useQuery({
-    queryKey: [testTypesQuery],
+    queryKey: testTypesKeys.lists(),
     queryFn: getTestTypes,
   });
 

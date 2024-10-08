@@ -5,7 +5,7 @@ import PersonFields from "../../Feasures/People/PersonFields";
 import usePersonForm from "./usePersonForm";
 import SaveButton from "../../Core/ui/SaveButton";
 
-function PersonForm({ personToEdit = {} }) {
+function PersonForm({ personToEdit = {}, updateNavigate, onAddSuccess }) {
   const {
     defaultPerosn,
     register,
@@ -14,7 +14,7 @@ function PersonForm({ personToEdit = {} }) {
     isLoading,
     errors,
     handleSubmit,
-  } = usePersonForm(personToEdit);
+  } = usePersonForm(personToEdit, updateNavigate, onAddSuccess);
 
   return (
     <Form onSubmit={handleSubmit}>

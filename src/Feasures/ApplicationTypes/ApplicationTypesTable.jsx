@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useApplicationTypes from "./useApplicationTypes";
 import ApplicationTypeContextMenu from "./ApplicationTypeContextMenu";
-import Spiner from "../../Core/ui/Spiner";
+import Spinner from "../../Core/ui/Spinner";
 import Error from "../../Core/ui/Error";
 import Table from "../../Core/ui/Table";
 import ContextMenu from "../../Core/ui/ContextMenu";
@@ -12,7 +12,7 @@ function ApplicationTypesTable() {
   const [selectedApplicationType, setSelectedApplicationType] = useState(null);
   const columns = "grid-cols-[0.2fr_1.2fr_1fr]";
 
-  if (isLoading) return <Spiner />;
+  if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
 

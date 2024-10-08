@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 function Dashboard() {
-  return <div></div>;
+  return <div>Dashboard</div>;
 }
 
 export default Dashboard;

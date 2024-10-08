@@ -17,7 +17,14 @@ function UserContextMenu({ selectedUser }) {
       <li>
         <Item text="Add New" icon={<FaIdCard />} to="add-new" />
       </li>
-      <Item text="Edit" icon={<FaIdCard />} />
+      <li>
+        <Item
+          text="Edit"
+          icon={<FaIdCard />}
+          to={`${selectedUser.userId}/edit-user`}
+        />
+      </li>
+
       <il>
         <Item
           text="Delete"
@@ -25,7 +32,13 @@ function UserContextMenu({ selectedUser }) {
           to={`${selectedUser.userId}/delete`}
         />
       </il>
-      <Item text="Change Password" icon={<FaIdCard />} />
+      <li>
+        <Item
+          text="Change Password"
+          icon={<FaIdCard />}
+          to={`${selectedUser.userId}/change-password`}
+        />
+      </li>
       <hr />
       <Item text="Send Email" icon={<FaIdCard />} />
     </Menu>

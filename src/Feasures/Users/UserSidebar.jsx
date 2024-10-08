@@ -35,6 +35,12 @@ function UserSidebar() {
         to={`${id}/edit-user`}
       />
       <Link
+        text="Change Password"
+        icon={<CiEdit />}
+        type="side"
+        to={`${id}/change-password`}
+      />
+      <Link
         text="Send Email"
         icon={<RiMailSendLine />}
         type="side"

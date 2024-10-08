@@ -9,6 +9,7 @@ function TextInput({
   validation,
   placeholder,
   isRequired,
+  type = "text",
   className,
 }) {
   return (
@@ -20,7 +21,7 @@ function TextInput({
     >
       <input
         id={id}
-        type="text"
+        type={type}
         placeholder={placeholder}
         {...register(id, validation)}
       />

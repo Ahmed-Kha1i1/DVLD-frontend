@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useInternationalLicenses from "./useInternationalLicenses";
-import Spiner from "../../Core/ui/Spiner";
+import Spinner from "../../Core/ui/Spinner";
 import Error from "../../Core/ui/Error";
 import Table from "../../Core/ui/Table";
 import ContextMenu from "../../Core/ui/ContextMenu";
@@ -14,7 +14,7 @@ function InternationalLicensesTable() {
     useState(null);
   const columns = "grid-cols-[0.5fr_0.7fr_0.5fr_0.5fr_1.5fr_1.5fr_0.7fr_1fr]";
 
-  if (isLoading) return <Spiner />;
+  if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
 

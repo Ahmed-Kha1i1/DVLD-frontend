@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useDriverLicenses from "./useDriverLicenses";
-import Spiner from "../../Core/ui/Spiner";
+import Spinner from "../../Core/ui/Spinner";
 import Error from "../../Core/ui/Error";
 import Table from "../../Core/ui/Table";
 import ContextMenu from "../../Core/ui/ContextMenu";
@@ -13,7 +13,7 @@ function DriverLicensesTable() {
   const [selectedLicense, setSelectedLicense] = useState(null);
   const columns = "grid-cols-[0.6fr_0.6fr_1.3fr_1.3fr_1.3fr_0.5fr]";
 
-  if (isLoading) return <Spiner />;
+  if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
 

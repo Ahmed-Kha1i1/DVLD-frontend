@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Error from "../../Core/ui/Error";
-import Spiner from "../../Core/ui/Spiner";
+import Spinner from "../../Core/ui/Spinner";
 import useTestTypes from "./useTestTypes";
 import ContextMenu from "../../Core/ui/ContextMenu";
 import Table from "../../Core/ui/Table";
@@ -11,7 +11,7 @@ function TestTypesTable() {
   const [selectedTestType, setSelectedTestType] = useState(null);
   const columns = "grid-cols-[0.2fr_0.5fr_2fr_0.5fr]";
 
-  if (isLoading) return <Spiner />;
+  if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
 

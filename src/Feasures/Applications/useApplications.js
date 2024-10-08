@@ -1,14 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { getApplications } from "../../Core/Services/ApiApplications";
-import { applicationsQuery } from "../../Constants";
-
+import { applicationsKeys } from "./applicationsKeys";
 export default function useApplications() {
   const {
     isLoading,
     error,
     data: applications,
   } = useQuery({
-    queryKey: [applicationsQuery],
+    queryKey: applicationsKeys.lists(),
     queryFn: getApplications,
   });
 

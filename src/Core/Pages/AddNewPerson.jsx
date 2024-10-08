@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import PersonForm from "../../Feasures/People/PersonForm";
 import PageTitle from "../ui/PageTitle";
-function AddNewPerson() {
+function AddNewPerson({ onAddSuccess }) {
   return (
     <div>
       <PageTitle title="Add New Person" />
-      <PersonForm />
+      <PersonForm onAddSuccess={onAddSuccess} />
     </div>
   );
 }

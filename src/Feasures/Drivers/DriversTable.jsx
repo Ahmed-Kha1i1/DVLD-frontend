@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useDrivers from "./useDrivers.js";
-import Spiner from "../../Core/ui/Spiner.jsx";
+import Spinner from "../../Core/ui/Spinner.jsx";
 import Error from "../../Core/ui/Error.jsx";
 import Table from "../../Core/ui/Table.jsx";
 import ContextMenu from "../../Core/ui/ContextMenu.jsx";
@@ -12,7 +12,7 @@ function DriversTable() {
 
   const columns = "grid-cols-[0.5fr_0.6fr_0.6fr_2.3fr_1.7fr_1.5fr]";
 
-  if (isLoading) return <Spiner />;
+  if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
 

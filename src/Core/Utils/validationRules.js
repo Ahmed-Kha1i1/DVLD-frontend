@@ -1,6 +1,23 @@
 import { validateImageFile } from "./FileUtils";
 import { setMaxLength } from "./helpers";
-import { validateEmail, validateName, validatePhone } from "./validatorUtils";
+import {
+  isNumber,
+  validateEmail,
+  validateName,
+  validatePassword,
+  validatePhone,
+} from "./validatorUtils";
+
+export function validateIdRule(field) {
+  return {
+    required: `${field} is required`,
+    validate: (value) => isNumber(value) || `${field} must be number`,
+    min: {
+      value: 1,
+      message: `${field} is inValid. ${field} must be greater than 0.`,
+    },
+  };
+}
 
 export function validateNameRule(field, required = true) {
   const rule = {
@@ -13,6 +30,26 @@ export function validateNameRule(field, required = true) {
 
   if (required) rule.required = `${field} is required`;
   return rule;
+}
+
+export function validatePasswordRule() {
+  return {
+    required: "Password is required",
+    maxLength: setMaxLength(20, "Password"),
+    validate: (value) =>
+      validatePassword(value.trim()) ||
+      "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character",
+  };
+}
+
+export function validateConfirmPasswordRule(getValues) {
+  return {
+    required: "Confirm Password is required",
+
+    validate: (value) =>
+      value.trim() === getValues()?.password?.trim() ||
+      "Passwords do not match",
+  };
 }
 
 export function validateGenderRule() {

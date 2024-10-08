@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { GetDriverLicenses } from "../../Core/Services/ApiDrivers";
-import { driverLicensesQuery } from "../../Constants";
+import { licensesKeys } from "./licensesKeys";
 
 export default function useDriverLicenses(id) {
   const {
@@ -8,7 +8,7 @@ export default function useDriverLicenses(id) {
     error,
     data: driverLicenses,
   } = useQuery({
-    queryKey: [driverLicensesQuery, id],
+    queryKey: licensesKeys.lists(),
     queryFn: () => GetDriverLicenses(id),
   });
 

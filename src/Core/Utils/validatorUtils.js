@@ -15,7 +15,10 @@ export function validatePhone(phone) {
 }
 
 export function validatePassword(password) {
-  return validateWithRegex(password, /^[!#$%&'*+\-/=?^_`{|}~0-9]{4,20}$/);
+  return validateWithRegex(
+    password,
+    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
+  );
 }
 
 export function validateEmail(email) {
@@ -24,5 +27,3 @@ export function validateEmail(email) {
     /^[\w!#$%&'*+\-/=?^_`{|}~]+(\.[\w!#$%&'*+\-/=?^_`{|}~]+)*@[\w!#$%&'*+\-/=?^_`{|}~]+(\.[\w!#$%&'*+\-/=?^_`{|}~]+)+$/,
   );
 }
-
-

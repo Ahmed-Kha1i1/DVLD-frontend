@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getDrivers } from "../../Core/Services/ApiDrivers";
-import { driversQuery } from "../../Constants";
+import { driversKeys } from "./driversKeys";
 
 export default function useDrivers() {
   const {
@@ -8,7 +8,7 @@ export default function useDrivers() {
     error,
     data: Drivers,
   } = useQuery({
-    queryKey: [driversQuery],
+    queryKey: driversKeys.lists(),
     queryFn: getDrivers,
   });
 

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { GetDriverInternationalLicenses } from "../../Core/Services/ApiDrivers";
-import { driverInternationalLicensesQuery } from "../../Constants";
+import { internationalLicensesKeys } from "./internationalLicensesKeys";
 
 export default function useDriverInternationalLicenses(id) {
   const {
@@ -8,7 +8,7 @@ export default function useDriverInternationalLicenses(id) {
     error,
     data: driverInternationalLicenses,
   } = useQuery({
-    queryKey: [driverInternationalLicensesQuery, id],
+    queryKey: internationalLicensesKeys.list({ driverId: id }),
     queryFn: () => GetDriverInternationalLicenses(id),
   });
 

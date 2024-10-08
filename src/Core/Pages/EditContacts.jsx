@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import usePerson from "../../Feasures/People/usePerson";
-import Spiner from "../ui/Spiner";
+import Spinner from "../ui/Spinner";
 import Error from "../ui/Error";
 import PersonTopDetails from "../ui/PersonTopDetails";
 import ContactForm from "../../Feasures/People/ContactForm";
@@ -10,7 +10,7 @@ function EditContacts() {
   const { id } = useParams();
   const { isLoading, error, person } = usePerson(id);
 
-  if (isLoading) return <Spiner />;
+  if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
 

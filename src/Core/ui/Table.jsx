@@ -24,11 +24,11 @@ function Header({ children }) {
 }
 
 function Body({ items, render }) {
-  if (!items.length) return <Empty>No data to show at the moment</Empty>;
+  if (!items?.length) return <Empty>No data to show at the moment</Empty>;
 
   return (
     <ul className={`divide-y bg-sectionColor`}>
-      {items.data.map((item, index) => render(item, index % 2 !== 0))}
+      {items.map((item, index) => render(item, index % 2 !== 0))}
     </ul>
   );
 }

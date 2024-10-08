@@ -15,7 +15,7 @@ function Countries({ register, error, defaultCountry = "" }) {
 
   return (
     <Selector
-      options={Countries.data}
+      options={Countries}
       isLoading={isLoading}
       error={error}
       isRequired={true}
@@ -24,7 +24,7 @@ function Countries({ register, error, defaultCountry = "" }) {
       label="Country"
       onEqual={onEqual}
       register={() =>
-        register("nationalityCountry", validateCountryRule(Countries.data))
+        register("nationalityCountry", validateCountryRule(Countries))
       }
       renderOption={(option, isSelected) => (
         <option

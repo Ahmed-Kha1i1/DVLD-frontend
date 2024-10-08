@@ -10,7 +10,7 @@ import {
   validateGenderRule,
   validateImageRule,
   validateNameRule,
-} from "../../Core/utils/validationRules";
+} from "../../Core/Utils/validationRules";
 import DateInput from "../../Core/ui/DateInput";
 import ContactFields from "../../Core/ui/ContactFields";
 

@@ -1,43 +1,23 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import {
-  getPersonById,
-  getPersonByNationalNo,
-} from "../../Core/Services/ApiPeople";
-import { peopleQuery } from "../../Constants";
+import { useQuery } from "@tanstack/react-query";
+import { getPerson } from "../../Core/Services/ApiPeople";
+import { persondetailTypes, peopleKeys } from "./peopleKeys";
 
-export default function usePerson(id) {
+export default function usePerson(
+  identifier,
+  type = persondetailTypes.ID,
+  retry = 3,
+) {
   const {
     isLoading,
     error,
     data: person,
+    refetch,
   } = useQuery({
-    queryKey: [peopleQuery, "details", Number(id)],
-    queryFn: () => getPersonById(id),
+    queryKey: peopleKeys.detail(type, identifier),
+    queryFn: () => getPerson(identifier, type),
+    enabled: !!identifier,
+    retry: retry,
   });
 
-  return { isLoading, error, person };
-}
-
-export function usePersonByNationalNo(nationalNumber) {
-  const queryClient = useQueryClient();
-
-  const {
-    isLoading,
-    error,
-    data: person,
-  } = useQuery({
-    queryKey: [peopleQuery, "details", nationalNumber],
-    queryFn: () => getPersonByNationalNo(nationalNumber),
-    staleTime: 0,
-    initialData: () => {
-      let cashedPerson = queryClient.getQueriesData([peopleQuery, "details"]);
-      cashedPerson.find((p) => p.nationalNo === nationalNumber);
-      console.log("cashedPerson", cashedPerson[0][1]);
-      if (cashedPerson.length > 0) {
-        return cashedPerson[0][1];
-      }
-    },
-  });
-
-  return { isLoading, error, person };
+  return { isLoading, error, person, refetch };
 }

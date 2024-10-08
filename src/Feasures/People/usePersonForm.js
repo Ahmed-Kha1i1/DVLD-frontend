@@ -7,11 +7,12 @@ import useCountries from "../../Core/Hooks/useCountries";
 import { useState } from "react";
 import useCreatePerson from "./useCreatePerson";
 import useUpdatePerson from "./useUpdatePerson";
-import { validatePersonUniques } from "../../Core/utils/apiUtils";
+import { validatePersonUniques } from "../../Core/Utils/apiUtils";
 import { useNavigate } from "react-router-dom";
 
-function usePersonForm(personToEdit) {
+function usePersonForm(personToEdit, updateNavigate, onAddSuccess) {
   const { editId, defaultPerosn } = generateDefault(personToEdit);
+
   const isEditSession = Boolean(editId);
   const {
     register,
@@ -28,12 +29,13 @@ function usePersonForm(personToEdit) {
   const { isCreating, CreatePerson } = useCreatePerson();
   const { isUpdating, UpdatePerson } = useUpdatePerson();
   const navigate = useNavigate();
+
   async function OnSubmit(person) {
-    const isValid = await validatePersonUniques(person, personToEdit, setError);
+    const isValid = await validatePersonUniques(person, editId, setError);
     if (!isValid) return;
 
     if (isLoading) return;
-    let newPerson = generateNewPerson(person, Countries.data);
+    let newPerson = generateNewPerson(person, Countries);
 
     if (isEditSession) {
       newPerson.removeImage =
@@ -44,12 +46,17 @@ function usePersonForm(personToEdit) {
       UpdatePerson(
         { editId, newPerson },
         {
-          onSuccess: navigateToPerosnDetails,
+          onSuccess: () => {
+            if (updateNavigate) navigate(updateNavigate);
+          },
         },
       );
     } else {
       CreatePerson(newPerson, {
-        onSuccess: resetForm,
+        onSuccess: (result) => {
+          resetForm();
+          onAddSuccess?.(result.id);
+        },
       });
     }
   }
@@ -61,10 +68,6 @@ function usePersonForm(personToEdit) {
   function resetForm() {
     reset();
     setImageSrc(null);
-  }
-
-  function navigateToPerosnDetails() {
-    navigate(`/people/${editId}/profile`);
   }
 
   return {
