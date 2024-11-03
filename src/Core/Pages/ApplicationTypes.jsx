@@ -1,7 +1,7 @@
 import ApplicationTypesTable from "../../Feasures/ApplicationTypes/ApplicationTypesTable";
 import PageTitle from "../ui/PageTitle";
 
-function Applications() {
+function ApplicationTypes() {
   return (
     <div>
       <PageTitle title="Manage Application Types" />
@@ -10,4 +10,4 @@ function Applications() {
   );
 }
 
-export default Applications;
+export default ApplicationTypes;

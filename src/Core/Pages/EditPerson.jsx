@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useParams } from "react-router-dom";
-import EditPersonForm from "../ui/EditPersonForm";
+import EditPersonForm from "../../Feasures/People/EditPersonForm";
 function EditPerson({ onSuccess, navigate }) {
   const { id } = useParams();
 

@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:5263";
+export const BASE_URL = "http://localhost:5194";
 
 export const applicationStatuses = {
   New: "New",
@@ -6,6 +6,11 @@ export const applicationStatuses = {
   Completed: "Completed",
 };
 
+export const testTypes = {
+  vision: 1,
+  Written: 2,
+  Street: 3,
+};
 export const reponseStatuses = {
   Success: "success",
   Fail: "fail",
@@ -24,3 +29,5 @@ export const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
 ).set;
 
 export const defaultTimeStale = 10 * 60 * 1000;
+
+export const CurrentuserId = 1;

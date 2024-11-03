@@ -10,6 +10,7 @@ export default function useDriverInternationalLicenses(id) {
   } = useQuery({
     queryKey: internationalLicensesKeys.list({ driverId: id }),
     queryFn: () => GetDriverInternationalLicenses(id),
+    enabled: !!id,
   });
 
   return { isLoading, error, driverInternationalLicenses };

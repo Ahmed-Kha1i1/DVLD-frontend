@@ -8,25 +8,27 @@ function Item({
   hasArraw,
   type = "secondary",
   to = "",
-  disabled = false
+  disabled = false,
+  onClick,
+  isli = true,
 }) {
   let btnType =
     type === "primary"
       ? "btn-primary"
       : type === "secondary"
-      ? "btn-secondary"
-      : "";
+        ? "btn-secondary"
+        : "";
 
-  let styles = `cursor-pointer hover:bg-gray-200  transition-colors flex items-center px-4 ${btnType} ${
+  let styles = `cursor-pointer hover:bg-gray-200  transition-colors px-4 ${btnType} ${
     disabled ? "disabled" : ""
   }`;
 
   const innerElements = (
     <>
-      <span className="mr-2 ">{icon}</span>
-      <span className="">{text}</span>
+      <span className="mr-2">{icon}</span>
+      <span className="text-left">{text}</span>
       {hasArraw ? (
-        <span className="ml-auto pl-4 text-TextColor text-xs">
+        <span className="ml-auto pl-4 text-xs text-TextColor">
           <BiSolidRightArrow />
         </span>
       ) : null}
@@ -35,13 +37,24 @@ function Item({
 
   if (to) {
     return (
-      <NavLink to={to} className={styles}>
-        {innerElements}
-      </NavLink>
+      <li>
+        <NavLink to={to} className={`${styles} flex items-center`}>
+          {innerElements}
+        </NavLink>
+      </li>
     );
   }
 
-  return <div className={styles}>{innerElements}</div>;
+  const buttonElement = (
+    <button
+      className={`${styles} grid ${hasArraw ? "grid-cols-[auto_1fr_auto]" : "grid-cols-[auto_1fr]"} items-center`}
+      onClick={() => onClick?.()}
+    >
+      {innerElements}
+    </button>
+  );
+
+  return isli ? <li className="col">{buttonElement}</li> : buttonElement;
 }
 
 export default Item;

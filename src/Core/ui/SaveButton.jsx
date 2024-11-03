@@ -6,7 +6,7 @@ function SaveButton({ disabled }) {
     <Button
       disabled={disabled}
       text="Save"
-      styles="bg-red-500 w-52 col-span-2 mx-auto px-11 justify-center"
+      styles="bg-primary w-52 col-span-2 mx-auto px-11 justify-center"
     />
   );
 }

@@ -2,12 +2,17 @@
 import { BiSearch } from "react-icons/bi";
 import InputError from "./InputError";
 
-function SearchInput({ registerResult, error, defaultValue }) {
+function SearchInput({
+  registerResult,
+  error,
+  defaultValue,
+  placeholder = "Search",
+}) {
   return (
     <>
       <BiSearch className="icon absolute left-3 text-2xl text-Lightgray" />
       <input
-        placeholder="Search"
+        placeholder={placeholder}
         type="text"
         className="flex-grow py-4 pl-10 focus:outline-none"
         defaultValue={defaultValue}

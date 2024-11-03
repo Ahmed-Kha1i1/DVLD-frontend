@@ -14,9 +14,7 @@ function PersonTopDetails({ person, className }) {
         className="mr-6 w-24 rounded-md"
       />
       <div className="flex h-full flex-col justify-between py-4">
-        <h4 className="">{`${person.firstName} ${person.secondName} ${
-          person.thirdName ? person.thirdName : ""
-        } ${person.lastName}`}</h4>
+        <h4 className="">{`${person.fullName}`}</h4>
         <a className="w-fit cursor-pointer text-xl font-semibold text-Darkgray underline">
           {person.email}
         </a>

@@ -4,10 +4,11 @@ import { useState } from "react";
 import Select from "./Select";
 import SearchForm from "./SearchForm";
 import SearchInput from "./SearchInput";
-import PrimaryBottun from "./PrimaryBottun";
 import Model from "../ui/Model";
 import AddNewPerson from "../Pages/AddNewPerson";
-import EditPersonWindow from "./EditPersonWindow";
+import EditPersonWindow from "../../Feasures/People/EditPersonWindow";
+import EditButton from "./EditButton";
+import AddButton from "./AddButton";
 /*
 structure
 [
@@ -69,12 +70,13 @@ function Filter({
       <Model>
         <Model.Open
           opens="add-person"
-          render={(open) => (
-            <PrimaryBottun
-              text={`${isEditSession ? "Edit" : "Add Person"}`}
-              onClick={open}
-            />
-          )}
+          render={(open) =>
+            isEditSession ? (
+              <EditButton onClick={open} />
+            ) : (
+              <AddButton onClick={open} />
+            )
+          }
         />
         <Model.Window name="add-person" className="items-start">
           {isEditSession ? (

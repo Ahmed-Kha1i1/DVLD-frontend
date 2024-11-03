@@ -30,37 +30,34 @@ function InternationalLicensesTable() {
         <div>Is Active</div>
         <div>Created User Id</div>
       </Table.Header>
-      <ContextMenu>
-        <Table.Body
-          items={InternationalLicenses}
-          render={(InternationalLicense, IsDark) => (
-            <ContextMenu.Row
+
+      <Table.Body
+        items={InternationalLicenses}
+        render={(InternationalLicense, IsDark) => (
+          <ContextMenu.Row
+            id={InternationalLicense.internationalLicenseID}
+            key={InternationalLicense.internationalLicenseID}
+            action={() => {
+              setSelectedInternationalLicense(InternationalLicense);
+            }}
+          >
+            <Table.Row
+              isDark={IsDark}
               id={InternationalLicense.internationalLicenseID}
-              key={InternationalLicense.internationalLicenseID}
-              action={() => {
-                setSelectedInternationalLicense(InternationalLicense);
-              }}
             >
-              <Table.Row
-                isDark={IsDark}
-                id={InternationalLicense.internationalLicenseID}
-              >
-                <InternationalLicenseRow
-                  InternationalLicense={InternationalLicense}
-                />
-              </Table.Row>
-            </ContextMenu.Row>
-          )}
+              <InternationalLicenseRow
+                InternationalLicense={InternationalLicense}
+              />
+            </Table.Row>
+          </ContextMenu.Row>
+        )}
+      />
+      <ContextMenu.Menu>
+        <InternationalLicensesContextMenu
+          selectedInternationalLicense={selectedInternationalLicense}
+          key={selectedInternationalLicense?.internationalLicenseID}
         />
-        <ContextMenu.Menu>
-          <InternationalLicensesContextMenu
-            selectedInternationalLicense={
-              selectedInternationalLicense?.internationalLicenseID
-            }
-            key={selectedInternationalLicense?.internationalLicenseID}
-          />
-        </ContextMenu.Menu>
-      </ContextMenu>
+      </ContextMenu.Menu>
     </Table>
   );
 }

@@ -9,7 +9,7 @@ import Item from "./Item";
 function Controls() {
   return (
     <Menus>
-      <ul className="flex gap-6 border-b border-Lightgray px-12 py-2">
+      <ul className="flex items-center gap-6 border-b border-Lightgray px-12 py-2 text-center">
         <Application />
         <Item
           text="Persons"
@@ -17,17 +17,13 @@ function Controls() {
           type="primary"
           to="people"
         />
-        <li>
-          <Item
-            text="Drivers"
-            icon={<IoPeopleSharp />}
-            type="primary"
-            to="drivers"
-          />
-        </li>
-        <li>
-          <Item text="Users" icon={<ImUsers />} type="primary" to="users" />
-        </li>
+        <Item
+          text="Drivers"
+          icon={<IoPeopleSharp />}
+          type="primary"
+          to="drivers"
+        />
+        <Item text="Users" icon={<ImUsers />} type="primary" to="users" />
         <AccountSettings />
       </ul>
     </Menus>

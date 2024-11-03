@@ -5,8 +5,16 @@ import Menu from "../../Core/ui/Menu";
 function DrivingLicenseMenu() {
   return (
     <Menu isRight={true}>
-      <Item text="Local License" icon={<FaIdCard />} />
-      <Item text="International License" icon={<FaIdCard />} />
+      <Item
+        text="Local License"
+        icon={<FaIdCard />}
+        to="applications/add-new"
+      />
+      <Item
+        text="International License"
+        icon={<FaIdCard />}
+        to="international-licenses/add-new"
+      />
     </Menu>
   );
 }

@@ -35,6 +35,7 @@ function usePersonForm(personToEdit, updateNavigate, onAddSuccess) {
     if (!isValid) return;
 
     if (isLoading) return;
+
     let newPerson = generateNewPerson(person, Countries);
 
     if (isEditSession) {

@@ -1,9 +1,9 @@
 import Drivers from "../Pages/Drivers";
 import DriverDetails from "../Pages/DriverDetails";
-import EditContacts from "../Pages/EditContacts";
-import DriverLicenses from "../Pages/DriverLicenses";
-import DriverInternationalLicenses from "../Pages/DriverInternationalLicenses";
+import EditDriverPerson from "../Pages/EditDriverPerson";
 import DriverLayout from "../../Feasures/Drivers/DriverLayout";
+import EditDriverContacts from "../Pages/EditDriverContacts";
+import DriverLicensesHistory from "../Pages/DriverLicensesHistory";
 
 const driverRoutes = {
   path: "drivers",
@@ -24,19 +24,15 @@ const driverRoutes = {
             },
             {
               path: "edit",
-              element: <DriverDetails />,
+              element: <EditDriverPerson />,
             },
             {
               path: "edit-contact",
-              element: <EditContacts />,
+              element: <EditDriverContacts />,
             },
             {
-              path: "local-licenses",
-              element: <DriverLicenses />,
-            },
-            {
-              path: "international-licenses",
-              element: <DriverInternationalLicenses />,
+              path: "licenses-history",
+              element: <DriverLicensesHistory />,
             },
             {
               path: "send-email",

@@ -16,7 +16,7 @@ function EditUserContacts() {
 
   return (
     <div>
-      <PageTitle title={`Edit Contact Details (ID: ${id})`} />
+      <PageTitle title={`Edit Contact Details (User Id: ${id})`} />
       <PersonTopDetails person={person} className="my-10" />
       <ContactForm personToEdit={person} />
     </div>

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import useOutsideClick from "../Hooks/useOutsideClick";
 
 const MenusContext = createContext();
@@ -17,9 +17,40 @@ function Menus({ children }) {
 }
 
 function Button({ children, opens }) {
-  let { open } = useContext(MenusContext);
+  const { open } = useContext(MenusContext);
+  const timeoutId = useRef(null);
 
-  return <span onMouseOver={() => open(opens)}>{children}</span>;
+  const handleMouseOver = () => {
+    // Clear any existing timeout
+    if (timeoutId.current) clearTimeout(timeoutId.current);
+
+    // Set a new timeout for opening the menu
+    timeoutId.current = setTimeout(() => {
+      open(opens);
+    }, 300);
+  };
+
+  const handleMouseLeave = () => {
+    // Clear the timeout on mouse leave to avoid unwanted menu openings
+    if (timeoutId.current) clearTimeout(timeoutId.current);
+  };
+
+  useEffect(() => {
+    // Clean up timeout on unmount
+    return () => {
+      if (timeoutId.current) clearTimeout(timeoutId.current);
+    };
+  }, []);
+
+  return (
+    <div
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+      className="col"
+    >
+      {children}
+    </div>
+  );
 }
 
 function Menu({ children, name }) {
@@ -29,9 +60,9 @@ function Menu({ children, name }) {
   if (openId !== name) return null;
 
   return (
-    <span ref={ref} onClick={() => close()}>
+    <div ref={ref} onClick={() => close()}>
       {children}
-    </span>
+    </div>
   );
 }
 

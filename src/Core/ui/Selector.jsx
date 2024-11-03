@@ -54,7 +54,7 @@ function Selector({
           <SelectorMenu
             options={filteredOptions}
             OnSelect={OnSelect}
-            ref={ref}
+            referance={ref}
             renderOption={renderOption}
           />
         )}

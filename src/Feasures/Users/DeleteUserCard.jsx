@@ -39,7 +39,7 @@ function DeleteUserCard({ id }) {
             text="user"
             id={id}
             isDeleting={isDeleting}
-            onDelete={deleteUser}
+            onDelete={() => deleteUser(id)}
           />
         </Model.Window>
       </Model>

@@ -2,14 +2,14 @@ import { useState } from "react";
 import Error from "../../Core/ui/Error";
 import Spinner from "../../Core/ui/Spinner";
 import useTestTypes from "./useTestTypes";
-import ContextMenu from "../../Core/ui/ContextMenu";
 import Table from "../../Core/ui/Table";
+import Model from "../../Core/ui/Model";
 import TestTypeRow from "./TestTypeRow";
-import TestTypeContextMenu from "./TestTypeContextMenu";
+import EditTestType from "./EditTestType";
 function TestTypesTable() {
   const { isLoading, error, TestTypes } = useTestTypes();
   const [selectedTestType, setSelectedTestType] = useState(null);
-  const columns = "grid-cols-[0.2fr_0.5fr_2fr_0.5fr]";
+  const columns = "grid-cols-[0.2fr_0.5fr_2fr_0.5fr_0.5fr]";
 
   if (isLoading) return <Spinner />;
 
@@ -23,30 +23,22 @@ function TestTypesTable() {
         <div>Description</div>
         <div>Fees</div>
       </Table.Header>
-      <ContextMenu>
+      <Model>
         <Table.Body
           items={TestTypes}
           render={(TestType, IsDark) => (
-            <ContextMenu.Row
-              id={TestType.testTypeID}
-              key={TestType.testTypeID}
-              action={() => {
-                setSelectedTestType(TestType);
-              }}
-            >
-              <Table.Row isDark={IsDark} id={TestType.testTypeID}>
-                <TestTypeRow TestType={TestType} />
-              </Table.Row>
-            </ContextMenu.Row>
+            <Table.Row isDark={IsDark} id={TestType.id}>
+              <TestTypeRow
+                TestType={TestType}
+                setSelectedTestType={setSelectedTestType}
+              />
+            </Table.Row>
           )}
         />
-        <ContextMenu.Menu>
-          <TestTypeContextMenu
-            selectedTestTypeId={selectedTestType?.testTypeID}
-            key={selectedTestType?.testTypeID}
-          />
-        </ContextMenu.Menu>
-      </ContextMenu>
+        <Model.Window name="edit-test-type">
+          <EditTestType testType={selectedTestType} />
+        </Model.Window>
+      </Model>
     </Table>
   );
 }

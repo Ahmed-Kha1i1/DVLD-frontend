@@ -7,14 +7,17 @@ import Item from "../../Core/ui/Item";
 function DetainLicenses() {
   return (
     <li className="relative">
-      <ul>
-        <Menus.Button opens="DetainLicensesMenu">
-          <Item text="Detain Licenses" icon={<FaHandPaper />} hasArraw={true} />
-        </Menus.Button>
-        <Menus.Menu name="DetainLicensesMenu">
-          <DetainLicensesMenu />
-        </Menus.Menu>
-      </ul>
+      <Menus.Button opens="DetainLicensesMenu">
+        <Item
+          text="Detain Licenses"
+          icon={<FaHandPaper />}
+          hasArraw={true}
+          isli={false}
+        />
+      </Menus.Button>
+      <Menus.Menu name="DetainLicensesMenu">
+        <DetainLicensesMenu />
+      </Menus.Menu>
     </li>
   );
 }

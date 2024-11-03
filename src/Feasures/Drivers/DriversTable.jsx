@@ -26,30 +26,29 @@ function DriversTable() {
         <div>Created Date</div>
         <div>Active License</div>
       </Table.Header>
-      <ContextMenu>
-        <Table.Body
-          items={Drivers}
-          render={(Driver, IsDark) => (
-            <ContextMenu.Row
-              id={Driver.driverID}
-              key={Driver.driverID}
-              action={() => {
-                setSelectedDriver(Driver);
-              }}
-            >
-              <Table.Row isDark={IsDark} id={Driver.driverID}>
-                <DriverRow Driver={Driver} />
-              </Table.Row>
-            </ContextMenu.Row>
-          )}
+
+      <Table.Body
+        items={Drivers}
+        render={(Driver, IsDark) => (
+          <ContextMenu.Row
+            id={Driver.driverID}
+            key={Driver.driverID}
+            action={() => {
+              setSelectedDriver(Driver);
+            }}
+          >
+            <Table.Row isDark={IsDark} id={Driver.driverID}>
+              <DriverRow Driver={Driver} />
+            </Table.Row>
+          </ContextMenu.Row>
+        )}
+      />
+      <ContextMenu.Menu>
+        <DriverContextMenu
+          SelectedDriver={selectedDriver}
+          key={selectedDriver?.driverID}
         />
-        <ContextMenu.Menu>
-          <DriverContextMenu
-            SelectedDriver={selectedDriver}
-            key={selectedDriver?.driverID}
-          />
-        </ContextMenu.Menu>
-      </ContextMenu>
+      </ContextMenu.Menu>
     </Table>
   );
 }

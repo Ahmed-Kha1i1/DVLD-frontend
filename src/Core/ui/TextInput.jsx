@@ -10,8 +10,10 @@ function TextInput({
   placeholder,
   isRequired,
   type = "text",
+  isTextArea = false,
   className,
 }) {
+  console.log(error);
   return (
     <FormRow
       label={label}
@@ -19,12 +21,21 @@ function TextInput({
       error={error}
       className={className}
     >
-      <input
-        id={id}
-        type={type}
-        placeholder={placeholder}
-        {...register(id, validation)}
-      />
+      {isTextArea ? (
+        <textarea
+          id={id}
+          type={type}
+          placeholder={placeholder}
+          {...register(id, validation)}
+        />
+      ) : (
+        <input
+          id={id}
+          type={type}
+          placeholder={placeholder}
+          {...register(id, validation)}
+        />
+      )}
     </FormRow>
   );
 }

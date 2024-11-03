@@ -11,6 +11,11 @@ const internationalLicensesKeys = {
     ...internationalLicensesKeys.details(),
     { type, value },
   ],
+  application: (type, value) => [
+    ...internationalLicensesKeys.details(),
+    "application",
+    { type, value },
+  ],
 };
 
 export { internationalLicensesKeys, internationalLicensedetailTypes };

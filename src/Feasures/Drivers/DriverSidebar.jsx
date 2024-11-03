@@ -29,17 +29,12 @@ function DriverSidebar() {
         to={`${id}/edit-contact`}
       />
       <Link
-        text="Local Licenses"
+        text="Licenses History"
         icon={<CiEdit />}
         type="side"
-        to={`${id}/local-licenses`}
+        to={`${id}/licenses-history`}
       />
-      <Link
-        text="International Licenses"
-        icon={<CiEdit />}
-        type="side"
-        to={`${id}/international-licenses`}
-      />
+
       <Link
         text="Send Email"
         icon={<RiMailSendLine />}

@@ -6,18 +6,17 @@ import Item from "../../Core/ui/Item";
 function DrivingLicense() {
   return (
     <li className="relative">
-      <ul>
-        <Menus.Button opens="DrivingLicenseMenu">
-          <Item
-            text="New Driving License"
-            icon={<FaIdCard />}
-            hasArraw={true}
-          />
-        </Menus.Button>
-        <Menus.Menu name="DrivingLicenseMenu">
-          <DrivingLicenseMenu />
-        </Menus.Menu>
-      </ul>
+      <Menus.Button opens="DrivingLicenseMenu">
+        <Item
+          text="New Driving License"
+          icon={<FaIdCard />}
+          hasArraw={true}
+          isli={false}
+        />
+      </Menus.Button>
+      <Menus.Menu name="DrivingLicenseMenu">
+        <DrivingLicenseMenu />
+      </Menus.Menu>
     </li>
   );
 }

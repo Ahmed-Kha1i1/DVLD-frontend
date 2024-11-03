@@ -2,12 +2,15 @@
 import { createContext, useContext } from "react";
 import Empty from "./Empty";
 import { useContextMenu } from "../Hooks/useContextMenu";
+import ContextMenu from "./ContextMenu";
 const TableContext = createContext();
 
 function Table({ children, columns }) {
   return (
     <TableContext.Provider value={{ columns }}>
-      <div>{children}</div>
+      <ContextMenu>
+        <div>{children}</div>
+      </ContextMenu>
     </TableContext.Provider>
   );
 }
@@ -27,7 +30,7 @@ function Body({ items, render }) {
   if (!items?.length) return <Empty>No data to show at the moment</Empty>;
 
   return (
-    <ul className={`divide-y bg-sectionColor`}>
+    <ul className={`min-h-72 divide-y bg-sectionColor`}>
       {items.map((item, index) => render(item, index % 2 !== 0))}
     </ul>
   );
@@ -39,8 +42,8 @@ function Row({ children, isDark, id }) {
 
   return (
     <div
-      className={`grid ${columns} p-4 text-lg text-slate-800 ${
-        id === openId ? "bg-secondary" : isDark ? "bg-gray-100" : ""
+      className={`grid ${columns} border-r-2 p-4 text-lg text-slate-800 ${
+        id === openId ? "bg-secondary" : isDark ? "bg-gray-200" : "bg-gray-100"
       }`}
     >
       {children}

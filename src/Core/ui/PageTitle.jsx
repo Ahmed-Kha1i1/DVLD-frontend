@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
-function PageTitle({ title }) {
+function PageTitle({ title, withLine = true, center = false }) {
   return (
-    <div className="flex-hori mb-10 gap-24">
+    <div
+      className={`mb-10 flex items-center gap-24 ${center ? "justify-center" : "justify-between"}`}
+    >
       <h2 className="font-semibold capitalize text-TextColor">{title}</h2>
-      <hr className="border-1 flex-grow border-Lightgray" />
+      {withLine && <hr className="border-1 flex-grow border-Lightgray" />}
     </div>
   );
 }

@@ -8,7 +8,12 @@ function Application() {
   return (
     <li className="relative">
       <Menus.Button opens="ApplicationMenu">
-        <Item text="Applications" icon={<FaIdCard />} type="primary" />
+        <Item
+          text="Applications"
+          icon={<FaIdCard />}
+          type="primary"
+          isli={false}
+        />
       </Menus.Button>
       <Menus.Menu name="ApplicationMenu">
         <ApplicationMenu />

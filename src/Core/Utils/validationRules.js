@@ -19,6 +19,12 @@ export function validateIdRule(field) {
   };
 }
 
+export function required(field) {
+  const rule = {
+    required: `${field} is required`,
+  };
+  return rule;
+}
 export function validateNameRule(field, required = true) {
   const rule = {
     maxLength: setMaxLength(20, `${field}`),

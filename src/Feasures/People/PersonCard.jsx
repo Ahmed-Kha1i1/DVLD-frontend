@@ -2,12 +2,15 @@
 import Info from "../../Core/ui/Info";
 import Card from "../../Core/ui/Card";
 import InfoLine from "../../Core/ui/InfoLine";
-import { FormatDateAsNumber } from "../../Core/utils/FormatUtils";
-import { calculateAge } from "../../Core/utils/dateUtils";
+import { FormatDateAsNumber } from "../../Core/Utils/FormatUtils";
+import { calculateAge } from "../../Core/Utils/dateUtils";
 import { BsFillPersonVcardFill } from "react-icons/bs";
 import CardTitle from "../../Core/ui/CardTitle";
 import Empty from "../../Core/ui/Empty";
 import PersonTopDetails from "../../Core/ui/PersonTopDetails";
+
+import EditButton from "../../Core/ui/EditButton";
+import RedirectLink from "../../Core/ui/RedirectLink";
 function PersonCard({ person }) {
   if (!person) return <Empty>No person to show</Empty>;
 
@@ -38,6 +41,10 @@ function PersonCard({ person }) {
       <div>
         <Info title="Address" text={person.address} />
       </div>
+      <RedirectLink
+        path={`/people/${person.personID}/edit`}
+        text="Edit Person"
+      />
     </Card>
   );
 }

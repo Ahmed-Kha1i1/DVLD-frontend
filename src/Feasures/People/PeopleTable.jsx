@@ -31,30 +31,29 @@ function PeopleTable() {
         <div>Nationality</div>
         <div>Gender</div>
       </Table.Header>
-      <ContextMenu>
-        <Table.Body
-          items={People}
-          render={(Person, IsDark) => (
-            <ContextMenu.Row
-              id={Person.personID}
-              key={Person.personID}
-              action={() => {
-                setSelectedPerson(Person);
-              }}
-            >
-              <Table.Row isDark={IsDark} id={Person.personID}>
-                <PersonRow Person={Person} />
-              </Table.Row>
-            </ContextMenu.Row>
-          )}
+
+      <Table.Body
+        items={People}
+        render={(Person, IsDark) => (
+          <ContextMenu.Row
+            id={Person.personID}
+            key={Person.personID}
+            action={() => {
+              setSelectedPerson(Person);
+            }}
+          >
+            <Table.Row isDark={IsDark} id={Person.personID}>
+              <PersonRow Person={Person} />
+            </Table.Row>
+          </ContextMenu.Row>
+        )}
+      />
+      <ContextMenu.Menu>
+        <PersonContextMenu
+          selectedPerson={selectedPerson}
+          key={selectedPerson?.personID}
         />
-        <ContextMenu.Menu>
-          <PersonContextMenu
-            selectedPerson={selectedPerson}
-            key={selectedPerson?.personID}
-          />
-        </ContextMenu.Menu>
-      </ContextMenu>
+      </ContextMenu.Menu>
     </Table>
   );
 }

@@ -4,7 +4,7 @@ function Menu({ children, isRight = false, bgColor = "bg-sectionColor" }) {
 
   return (
     <ul
-      className={`absolute ${bgColor} w-max space-y-1 py-4 shadow-md ${RightStyle} z-50 min-w-72`}
+      className={`absolute ${bgColor} w-max space-y-1 py-4 shadow-md ${RightStyle} z-50 flex min-w-72 flex-col content-stretch`}
     >
       {children}
     </ul>

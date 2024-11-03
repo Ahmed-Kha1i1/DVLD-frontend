@@ -6,18 +6,17 @@ import Menus from "../../Core/ui/Menus";
 function ManageApplication() {
   return (
     <li className="relative">
-      <ul>
-        <Menus.Button opens="ManageApplicationMenu">
-          <Item
-            text="Manage Applications"
-            icon={<SiPaperswithcode />}
-            hasArraw={true}
-          />
-        </Menus.Button>
-        <Menus.Menu name="ManageApplicationMenu">
-          <ManageApplicationMenu />
-        </Menus.Menu>
-      </ul>
+      <Menus.Button opens="ManageApplicationMenu">
+        <Item
+          text="Manage Applications"
+          icon={<SiPaperswithcode />}
+          hasArraw={true}
+          isli={false}
+        />
+      </Menus.Button>
+      <Menus.Menu name="ManageApplicationMenu">
+        <ManageApplicationMenu />
+      </Menus.Menu>
     </li>
   );
 }

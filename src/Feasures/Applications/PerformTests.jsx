@@ -4,7 +4,7 @@ import Item from "../../Core/ui/Item";
 import Menus from "../../Core/ui/Menus";
 import PerformTestsMenu from "./PerformTestsMenu";
 
-function PerformTests({ disabled, passedTestCount }) {
+function PerformTests({ disabled, passedTestCount, selectedApplicationId }) {
   return (
     <li className="relative">
       <Menus>
@@ -14,11 +14,15 @@ function PerformTests({ disabled, passedTestCount }) {
             icon={<FaIdCard />}
             hasArraw={true}
             disabled={disabled}
+            isli={false}
           />
         </Menus.Button>
         <Menus.Menu name="ApplicationMenu">
           {!disabled ? (
-            <PerformTestsMenu passedTestCount={passedTestCount} />
+            <PerformTestsMenu
+              passedTestCount={passedTestCount}
+              selectedApplicationId={selectedApplicationId}
+            />
           ) : null}
         </Menus.Menu>
       </Menus>

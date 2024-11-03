@@ -1,16 +1,18 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-function PrimaryBottun({ text, onClick, to }) {
-  const className = "min-w-[60px] bg-primary p-4 text-lg text-white";
+function PrimaryBottun({ children, onClick, to, className }) {
+  const styles = `min-w-[60px] bg-primary p-4 text-lg text-white ${className}`;
   if (to)
     return (
-      <Link className={className} onClick={(e) => onClick?.(e)} to={to}>
-        {text}
+      <Link className={styles} onClick={(e) => onClick?.(e)} to={to}>
+        {children}
       </Link>
     );
+
   return (
-    <button className={className} onClick={() => onClick?.()}>
-      {text}
+    <button className={styles} onClick={() => onClick?.()}>
+      {children}
     </button>
   );
 }

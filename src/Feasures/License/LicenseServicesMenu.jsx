@@ -9,14 +9,22 @@ function LicenseServicesMenu() {
     <Menus>
       <Menu isRight={true}>
         <DrivingLicense />
-        <Item text="Renew Driving License" icon={<FaIdCard />} />
+        <Item
+          text="Renew Driving License"
+          icon={<FaIdCard />}
+          to="/licenses/renew"
+        />
         <Item
           text="Replacment  for Lost or Damage License"
           icon={<FaIdCard />}
+          to="/licenses/replace"
         />
-        <Item text="Release Detained Driving License" icon={<FaIdCard />} />
-        <Item text="Show Driver Info Licenses" icon={<FaIdCard />} />
-        <Item text="Retake Test" icon={<FaIdCard />} />
+        <Item
+          text="Release Detained Driving License"
+          icon={<FaIdCard />}
+          to="/detained-licenses/release"
+        />
+        <Item text="Retake Test" icon={<FaIdCard />} to="/applications" />
       </Menu>
     </Menus>
   );

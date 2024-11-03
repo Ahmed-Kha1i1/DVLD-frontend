@@ -6,13 +6,11 @@ import Menu from "../../Core/ui/Menu";
 function PersonContextMenu({ selectedPerson }) {
   return (
     <Menu bgColor="bg-inherit">
-      <li>
-        <Item
-          text="Show Details"
-          icon={<FaIdCard />}
-          to={`${selectedPerson.personID}/profile`}
-        />
-      </li>
+      <Item
+        text="Show Details"
+        icon={<FaIdCard />}
+        to={`${selectedPerson.personID}/profile`}
+      />
       <hr />
       <Item text="Add New" icon={<FaIdCard />} to="add-new" />
       <Item
@@ -20,13 +18,11 @@ function PersonContextMenu({ selectedPerson }) {
         icon={<FaIdCard />}
         to={`${selectedPerson.personID}/edit`}
       />
-      <li>
-        <Item
-          text="Delete"
-          icon={<FaIdCard />}
-          to={`${selectedPerson.personID}/delete`}
-        />
-      </li>
+      <Item
+        text="Delete"
+        icon={<FaIdCard />}
+        to={`${selectedPerson.personID}/delete`}
+      />
       <hr />
       <Item text="Send Email" icon={<FaIdCard />} />
     </Menu>

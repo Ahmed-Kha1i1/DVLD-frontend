@@ -39,7 +39,7 @@ export function generateNewPerson(person, CountriesData) {
       : null;
 
   const newPerson = {
-    gender: person.gender === "Male" ? 0 : 1,
+    gender: person.gender,
     dateOfBirth: person.dateOfBirth,
     firstName: person.firstName.trim(),
     secondName: person.secondName.trim(),

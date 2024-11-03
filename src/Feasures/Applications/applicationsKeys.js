@@ -1,5 +1,6 @@
 const applicationdetailTypes = {
   ID: "id",
+  TESTTYPE: "perTestType",
 };
 
 const applicationsKeys = {
@@ -7,7 +8,19 @@ const applicationsKeys = {
   lists: () => [...applicationsKeys.all, "list"],
   list: (filter) => [...applicationsKeys.lists(), { filter }],
   details: () => [...applicationsKeys.all, "detail"],
-  detail: (type, value) => [...applicationsKeys.details(), { type, value }],
+  fullDetails: () => [...applicationsKeys.details(), "full"],
+  prefDetails: () => [...applicationsKeys.details(), "pref"],
+  detail: (type, value, isFull = true) => [
+    ...(isFull
+      ? applicationsKeys.fullDetails()
+      : applicationsKeys.prefDetails()),
+    { type, value },
+  ],
+  ActiveLicenseId: (applicationId) => [
+    ...applicationsKeys.details(),
+    "ActiveLicenseId",
+    applicationId,
+  ],
 };
 
 export { applicationsKeys, applicationdetailTypes };

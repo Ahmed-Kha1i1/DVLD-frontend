@@ -1,7 +1,6 @@
 export default async function fetchData(url, options = {}) {
   try {
     let res = await fetch(url, options);
-
     const data = await res.json();
 
     if (!res.ok) throw new Error(data.message);

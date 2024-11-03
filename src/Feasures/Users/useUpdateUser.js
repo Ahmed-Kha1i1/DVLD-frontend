@@ -8,9 +8,9 @@ export default function useUpdateUser() {
   function onSuccess(newUser) {
     toast.success("User successfully updated!");
 
-    queryClient.setQueriesData({ queryKey: usersKeys.lists() }, (previous) =>
-      previous.map((user) => (user.userId === newUser.userId ? newUser : user)),
-    );
+      queryClient.setQueriesData({ queryKey: usersKeys.lists() }, (previous) =>
+        previous.map((user) => (user.userId === newUser.userId ? newUser : user)),
+      );
 
     queryClient.setQueriesData({ queryKey: usersKeys.details() }, (previous) =>
       previous?.userId === newUser.userId ? newUser : previous,

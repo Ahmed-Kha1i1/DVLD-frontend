@@ -64,8 +64,12 @@
   }
   .form-row {
     & > input,
+    & > textarea,
     & > select {
       @apply input bg-gray-50 px-5 py-4 transition-colors focus:border-TextColor focus:outline-none;
+    }
+    & > textarea {
+      @apply h-40 resize-none;
     }
   }
   .options {
@@ -84,6 +88,23 @@
   }
 }
 @layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 0; /* Hides scrollbar track */
+    height: 0;
+  }
+
+  /* Hide scrollbar for Firefox */
+  .custom-scrollbar {
+    scrollbar-width: thin; /* Minimal width when inactive */
+  }
+
+  /* Internet Explorer and older Edge support */
+  .custom-scrollbar {
+    -ms-overflow-style: none;
+  }
+  .col {
+    @apply flex flex-col;
+  }
   .flex-hori {
     @apply flex items-center justify-between;
   }

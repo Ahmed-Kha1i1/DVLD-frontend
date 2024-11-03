@@ -16,3 +16,31 @@ export function dispatchInputEvent(Input, value) {
   const event = new Event("change", { bubbles: true });
   Input.dispatchEvent(event);
 }
+
+export function GetTestTypeName(testTypeId) {
+  switch (testTypeId) {
+    case 1:
+      return "Vision";
+    case 2:
+      return "Written";
+    case 3:
+      return "Street";
+    default:
+      return "Unknown Test";
+  }
+}
+
+export function doesPassThisTest(testTypeId, passedTests) {
+  if (passedTests === 0) return false;
+
+  switch (testTypeId) {
+    case 1:
+      return passedTests >= 1;
+    case 2:
+      return passedTests >= 2;
+    case 3:
+      return passedTests >= 3;
+    default:
+      throw new Error("unKnown test type");
+  }
+}

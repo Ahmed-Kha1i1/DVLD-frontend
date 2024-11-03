@@ -20,7 +20,9 @@ export async function getUser(id, accept = userDataType.full) {
 }
 
 export async function getPersonByUserId(id) {
-  return (await fetchData(`${BASE_URL}/api/Users/person/${id}`)).data;
+  var result = await fetchData(`${BASE_URL}/api/Users/${id}/person`);
+
+  return result.data;
 }
 
 export async function addNewUser(user) {
@@ -34,28 +36,25 @@ export async function addNewUser(user) {
   return result?.data?.UserID;
 }
 
-export async function updateUser(id, user) {
-  const data = await fetchData(`${BASE_URL}/api/Users/${id}`, {
+export async function updateUser(UserId, user) {
+  const data = await fetchData(`${BASE_URL}/api/Users`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(user),
+    body: JSON.stringify({ ...user, UserId }),
   });
   return data.data;
 }
 
 export async function updatePassword(userId, newPassword) {
-  const data = await fetchData(
-    `${BASE_URL}/api/Users/UpdatePassword/${userId}`,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ Password: newPassword }),
+  const data = await fetchData(`${BASE_URL}/api/Users/UpdatePassword`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
     },
-  );
+    body: JSON.stringify({ newPassword, userId }),
+  });
   return data.data;
 }
 
@@ -68,8 +67,12 @@ export async function deleteUser(id) {
 }
 
 export async function isUsernameUnique(username, id) {
+  const queryParams = new URLSearchParams({
+    username: username,
+  });
+  if (id) queryParams.append("id", id);
   const result = await fetchData(
-    `${BASE_URL}/api/Users/Unique/Username/${username}${id ? `?id=${id}` : ""}`,
+    `${BASE_URL}/api/Users/Unique/Username?${queryParams}`,
   );
   return { usernameUnique: result.data };
 }

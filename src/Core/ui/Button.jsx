@@ -15,7 +15,9 @@ function Button({
       onClick={(e) => onClick?.(e)}
       className={`btn w-${width} flex items-center bg-${bgColor} text-white ${styles ? styles : ""} ${disabled ? "disabled" : ""}`}
     >
-      <span className={`${icon ? "mr-4" : ""} text-2xl text-${textColor}`}>
+      <span
+        className={`${icon && text ? "mr-4" : ""} text-2xl text-${textColor}`}
+      >
         {icon}
       </span>
       <span>{text}</span>

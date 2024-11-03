@@ -1,14 +1,18 @@
+import EditButtonModel from "../../Core/ui/EditButtonModel";
 import { formatCurrency } from "../../Core/Utils/FormatUtils";
 /* eslint-disable react/prop-types */
-function TestTypeRow({ TestType }) {
-  const { testTypeID, testTypeTitle, testTypeDescription, testTypeFees } =
-    TestType;
+function TestTypeRow({ TestType, setSelectedTestType }) {
+  const { id, title, description, fees } = TestType;
   return (
     <>
-      <div>{testTypeID}</div>
-      <div>{testTypeTitle}</div>
-      <div>{testTypeDescription}</div>
-      <div>{formatCurrency(testTypeFees)}</div>
+      <div>{id}</div>
+      <div>{title}</div>
+      <div>{description}</div>
+      <div>{formatCurrency(fees)}</div>
+      <EditButtonModel
+        opens="edit-test-type"
+        setId={() => setSelectedTestType(TestType)}
+      />
     </>
   );
 }

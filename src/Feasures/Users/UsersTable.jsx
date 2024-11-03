@@ -24,30 +24,28 @@ function UsersTable() {
         <div>Username</div>
         <div>Is Active</div>
       </Table.Header>
-      <ContextMenu>
-        <Table.Body
-          items={Users}
-          render={(User, IsDark) => (
-            <ContextMenu.Row
-              id={User.userId}
-              key={User.userId}
-              action={() => {
-                setSelectedUser(User);
-              }}
-            >
-              <Table.Row isDark={IsDark} id={User.userId}>
-                <UserRow User={User} />
-              </Table.Row>
-            </ContextMenu.Row>
-          )}
+      <Table.Body
+        items={Users}
+        render={(User, IsDark) => (
+          <ContextMenu.Row
+            id={User.userId}
+            key={User.userId}
+            action={() => {
+              setSelectedUser(User);
+            }}
+          >
+            <Table.Row isDark={IsDark} id={User.userId}>
+              <UserRow User={User} />
+            </Table.Row>
+          </ContextMenu.Row>
+        )}
+      />
+      <ContextMenu.Menu>
+        <UserContextMenu
+          selectedUser={selectedUser}
+          key={selectedUser?.userId}
         />
-        <ContextMenu.Menu>
-          <UserContextMenu
-            selectedUser={selectedUser}
-            key={selectedUser?.userId}
-          />
-        </ContextMenu.Menu>
-      </ContextMenu>
+      </ContextMenu.Menu>
     </Table>
   );
 }

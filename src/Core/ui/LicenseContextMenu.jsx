@@ -5,9 +5,7 @@ import Menu from "./Menu";
 function LicenseContextMenu() {
   return (
     <Menu bgColor="bg-inherit">
-      {/* <li> */}
       <Item text="Show License information" icon={<FaIdCard />} />
-      {/* </li> */}
     </Menu>
   );
 }

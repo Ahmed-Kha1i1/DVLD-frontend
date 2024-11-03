@@ -6,39 +6,29 @@ import Menu from "../../Core/ui/Menu";
 function UserContextMenu({ selectedUser }) {
   return (
     <Menu bgColor="bg-inherit">
-      <li>
-        <Item
-          text="Show Details"
-          icon={<FaIdCard />}
-          to={`${selectedUser.userId}/Profile`}
-        />
-      </li>
+      <Item
+        text="Show Details"
+        icon={<FaIdCard />}
+        to={`${selectedUser.userId}/Profile`}
+      />
       <hr />
-      <li>
-        <Item text="Add New" icon={<FaIdCard />} to="add-new" />
-      </li>
-      <li>
-        <Item
-          text="Edit"
-          icon={<FaIdCard />}
-          to={`${selectedUser.userId}/edit-user`}
-        />
-      </li>
+      <Item text="Add New" icon={<FaIdCard />} to="add-new" />
+      <Item
+        text="Edit"
+        icon={<FaIdCard />}
+        to={`${selectedUser.userId}/edit-user`}
+      />
 
-      <il>
-        <Item
-          text="Delete"
-          icon={<FaIdCard />}
-          to={`${selectedUser.userId}/delete`}
-        />
-      </il>
-      <li>
-        <Item
-          text="Change Password"
-          icon={<FaIdCard />}
-          to={`${selectedUser.userId}/change-password`}
-        />
-      </li>
+      <Item
+        text="Delete"
+        icon={<FaIdCard />}
+        to={`${selectedUser.userId}/delete`}
+      />
+      <Item
+        text="Change Password"
+        icon={<FaIdCard />}
+        to={`${selectedUser.userId}/change-password`}
+      />
       <hr />
       <Item text="Send Email" icon={<FaIdCard />} />
     </Menu>

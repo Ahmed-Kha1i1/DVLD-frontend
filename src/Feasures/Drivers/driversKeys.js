@@ -1,5 +1,6 @@
 const driverdetailTypes = {
   ID: "id",
+  PERSON_ID: "personId",
 };
 
 const driversKeys = {

@@ -40,6 +40,7 @@ function UserTabs({ userToEdit }) {
       setCurrentPersonId("");
       return;
     }
+
     if (isEditSession) {
       setIsUnique(true);
       setCurrentPersonId(personId);

@@ -8,8 +8,9 @@ export default function useDriverLicenses(id) {
     error,
     data: driverLicenses,
   } = useQuery({
-    queryKey: licensesKeys.lists(),
+    queryKey: licensesKeys.list({ driverId: id }),
     queryFn: () => GetDriverLicenses(id),
+    enabled: !!id,
   });
 
   return { isLoading, error, driverLicenses };

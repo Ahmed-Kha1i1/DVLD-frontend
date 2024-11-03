@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { cloneElement, useCallback, useState } from "react";
 import useOutsideClick from "../Hooks/useOutsideClick";
 import useScroll from "../Hooks/useScroll";
 import { useContextMenu, ContextMenuContext } from "../Hooks/useContextMenu";
@@ -44,10 +44,18 @@ function Row({ id, children, action }) {
 }
 
 function Menu({ children }) {
-  const { openId, close, position, setPosition } = useContextMenu();
+  const { openId, close, position } = useContextMenu();
+  const [height, setHeight] = useState();
+  const [width, setWidth] = useState();
   const ref = useOutsideClick(handleClose);
 
-  useScroll(handleClose);
+  const refSize = useCallback((node) => {
+    if (node !== null) {
+      setHeight(node?.firstElementChild.offsetHeight);
+      setWidth(node?.firstElementChild.offsetWidth);
+    }
+  }, []);
+
   function handleClose() {
     if (openId) {
       close();
@@ -56,31 +64,25 @@ function Menu({ children }) {
 
   if (!openId) return null;
 
-  if (ref.current?.firstElementChild) {
-    const Height = ref.current?.firstElementChild.offsetHeight;
-    const Width = ref.current?.firstElementChild.offsetWidth;
+  const isWidthOut = position.left + width > window.innerWidth;
+  const isHeightOut = position.top + height > window.innerHeight;
 
-    const isWidthOut = position.left + Width > window.innerWidth;
-    const isHeightOut = position.top + Height > window.innerHeight;
-
-    if (isWidthOut || isHeightOut)
-      setPosition({
-        left: isWidthOut ? position.left - Width : position.left,
-        top: isHeightOut ? position.top - Height : position.top,
-      });
-  }
+  let leftPosition = isWidthOut ? position.left - width : position.left;
+  let topPosition = isHeightOut ? position.top - height : position.top;
 
   return (
     <div
-      ref={ref}
+      ref={(node) => {
+        refSize(node);
+        ref.current = node;
+      }}
       className="fixed rounded-md bg-gray-100 shadow-lg"
       style={{
-        left: `${position.left}px`,
-        top: `${position.top}px`,
+        left: `${leftPosition}px`,
+        top: `${topPosition}px`,
       }}
-      onClick={() => handleClose()}
     >
-      {children}
+      {cloneElement(children, { onCloseMenu: handleClose })}
     </div>
   );
 }

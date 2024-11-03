@@ -29,30 +29,29 @@ function DetainedLicensesTable() {
         <div>Release Date</div>
         <div>Release Application Id</div>
       </Table.Header>
-      <ContextMenu>
-        <Table.Body
-          items={DetainedLicenses}
-          render={(DetainedLicense, IsDark) => (
-            <ContextMenu.Row
-              id={DetainedLicense.detainID}
-              key={DetainedLicense.detainID}
-              action={() => {
-                setSelectedDetainedLicense(DetainedLicense);
-              }}
-            >
-              <Table.Row isDark={IsDark} id={DetainedLicense.detainID}>
-                <DetainedLicenseRow DetainedLicense={DetainedLicense} />
-              </Table.Row>
-            </ContextMenu.Row>
-          )}
+
+      <Table.Body
+        items={DetainedLicenses}
+        render={(DetainedLicense, IsDark) => (
+          <ContextMenu.Row
+            id={DetainedLicense.detainID}
+            key={DetainedLicense.detainID}
+            action={() => {
+              setSelectedDetainedLicense(DetainedLicense);
+            }}
+          >
+            <Table.Row isDark={IsDark} id={DetainedLicense.detainID}>
+              <DetainedLicenseRow DetainedLicense={DetainedLicense} />
+            </Table.Row>
+          </ContextMenu.Row>
+        )}
+      />
+      <ContextMenu.Menu>
+        <DetainedLicensesContextMenu
+          selectedDetainedLicense={selectedDetainedLicense}
+          key={selectedDetainedLicense?.detainID}
         />
-        <ContextMenu.Menu>
-          <DetainedLicensesContextMenu
-            selectedDetainedLicense={selectedDetainedLicense}
-            key={selectedDetainedLicense?.detainID}
-          />
-        </ContextMenu.Menu>
-      </ContextMenu>
+      </ContextMenu.Menu>
     </Table>
   );
 }

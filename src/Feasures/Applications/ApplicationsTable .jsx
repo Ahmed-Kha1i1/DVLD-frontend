@@ -28,30 +28,28 @@ function ApplicationsTable() {
         <div>Passed Tests</div>
         <div>Status</div>
       </Table.Header>
-      <ContextMenu>
-        <Table.Body
-          items={applications}
-          render={(application, IsDark) => (
-            <ContextMenu.Row
-              id={application.localApplicationId}
-              key={application.localApplicationId}
-              action={() => {
-                setSelectedApplication(application);
-              }}
-            >
-              <Table.Row isDark={IsDark} id={application.localApplicationId}>
-                <ApplicationRow application={application} />
-              </Table.Row>
-            </ContextMenu.Row>
-          )}
+      <Table.Body
+        items={applications}
+        render={(application, IsDark) => (
+          <ContextMenu.Row
+            id={application.localApplicationId}
+            key={application.localApplicationId}
+            action={() => {
+              setSelectedApplication(application);
+            }}
+          >
+            <Table.Row isDark={IsDark} id={application.localApplicationId}>
+              <ApplicationRow application={application} />
+            </Table.Row>
+          </ContextMenu.Row>
+        )}
+      />
+      <ContextMenu.Menu>
+        <ApplicationContextMenu
+          SelectedApplication={selectedApplication}
+          key={selectedApplication?.localApplicationId}
         />
-        <ContextMenu.Menu>
-          <ApplicationContextMenu
-            SelectedApplication={selectedApplication}
-            key={selectedApplication?.localApplicationId}
-          />
-        </ContextMenu.Menu>
-      </ContextMenu>
+      </ContextMenu.Menu>
     </Table>
   );
 }

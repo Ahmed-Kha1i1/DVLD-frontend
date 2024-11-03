@@ -1,21 +1,18 @@
 import { useEffect, useRef } from "react";
 
 function useOutsideClick(handler) {
-  const ref = useRef();
+  const ref = useRef(null);
 
-  useEffect(
-    function () {
-      function handleClose(e) {
-        if (ref.current && !ref.current.contains(e.target)) {
-          handler();
-        }
+  useEffect(() => {
+    function handleClose(e) {
+      if (ref.current && !ref.current.contains(e.target)) {
+        handler();
       }
+    }
 
-      document.addEventListener("click", handleClose, true);
-      return () => document.removeEventListener("click", handleClose, true);
-    },
-    [handler]
-  );
+    document.addEventListener("click", handleClose, true);
+    return () => document.removeEventListener("click", handleClose, true);
+  }, [handler]);
 
   return ref;
 }
