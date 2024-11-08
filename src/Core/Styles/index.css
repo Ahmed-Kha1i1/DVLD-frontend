@@ -27,6 +27,14 @@
 }
 
 @layer components {
+  .has-arrow {
+    position: relative;
+  }
+
+  .has-arrow::after {
+    @apply absolute -top-10 right-2 border-[20px] border-transparent border-b-white lg:content-[""];
+  }
+
   .btn {
     @apply rounded-md px-4 py-3 text-2xl;
   }
@@ -84,6 +92,34 @@
   .image-uploader {
     label {
       @apply btn cursor-pointer bg-secondary text-xl font-bold text-TextColor;
+    }
+  }
+  .move-page {
+    @apply flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 transition-colors duration-200;
+    &:hover {
+      @apply bg-blue-500 text-white;
+    }
+  }
+  .btn-page {
+    @apply h-12 w-12 rounded-xl transition-all duration-200;
+    &.not-active {
+      @apply bg-gray-200;
+      .number {
+        @apply text-gray-700;
+      }
+      &:hover {
+        .number {
+          @apply text-blue-500;
+        }
+      }
+    }
+
+    &.active {
+      @apply bg-blue-500 shadow-custom-blue;
+
+      .number {
+        @apply text-white;
+      }
     }
   }
 }

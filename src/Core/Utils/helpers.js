@@ -30,6 +30,32 @@ export function GetTestTypeName(testTypeId) {
   }
 }
 
+export function determineNextTestText(passedTestCount) {
+  switch (passedTestCount) {
+    case 0:
+      return "Vision";
+    case 1:
+      return "Written";
+    case 2:
+      return "Street";
+    default:
+      return "Unknown Test";
+  }
+}
+
+export function determineNextTestRoute(passedTestCount) {
+  switch (passedTestCount) {
+    case 0:
+      return "sechdule-vision";
+    case 1:
+      return "sechdule-written";
+    case 2:
+      return "sechdule-street";
+    default:
+      return "unknown-test";
+  }
+}
+
 export function doesPassThisTest(testTypeId, passedTests) {
   if (passedTests === 0) return false;
 

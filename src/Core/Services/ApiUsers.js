@@ -1,12 +1,42 @@
-import { BASE_URL } from "../../Constants";
+import { BASE_URL, defaultPageSize } from "../../Constants";
 import fetchData from "./Fetch";
 
 export const userDataType = {
   full: "application/vnd.user.full+json",
   pref: "application/vnd.user.pref+json",
 };
-export async function getUsers() {
-  return (await fetchData(`${BASE_URL}/api/Users/All`)).data;
+
+export async function getUsers(
+  {
+    id = null,
+    personId = null,
+    username = null,
+    isActive = null,
+    pageNumber = 1,
+    pageSize = defaultPageSize,
+    orderBy = "Id",
+    orderDirection = "Asc",
+    searchQuery = null,
+  } = {},
+  signal,
+) {
+  const queryParams = new URLSearchParams();
+
+  if (id) queryParams.append("Id", id);
+  if (personId) queryParams.append("PersonId", personId);
+  if (username) queryParams.append("Username", username);
+  if (isActive !== null) queryParams.append("IsActive", isActive);
+  queryParams.append("PageNumber", pageNumber);
+  queryParams.append("PageSize", pageSize);
+  queryParams.append("OrderBy", orderBy);
+  queryParams.append("OrderDirection", orderDirection);
+  if (searchQuery) queryParams.append("SearchQuery", searchQuery);
+
+  return (
+    await fetchData(`${BASE_URL}/api/Users/All?${queryParams}`, {
+      signal,
+    })
+  ).data;
 }
 
 export async function getUser(id, accept = userDataType.full) {
@@ -47,13 +77,13 @@ export async function updateUser(UserId, user) {
   return data.data;
 }
 
-export async function updatePassword(userId, newPassword) {
+export async function updatePassword(userId, newPassword, oldPassword) {
   const data = await fetchData(`${BASE_URL}/api/Users/UpdatePassword`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ newPassword, userId }),
+    body: JSON.stringify({ newPassword, userId, oldPassword }),
   });
   return data.data;
 }
@@ -75,6 +105,18 @@ export async function isUsernameUnique(username, id) {
     `${BASE_URL}/api/Users/Unique/Username?${queryParams}`,
   );
   return { usernameUnique: result.data };
+}
+
+export async function isPasswordValid(userId, currentPassword) {
+  const queryParams = new URLSearchParams({
+    userId,
+    currentPassword,
+  });
+
+  const result = await fetchData(
+    `${BASE_URL}/api/Users/PasswordValid/?${queryParams}`,
+  );
+  return result.data;
 }
 
 export async function isUserExistByPersonId(personId) {

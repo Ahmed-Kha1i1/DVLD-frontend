@@ -2,6 +2,14 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      "2xl": { max: "1535px" }, // max-width 1535px
+      xl: { max: "1279px" }, // max-width 1279px
+      lg: { max: "1023px" }, // max-width 1023px
+      md: { max: "767px" }, // max-width 767px
+      sm: { max: "639px" }, // max-width 639px
+      xs: { max: "479px" }, // max-width 639px
+    },
     extend: {
       colors: {
         primary: "#4F65DF",
@@ -16,6 +24,10 @@ export default {
       },
       fontFamily: {
         Cairo: "Cairo, sans-serif",
+      },
+      boxShadow: {
+        "custom-blue": "1px 2px 7px 0px rgba(31,116,254,0.75)",
+        "custom-gray": "1px 2px 7px 0px rgb(121 85 72 / 16%)",
       },
     },
   },

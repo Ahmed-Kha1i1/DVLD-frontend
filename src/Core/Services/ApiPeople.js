@@ -1,14 +1,36 @@
-import { BASE_URL } from "../../Constants";
+import { BASE_URL, defaultPageSize } from "../../Constants";
 import { persondetailTypes } from "../../Feasures/People/peopleKeys";
 import fetchData, { createFormData } from "./Fetch";
 
-function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-export async function getPeople() {
-  const result = await fetchData(`${BASE_URL}/api/People/All`);
+export async function getPeople(
+  {
+    id = null,
+    nationalNumber = null,
+    gender = null,
+    pageNumber = 1,
+    pageSize = defaultPageSize,
+    orderBy = "Id",
+    orderDirection = "Asc",
+    searchQuery = null,
+  } = {},
+  signal,
+) {
+  const queryParams = new URLSearchParams();
 
-  return result.data;
+  if (id) queryParams.append("Id", id);
+  if (nationalNumber) queryParams.append("NationalNumber", nationalNumber);
+  if (gender) queryParams.append("Gender", gender);
+  queryParams.append("PageNumber", pageNumber);
+  queryParams.append("PageSize", pageSize);
+  queryParams.append("OrderBy", orderBy);
+  queryParams.append("OrderDirection", orderDirection);
+  if (searchQuery) queryParams.append("SearchQuery", searchQuery);
+
+  return (
+    await fetchData(`${BASE_URL}/api/People/All?${queryParams}`, {
+      signal,
+    })
+  ).data;
 }
 
 export async function getPerson(identifier, type = persondetailTypes.ID) {

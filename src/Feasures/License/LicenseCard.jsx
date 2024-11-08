@@ -10,6 +10,7 @@ import {
 } from "../../Core/utils/FormatUtils";
 import Active from "../../Core/ui/Active";
 import BoolColumn from "../../Core/ui/BoolColumn";
+import RedirectLink from "../../Core/ui/RedirectLink";
 
 function LicenseCard({ License }) {
   return (
@@ -77,6 +78,11 @@ function LicenseCard({ License }) {
           }
         />
       </div>
+      <RedirectLink
+        path={`/drivers/${License?.driverId}/profile`}
+        text="Driver Info"
+        disabled={!License?.driverId}
+      />
     </Card>
   );
 }

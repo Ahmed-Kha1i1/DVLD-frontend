@@ -1,12 +1,43 @@
-import { BASE_URL, CurrentuserId } from "../../Constants";
+import { BASE_URL, CurrentuserId, defaultPageSize } from "../../Constants";
 import fetchData from "./Fetch";
 
 export const applicationDataType = {
   full: "application/vnd.LocalApplication.full+json",
   pref: "application/vnd.LocalApplication.pref+json",
 };
-export async function getApplications() {
-  return (await fetchData(`${BASE_URL}/api/LocalApplications/All`)).data;
+export async function getApplications(
+  {
+    id = null,
+    className = null,
+    personId = null,
+    nationalNumber = null,
+    status = null,
+    pageNumber = 1,
+    pageSize = defaultPageSize,
+    orderBy = "Id",
+    orderDirection = "Asc",
+    searchQuery = null,
+  } = {},
+  signal,
+) {
+  const queryParams = new URLSearchParams();
+
+  if (id) queryParams.append("Id", id);
+  if (className) queryParams.append("ClassName", className);
+  if (personId) queryParams.append("PersonId", personId);
+  if (nationalNumber) queryParams.append("NationalNumber", nationalNumber);
+  if (status) queryParams.append("Status", status);
+  queryParams.append("PageNumber", pageNumber);
+  queryParams.append("PageSize", pageSize);
+  queryParams.append("OrderBy", orderBy);
+  queryParams.append("OrderDirection", orderDirection);
+  if (searchQuery) queryParams.append("SearchQuery", searchQuery);
+
+  return (
+    await fetchData(`${BASE_URL}/api/LocalApplications/All?${queryParams}`, {
+      signal,
+    })
+  ).data;
 }
 
 export async function GetActiveLicenseId(localApplicationId) {

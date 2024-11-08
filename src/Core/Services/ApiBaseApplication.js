@@ -16,3 +16,7 @@ export async function GetActiveApplicationId(personId, licenseClassId) {
     )
   ).data;
 }
+
+export async function getBaseApplication(id) {
+  return (await fetchData(`${BASE_URL}/api/Applications/${id}`)).data;
+}

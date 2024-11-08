@@ -1,19 +1,15 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
-import useDetainedLicenses from "./useDetainedLicenses.js";
-import Spinner from "../../Core/ui/Spinner.jsx";
 import Error from "../../Core/ui/Error.jsx";
 import Table from "../../Core/ui/Table.jsx";
 import ContextMenu from "../../Core/ui/ContextMenu.jsx";
 import DetainedLicensesContextMenu from "./DetainedLicensesContextMenu.jsx";
 import DetainedLicenseRow from "./DetainedLicenseRow.jsx";
 
-function DetainedLicensesTable() {
-  const { isLoading, error, DetainedLicenses } = useDetainedLicenses();
+function DetainedLicensesTable({ detainedLicenses, error }) {
   const [selectedDetainedLicense, setSelectedDetainedLicense] = useState(null);
 
   const columns = "grid-cols-[0.5fr_0.6fr_1fr_0.5fr_0.6fr_1.5fr_0.7fr_1fr_1fr]";
-
-  if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
   return (
@@ -31,7 +27,7 @@ function DetainedLicensesTable() {
       </Table.Header>
 
       <Table.Body
-        items={DetainedLicenses}
+        items={detainedLicenses?.items}
         render={(DetainedLicense, IsDark) => (
           <ContextMenu.Row
             id={DetainedLicense.detainID}

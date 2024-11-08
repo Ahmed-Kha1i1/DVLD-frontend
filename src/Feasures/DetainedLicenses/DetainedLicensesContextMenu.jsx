@@ -25,6 +25,7 @@ function DetainedLicensesContextMenu({ selectedDetainedLicense }) {
       <Item
         text="Release Detained License"
         icon={<FaIdCard />}
+        to={`/detained-licenses/release?licenseId=${selectedDetainedLicense.licenseID}`}
         disabled={selectedDetainedLicense.isReleased}
       />
     </Menu>

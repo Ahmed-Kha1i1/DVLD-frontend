@@ -13,8 +13,7 @@ function TextInput({
   isTextArea = false,
   className,
 }) {
-  console.log(error);
-  return (
+    return (
     <FormRow
       label={label}
       isRequired={isRequired}

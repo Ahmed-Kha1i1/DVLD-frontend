@@ -1,16 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getDatainedLicenses } from "../../Core/Services/ApiDatainedLicenses";
 import { detainedLicensesKeys } from "./detainedLicensesKeys";
 
-export default function useDetainedLicenses() {
+export default function useDetainedLicenses(filters) {
   const {
     isLoading,
     error,
-    data: DetainedLicenses,
+    data: detainedLicenses,
   } = useQuery({
-    queryKey: detainedLicensesKeys.lists(),
-    queryFn: getDatainedLicenses,
+    queryKey: detainedLicensesKeys.list(filters),
+    queryFn: ({ signal }) => getDatainedLicenses(filters, signal),
+    placeholderData: keepPreviousData,
   });
 
-  return { isLoading, error, DetainedLicenses };
+  return { isLoading, error, detainedLicenses };
 }

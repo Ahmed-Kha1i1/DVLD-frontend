@@ -38,13 +38,13 @@ export function validateNameRule(field, required = true) {
   return rule;
 }
 
-export function validatePasswordRule() {
+export function validatePasswordRule(field) {
   return {
-    required: "Password is required",
-    maxLength: setMaxLength(20, "Password"),
+    required: `${field} is required`,
+    maxLength: setMaxLength(20, field),
     validate: (value) =>
       validatePassword(value.trim()) ||
-      "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character",
+      `${field} must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character`,
   };
 }
 
@@ -53,7 +53,7 @@ export function validateConfirmPasswordRule(getValues) {
     required: "Confirm Password is required",
 
     validate: (value) =>
-      value.trim() === getValues()?.password?.trim() ||
+      value.trim() === getValues()?.newPassword?.trim() ||
       "Passwords do not match",
   };
 }

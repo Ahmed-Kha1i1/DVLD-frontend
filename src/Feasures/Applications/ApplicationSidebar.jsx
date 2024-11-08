@@ -18,6 +18,8 @@ function ApplicationSidebar() {
   if (error) return <Error message={error?.message} />;
   const isNew =
     application.basicApplication.applicationStatus === applicationStatuses.New;
+
+  if (!isNew) return null;
   return (
     <Sidebar>
       <Link
@@ -26,30 +28,26 @@ function ApplicationSidebar() {
         type="side"
         to={`${id}/details`}
       />
-      {isNew && (
-        <>
-          <Link text="Edit" icon={<CiEdit />} type="side" to={`${id}/edit`} />
-          <Link
-            text="Delete"
-            icon={<MdDeleteForever />}
-            type="side"
-            to={`${id}/delete`}
-          />
-          <Link
-            text="Cancel"
-            icon={<MdOutlineCancel />}
-            type="side"
-            to={`${id}/cancel`}
-          />
-          {application.passedTestCount === 3 && (
-            <Link
-              text="Issue Driving License"
-              icon={<GoIssueClosed />}
-              type="side"
-              to={`${id}/issue`}
-            />
-          )}
-        </>
+      <Link text="Edit" icon={<CiEdit />} type="side" to={`${id}/edit`} />
+      <Link
+        text="Delete"
+        icon={<MdDeleteForever />}
+        type="side"
+        to={`${id}/delete`}
+      />
+      <Link
+        text="Cancel"
+        icon={<MdOutlineCancel />}
+        type="side"
+        to={`${id}/cancel`}
+      />
+      {application.passedTestCount === 3 && (
+        <Link
+          text="Issue Driving License"
+          icon={<GoIssueClosed />}
+          type="side"
+          to={`${id}/issue`}
+        />
       )}
     </Sidebar>
   );

@@ -8,8 +8,6 @@ import { BsFillPersonVcardFill } from "react-icons/bs";
 import CardTitle from "../../Core/ui/CardTitle";
 import Empty from "../../Core/ui/Empty";
 import PersonTopDetails from "../../Core/ui/PersonTopDetails";
-
-import EditButton from "../../Core/ui/EditButton";
 import RedirectLink from "../../Core/ui/RedirectLink";
 function PersonCard({ person }) {
   if (!person) return <Empty>No person to show</Empty>;

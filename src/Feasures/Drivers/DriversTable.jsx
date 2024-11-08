@@ -1,18 +1,14 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
-import useDrivers from "./useDrivers.js";
-import Spinner from "../../Core/ui/Spinner.jsx";
 import Error from "../../Core/ui/Error.jsx";
 import Table from "../../Core/ui/Table.jsx";
 import ContextMenu from "../../Core/ui/ContextMenu.jsx";
 import DriverContextMenu from "./DriverContextMenu.jsx";
 import DriverRow from "./DriverRow.jsx";
-function DriversTable() {
-  const { isLoading, error, Drivers } = useDrivers();
+function DriversTable({ drivers, error }) {
   const [selectedDriver, setSelectedDriver] = useState(null);
 
   const columns = "grid-cols-[0.5fr_0.6fr_0.6fr_2.3fr_1.7fr_1.5fr]";
-
-  if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
 
@@ -28,7 +24,7 @@ function DriversTable() {
       </Table.Header>
 
       <Table.Body
-        items={Drivers}
+        items={drivers?.items}
         render={(Driver, IsDark) => (
           <ContextMenu.Row
             id={Driver.driverID}

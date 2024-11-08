@@ -1,13 +1,13 @@
-import PeopleTable from "../../Feasures/People/PeopleTable";
+import PeopleWithFilter from "../../Feasures/People/PeopleWithFilter";
 import PageTitle from "../ui/PageTitle";
 
-function Applications() {
+function People() {
   return (
     <div>
       <PageTitle title="Manage People" />
-      <PeopleTable />
+      <PeopleWithFilter />
     </div>
   );
 }
 
-export default Applications;
+export default People;

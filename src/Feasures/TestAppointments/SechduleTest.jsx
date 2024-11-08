@@ -82,7 +82,7 @@ function SechduleTest({
             })}
           />
         </InlineInput>
-        <SaveButton disabled={isAppointmentLocked} />
+        <SaveButton disabled={errorMessage} />
       </form>
     </div>
   );

@@ -9,7 +9,7 @@ function Table({ children, columns }) {
   return (
     <TableContext.Provider value={{ columns }}>
       <ContextMenu>
-        <div>{children}</div>
+        <div className="min-h-[660px] rounded-md bg-gray-100">{children}</div>
       </ContextMenu>
     </TableContext.Provider>
   );
@@ -30,7 +30,7 @@ function Body({ items, render }) {
   if (!items?.length) return <Empty>No data to show at the moment</Empty>;
 
   return (
-    <ul className={`min-h-72 divide-y bg-sectionColor`}>
+    <ul className={`min-h-72 divide-y`}>
       {items.map((item, index) => render(item, index % 2 !== 0))}
     </ul>
   );
@@ -43,7 +43,7 @@ function Row({ children, isDark, id }) {
   return (
     <div
       className={`grid ${columns} border-r-2 p-4 text-lg text-slate-800 ${
-        id === openId ? "bg-secondary" : isDark ? "bg-gray-200" : "bg-gray-100"
+        id === openId ? "bg-secondary" : isDark ? "bg-gray-100" : "bg-gray-50"
       }`}
     >
       {children}

@@ -4,8 +4,8 @@ import toast from "react-hot-toast";
 
 function useUpdatePassword() {
   const { mutate: UpdatePassword, isPending: isUpdating } = useMutation({
-    mutationFn: ({ userId, newPassword }) =>
-      updatePasswordApi(userId, newPassword),
+    mutationFn: ({ userId, newPassword, oldPassword }) =>
+      updatePasswordApi(userId, newPassword, oldPassword),
     onSuccess: () => toast.success(`Password has been successfully updated.`),
   });
 

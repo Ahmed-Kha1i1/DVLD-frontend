@@ -7,7 +7,7 @@ export default function useLicense(id, retry = 3) {
     error,
     data: License,
   } = useQuery({
-    queryKey: licensesKeys.detail(licensedetailTypes.ID, id),
+    queryKey: licensesKeys.detail(licensedetailTypes.ID, Number(id)),
     queryFn: () => getLicense(id),
     enabled: !!id,
     retry: retry,

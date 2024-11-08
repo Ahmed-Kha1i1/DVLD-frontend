@@ -11,6 +11,7 @@ function ApplicationRow({ application }) {
     applicationDate,
     passedTestCount,
     status,
+    personId,
   } = application;
 
   return (
@@ -18,6 +19,7 @@ function ApplicationRow({ application }) {
       <div>{localApplicationId}</div>
       <div>{className}</div>
       <div>{nationalNo}</div>
+      <div>{personId}</div>
       <div>{fullName}</div>
       <div>{FormatDateTime(applicationDate)}</div>
       <div>{passedTestCount}</div>

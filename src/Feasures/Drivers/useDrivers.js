@@ -1,16 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getDrivers } from "../../Core/Services/ApiDrivers";
 import { driversKeys } from "./driversKeys";
 
-export default function useDrivers() {
+export default function useDrivers(filters) {
   const {
     isLoading,
     error,
-    data: Drivers,
+    data: drivers,
   } = useQuery({
-    queryKey: driversKeys.lists(),
-    queryFn: getDrivers,
+    queryKey: driversKeys.list(filters),
+    queryFn: ({ signal }) => getDrivers(filters, signal),
+    placeholderData: keepPreviousData,
   });
 
-  return { isLoading, error, Drivers };
+  return { isLoading, error, drivers };
 }

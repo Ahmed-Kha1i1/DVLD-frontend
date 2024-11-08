@@ -1,20 +1,16 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
-import useInternationalLicenses from "./useInternationalLicenses";
-import Spinner from "../../Core/ui/Spinner";
 import Error from "../../Core/ui/Error";
 import Table from "../../Core/ui/Table";
 import ContextMenu from "../../Core/ui/ContextMenu";
 import InternationalLicenseRow from "./InternationalLicenseRow";
 import InternationalLicensesContextMenu from "./InternationalLicensesContextMenu";
 
-function InternationalLicensesTable() {
-  const { isLoading, error, InternationalLicenses } =
-    useInternationalLicenses();
+function InternationalLicensesTable({ internationalLicenses, error }) {
   const [selectedInternationalLicense, setSelectedInternationalLicense] =
     useState(null);
-  const columns = "grid-cols-[0.5fr_0.7fr_0.5fr_0.5fr_1.5fr_1.5fr_0.7fr_1fr]";
-
-  if (isLoading) return <Spinner />;
+  const columns =
+    "grid-cols-[0.5fr_0.7fr_0.5fr_0.5fr_0.5fr_1.5fr_1.5fr_0.7fr_1fr]";
 
   if (error) return <Error message={error?.message} />;
 
@@ -25,6 +21,7 @@ function InternationalLicensesTable() {
         <div>Application Id</div>
         <div>License Id</div>
         <div>Driver Id</div>
+        <div>Person Id</div>
         <div>Issue Date</div>
         <div>Expiration Date</div>
         <div>Is Active</div>
@@ -32,7 +29,7 @@ function InternationalLicensesTable() {
       </Table.Header>
 
       <Table.Body
-        items={InternationalLicenses}
+        items={internationalLicenses?.items}
         render={(InternationalLicense, IsDark) => (
           <ContextMenu.Row
             id={InternationalLicense.internationalLicenseID}

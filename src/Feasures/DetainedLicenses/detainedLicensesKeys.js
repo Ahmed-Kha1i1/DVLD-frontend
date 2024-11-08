@@ -1,5 +1,6 @@
 const detainedLicensedetailTypes = {
   ID: "id",
+  LICENSE_ID: "licenseId",
 };
 
 const detainedLicensesKeys = {

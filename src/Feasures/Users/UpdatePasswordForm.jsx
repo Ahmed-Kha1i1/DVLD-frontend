@@ -4,6 +4,8 @@ import Form from "../../Core/ui/Form";
 import PasswordFields from "./PasswordFields";
 import useUpdatePassword from "../Users/useUpdatePassword";
 import SaveButton from "../../Core/ui/SaveButton";
+import { isPasswordValid } from "../../Core/Services/ApiUsers";
+import toast from "react-hot-toast";
 
 function UpdatePasswordForm({ userId }) {
   const {
@@ -11,14 +13,32 @@ function UpdatePasswordForm({ userId }) {
     handleSubmit,
     getValues,
     reset,
+    setError,
     formState: { errors },
   } = useForm();
   const { isUpdating, UpdatePassword } = useUpdatePassword();
-  function OnSubmit(values) {
-    console.log("values", values);
-    UpdatePassword({ userId, newPassword: values.password });
-    reset();
+  async function OnSubmit(values) {
+    try {
+      const isValid = await isPasswordValid(userId, values.currentPassword);
+      if (isValid) {
+        UpdatePassword({
+          userId,
+          newPassword: values.newPassword,
+          oldPassword: values.currentPassword,
+        });
+        reset();
+      } else {
+        setError("currentPassword", {
+          type: "manual",
+          message:
+            "The old password you provided is incorrect. Please try again.",
+        });
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
   }
+
   function OnError(errors) {
     console.log(errors);
   }

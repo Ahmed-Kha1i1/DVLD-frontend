@@ -44,7 +44,7 @@ function DriverLicensesTable({ driverId }) {
         items={driverLicenses}
         render={(driverLicense, IsDark) => (
           <ContextMenu.Row
-            id={driverLicense.v}
+            id={driverLicense.licenseID}
             key={driverLicense.licenseID}
             action={() => {
               setSelectedLicense(driverLicense);
@@ -58,8 +58,8 @@ function DriverLicensesTable({ driverId }) {
       />
       <ContextMenu.Menu>
         <LicenseContextMenu
-          //to={`${selectedLicense.licenseID}/Licenses`}
           key={selectedLicense?.licenseID}
+          to={`/Licenses/${selectedLicense?.licenseID}`}
         />
       </ContextMenu.Menu>
     </Table>

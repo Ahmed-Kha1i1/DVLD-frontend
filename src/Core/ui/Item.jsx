@@ -11,6 +11,7 @@ function Item({
   disabled = false,
   onClick,
   isli = true,
+  className,
 }) {
   let btnType =
     type === "primary"
@@ -21,7 +22,7 @@ function Item({
 
   let styles = `cursor-pointer hover:bg-gray-200  transition-colors px-4 ${btnType} ${
     disabled ? "disabled" : ""
-  }`;
+  } ${className ? className : ""}`;
 
   const innerElements = (
     <>

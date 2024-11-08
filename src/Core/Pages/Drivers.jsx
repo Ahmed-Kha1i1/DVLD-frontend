@@ -1,13 +1,13 @@
-import DriversTable from "../../Feasures/Drivers/DriversTable";
+import DriversWithFilter from "../../Feasures/Drivers/DriversWithFilter";
 import PageTitle from "../ui/PageTitle";
 
-function Applications() {
+function Drivers() {
   return (
     <div>
       <PageTitle title="Manage Drivers" />
-      <DriversTable />
+      <DriversWithFilter />
     </div>
   );
 }
 
-export default Applications;
+export default Drivers;

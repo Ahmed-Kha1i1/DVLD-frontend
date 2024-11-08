@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:5194";
+export const BASE_URL = "https://localhost:7004";
 
 export const applicationStatuses = {
   New: "New",
@@ -29,5 +29,12 @@ export const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
 ).set;
 
 export const defaultTimeStale = 10 * 60 * 1000;
-
+export const defaultPageSize = 10;
 export const CurrentuserId = 1;
+
+export const IssueReason = {
+  FirstTime: 1,
+  Renew: 2,
+  ReplacementDamaged: 3,
+  ReplacementLost: 4,
+};

@@ -11,6 +11,7 @@ function InternationalLicenseRow({ InternationalLicense }) {
     isActive,
     issueDate,
     issuedUsingLocalLicenseID,
+    personId,
   } = InternationalLicense;
   return (
     <>
@@ -18,6 +19,7 @@ function InternationalLicenseRow({ InternationalLicense }) {
       <div>{applicationID}</div>
       <div>{issuedUsingLocalLicenseID}</div>
       <div>{driverID}</div>
+      <div>{personId}</div>
       <div>{FormatDateTime(issueDate)}</div>
       <div>{FormatDateTime(expirationDate)}</div>
       <BoolColumn value={isActive} />

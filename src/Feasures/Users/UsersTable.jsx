@@ -1,18 +1,14 @@
-import useUsers from "./useUsers.js";
-import Spinner from "../../Core/ui/Spinner.jsx";
+/* eslint-disable react/prop-types */
 import Error from "../../Core/ui/Error.jsx";
 import Table from "../../Core/ui/Table.jsx";
 import ContextMenu from "../../Core/ui/ContextMenu.jsx";
 import UserContextMenu from "./UserContextMenu.jsx";
 import UserRow from "./UserRow.jsx";
 import { useState } from "react";
-function UsersTable() {
-  const { isLoading, error, Users } = useUsers();
+function UsersTable({ users, error }) {
   const [selectedUser, setSelectedUser] = useState(null);
 
   const columns = "grid-cols-[0.4fr_0.4fr_2fr_0.5fr_0.6fr]";
-
-  if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
   return (
@@ -25,7 +21,7 @@ function UsersTable() {
         <div>Is Active</div>
       </Table.Header>
       <Table.Body
-        items={Users}
+        items={users?.items}
         render={(User, IsDark) => (
           <ContextMenu.Row
             id={User.userId}

@@ -1,16 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getInternationalLicenses } from "../../Core/Services/ApiInternationalLicenses";
 import { internationalLicensesKeys } from "./internationalLicensesKeys";
 
-export default function useInternationalLicenses() {
+export default function useInternationalLicenses(filters) {
   const {
     isLoading,
     error,
-    data: InternationalLicenses,
+    data: internationalLicenses,
   } = useQuery({
-    queryKey: internationalLicensesKeys.lists(),
-    queryFn: getInternationalLicenses,
+    queryKey: internationalLicensesKeys.list(filters),
+    queryFn: ({ signal }) => getInternationalLicenses(filters, signal),
+    placeholderData: keepPreviousData,
   });
 
-  return { isLoading, error, InternationalLicenses };
+  return { isLoading, error, internationalLicenses };
 }

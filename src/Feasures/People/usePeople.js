@@ -1,16 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getPeople } from "../../Core/Services/ApiPeople";
 import { peopleKeys } from "./peopleKeys";
 
-export default function usePeople() {
+export default function usePeople(filters) {
   const {
     isLoading,
     error,
-    data: People,
+    data: people,
   } = useQuery({
-    queryKey: peopleKeys.lists(),
-    queryFn: getPeople,
+    queryKey: peopleKeys.list(filters),
+    queryFn: ({ signal }) => getPeople(filters, signal),
+    placeholderData: keepPreviousData,
   });
 
-  return { isLoading, error, People };
+  return { isLoading, error, people };
 }

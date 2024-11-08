@@ -5,7 +5,7 @@ function Info({ title, text, children }) {
       <div className="info w-40 text-lg font-semibold capitalize text-Darkgray">
         {title}
       </div>
-      <div>{text}</div>
+      <div>{text || "????"}</div>
       {children}
     </div>
   );

@@ -4,16 +4,11 @@ import ApplicationRow from "./ApplicationRow";
 import ContextMenu from "../../Core/ui/ContextMenu";
 import Table from "../../Core/ui/Table";
 import ApplicationContextMenu from "./ApplicationContextMenu";
-import useApplications from "./useApplications";
-import Spinner from "../../Core/ui/Spinner";
 import Error from "../../Core/ui/Error";
 
-function ApplicationsTable() {
-  const { isLoading, error, applications } = useApplications();
+function ApplicationsTable({ applications, error }) {
   const [selectedApplication, setSelectedApplication] = useState(null);
-  const columns = "grid-cols-[0.6fr_1.2fr_0.6fr_1.5fr_1fr_0.5fr_1fr]";
-
-  if (isLoading) return <Spinner />;
+  const columns = "grid-cols-[0.6fr_1.2fr_0.6fr_0.6fr_1.5fr_1fr_0.5fr_1fr]";
 
   if (error) return <Error message={error?.message} />;
 
@@ -23,13 +18,14 @@ function ApplicationsTable() {
         <div>Id</div>
         <div>Driving Class</div>
         <div>National No.</div>
+        <div>Person Id.</div>
         <div>Full Name</div>
         <div>Application Date</div>
         <div>Passed Tests</div>
         <div>Status</div>
       </Table.Header>
       <Table.Body
-        items={applications}
+        items={applications?.items}
         render={(application, IsDark) => (
           <ContextMenu.Row
             id={application.localApplicationId}

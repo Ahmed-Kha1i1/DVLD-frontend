@@ -6,7 +6,7 @@ const applicationdetailTypes = {
 const applicationsKeys = {
   all: ["applications"],
   lists: () => [...applicationsKeys.all, "list"],
-  list: (filter) => [...applicationsKeys.lists(), { filter }],
+  list: (filter) => [...applicationsKeys.lists(), filter],
   details: () => [...applicationsKeys.all, "detail"],
   fullDetails: () => [...applicationsKeys.details(), "full"],
   prefDetails: () => [...applicationsKeys.details(), "pref"],

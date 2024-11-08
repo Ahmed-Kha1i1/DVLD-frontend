@@ -33,7 +33,7 @@ function DriverInternationalLicensesTable({ driverId }) {
         items={driverInternationalLicenses}
         render={(driverInternationalLicense, IsDark) => (
           <ContextMenu.Row
-            id={driverInternationalLicense.v}
+            id={driverInternationalLicense.internationalLicenseID}
             key={driverInternationalLicense.internationalLicenseID}
             action={() => {
               setSelectedLicense(driverInternationalLicense);
@@ -52,8 +52,8 @@ function DriverInternationalLicensesTable({ driverId }) {
       />
       <ContextMenu.Menu>
         <LicenseContextMenu
-          //to={`${selectedLicense.licenseID}/InternationalLicenses`}
-          key={selectedLicense?.licenseID}
+          to={`/international-licenses/${selectedLicense?.internationalLicenseID}`}
+          key={selectedLicense?.internationalLicenseID}
         />
       </ContextMenu.Menu>
     </Table>
