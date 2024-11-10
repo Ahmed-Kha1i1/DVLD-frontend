@@ -4,6 +4,7 @@ import DetainedLicensesTableTop from "./DetainedLicensesTableTop";
 import DetainedLicensesTable from "./DetainedLicensesTable";
 import useDetainedLicenses from "./useDetainedLicenses";
 import { useSearchParams } from "react-router-dom";
+import Spinner from "../../Core/ui/Spinner";
 
 function DetainedLicensesWithFilter() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -20,7 +21,7 @@ function DetainedLicensesWithFilter() {
   const defaultPageNumber = parseInt(searchParams.get("pageNumber") || "1", 10);
 
   const [filters, setFilters] = useState(defaultValues);
-  const { error, detainedLicenses } = useDetainedLicenses({
+  const { isLoading, error, detainedLicenses } = useDetainedLicenses({
     ...filters,
     pageNumber: defaultPageNumber,
   });
@@ -44,10 +45,14 @@ function DetainedLicensesWithFilter() {
   return (
     <div>
       <DetainedLicensesTableTop onFilter={onFilter} defaultFilters={filters} />
-      <DetainedLicensesTable
-        detainedLicenses={detainedLicenses}
-        error={error}
-      />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <DetainedLicensesTable
+          detainedLicenses={detainedLicenses}
+          error={error}
+        />
+      )}
       <TableFooter
         totalCount={detainedLicenses?.metadata?.totalCount}
         currentPage={pageNumber}

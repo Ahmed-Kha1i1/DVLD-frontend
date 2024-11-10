@@ -44,6 +44,7 @@ function AddNewInternationalLicense() {
     <div>
       <PageTitle title="Add New International License" />
       <LicenseWithFilter
+        key="Add-New-International-License"
         onSelect={onSelect}
         filterEnable={!internationalLicenseId}
         onSelectValidate={onSelectValidate}

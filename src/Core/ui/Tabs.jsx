@@ -45,7 +45,11 @@ function Window({ id, children }) {
 }
 
 function Windows({ children }) {
-  return <div className="bg-white p-8">{children}</div>;
+  return (
+    <div className="overflow-scroll bg-white p-8 xl:py-4 xs:px-2">
+      {children}
+    </div>
+  );
 }
 
 NavigationTabs.Tab = Tab;

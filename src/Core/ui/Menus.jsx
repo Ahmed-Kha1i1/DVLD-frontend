@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import useOutsideClick from "../Hooks/useOutsideClick";
+import useWindowSize from "../Hooks/useWindowSize";
 
 const MenusContext = createContext();
 
@@ -8,31 +9,37 @@ function Menus({ children }) {
   const [openId, setOpenId] = useState("");
   const close = () => setOpenId("");
   const open = (id) => setOpenId(id);
-
+  const { width } = useWindowSize();
+  const isSmallScreen = width <= 1023;
   return (
-    <MenusContext.Provider value={{ openId, open, close }}>
+    <MenusContext.Provider value={{ openId, open, close, isSmallScreen }}>
       {children}
     </MenusContext.Provider>
   );
 }
 
 function Button({ children, opens }) {
-  const { open } = useContext(MenusContext);
+  const { open, openId, isSmallScreen } = useContext(MenusContext);
   const timeoutId = useRef(null);
 
-  const handleMouseOver = () => {
-    // Clear any existing timeout
-    if (timeoutId.current) clearTimeout(timeoutId.current);
-
-    // Set a new timeout for opening the menu
-    timeoutId.current = setTimeout(() => {
+  const handleClick = (e) => {
+    e.stopPropagation();
+    if (openId !== opens) {
       open(opens);
-    }, 300);
+    }
+  };
+
+  const handleMouseOver = () => {
+    if (!isSmallScreen) {
+      if (timeoutId.current) clearTimeout(timeoutId.current);
+      timeoutId.current = setTimeout(() => {
+        open(opens);
+      }, 300);
+    }
   };
 
   const handleMouseLeave = () => {
-    // Clear the timeout on mouse leave to avoid unwanted menu openings
-    if (timeoutId.current) clearTimeout(timeoutId.current);
+    if (!isSmallScreen && timeoutId.current) clearTimeout(timeoutId.current);
   };
 
   useEffect(() => {
@@ -44,8 +51,9 @@ function Button({ children, opens }) {
 
   return (
     <div
-      onMouseOver={handleMouseOver}
-      onMouseLeave={handleMouseLeave}
+      onClick={isSmallScreen ? handleClick : undefined}
+      onMouseOver={isSmallScreen ? undefined : handleMouseOver}
+      onMouseLeave={isSmallScreen ? undefined : handleMouseLeave}
       className="col"
     >
       {children}
@@ -55,12 +63,19 @@ function Button({ children, opens }) {
 
 function Menu({ children, name }) {
   let { openId, close } = useContext(MenusContext);
-  const ref = useOutsideClick(close);
+
+  const ref = useOutsideClick(close, null, false);
 
   if (openId !== name) return null;
 
+  function handleAutoClose(e) {
+    if (openId && e.target.closest("a")) {
+      close();
+    }
+  }
+
   return (
-    <div ref={ref} onClick={() => close()}>
+    <div ref={ref} onClick={handleAutoClose}>
       {children}
     </div>
   );

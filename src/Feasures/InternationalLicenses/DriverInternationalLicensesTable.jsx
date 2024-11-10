@@ -19,7 +19,7 @@ function DriverInternationalLicensesTable({ driverId }) {
   if (error) return <Error message={error?.message} />;
 
   return (
-    <Table columns={columns}>
+    <Table columns={columns} isSmall={true}>
       <Table.Header>
         <div>International License Id</div>
         <div>Application Id</div>

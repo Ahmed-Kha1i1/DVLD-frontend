@@ -30,39 +30,37 @@ function ReleaseCard({ applicationId, licenseId }) {
   return (
     <Card>
       <CardTitle text="Detain Details" icon={<BsFillPersonVcardFill />} />
-      <div>
-        <Info title="Detained Id" text={detainedLicense?.detainedId} />
-      </div>
-      <InfoLine>
-        <Info
-          title="Detain Date"
-          text={
-            detainedLicense?.detainDate &&
-            FormatDateTime(detainedLicense?.detainDate)
-          }
-        />
-        <Info title="License Id" text={licenseId} />
-      </InfoLine>
-      <InfoLine>
-        <Info
-          title="Fine Fees"
-          text={
-            detainedLicense?.fineFees &&
-            formatCurrency(detainedLicense?.fineFees)
-          }
-        />
-        <Info
-          title="Application Fees"
-          text={
-            baseApplication?.paidFees &&
-            formatCurrency(baseApplication?.paidFees)
-          }
-        />
-      </InfoLine>
-      <InfoLine>
-        <Info title="Created By" text={baseApplication?.createdByUserID} />
-        <Info title="Application Id" text={baseApplication?.applicationId} />
-      </InfoLine>
+
+      <Info
+        title="Detained Id"
+        text={detainedLicense?.detainedId}
+        isInLine={true}
+      />
+
+      <Info
+        title="Detain Date"
+        text={
+          detainedLicense?.detainDate &&
+          FormatDateTime(detainedLicense?.detainDate)
+        }
+      />
+      <Info title="License Id" text={licenseId} />
+
+      <Info
+        title="Fine Fees"
+        text={
+          detainedLicense?.fineFees && formatCurrency(detainedLicense?.fineFees)
+        }
+      />
+      <Info
+        title="Application Fees"
+        text={
+          baseApplication?.paidFees && formatCurrency(baseApplication?.paidFees)
+        }
+      />
+
+      <Info title="Created By" text={baseApplication?.createdByUserID} />
+      <Info title="Application Id" text={baseApplication?.applicationId} />
     </Card>
   );
 }

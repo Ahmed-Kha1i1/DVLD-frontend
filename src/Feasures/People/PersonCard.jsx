@@ -15,30 +15,25 @@ function PersonCard({ person }) {
   return (
     <Card>
       <CardTitle text="Person Details" icon={<BsFillPersonVcardFill />} />
-      <PersonTopDetails person={person} className="py-5" />
-      <InfoLine>
-        <Info title="Id" text={person.personID} />
-      </InfoLine>
-      <InfoLine>
-        <Info title="national No." text={person.nationalNo} />
-        <Info title="country" text={person.countryName} />
-      </InfoLine>
-      <InfoLine>
-        <Info title="Birthday" text={FormatDateAsNumber(person.dateOfBirth)}>
-          <span className="ml-4 text-Darkgray">
-            Age {calculateAge(person.dateOfBirth)}
-          </span>
-        </Info>
-        <Info title="gender" text={person.gender} />
-      </InfoLine>
+      <PersonTopDetails person={person} className="one-for-card py-5" />
 
-      <InfoLine>
-        <Info title="email" text={person.email} />
-        <Info title="phone" text={person.phone} />
-      </InfoLine>
-      <div>
-        <Info title="Address" text={person.address} />
-      </div>
+      <Info title="Id" text={person.personID} />
+
+      <Info title="national No." text={person.nationalNo} />
+      <Info title="country" text={person.countryName} />
+
+      <Info title="Birthday" text={FormatDateAsNumber(person.dateOfBirth)}>
+        <span className="ml-4 text-Darkgray">
+          Age {calculateAge(person.dateOfBirth)}
+        </span>
+      </Info>
+      <Info title="gender" text={person.gender} />
+
+      <Info title="email" text={person.email} />
+      <Info title="phone" text={person.phone} />
+
+      <Info title="Address" text={person.address} isInLine={true} />
+
       <RedirectLink
         path={`/people/${person.personID}/edit`}
         text="Edit Person"

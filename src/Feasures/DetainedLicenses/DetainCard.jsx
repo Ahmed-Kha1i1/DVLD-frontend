@@ -2,7 +2,6 @@
 import { BsFillPersonVcardFill } from "react-icons/bs";
 import Card from "../../Core/ui/Card";
 import CardTitle from "../../Core/ui/CardTitle";
-import InfoLine from "../../Core/ui/InfoLine";
 import Info from "../../Core/ui/Info";
 import useDetainedLicense from "./useDetainedLicense";
 import Spinner from "../../Core/ui/Spinner";
@@ -19,29 +18,29 @@ function DetainCard({ detainId, licenseId }) {
   return (
     <Card>
       <CardTitle text="Detain Details" icon={<BsFillPersonVcardFill />} />
-      <InfoLine>
-        <Info title="Detained Id" text={detainedLicense?.detainedId} />
-        <Info title="License Id" text={licenseId} />
-      </InfoLine>
-      <InfoLine>
-        <Info
-          title="Detain Date"
-          text={
-            detainedLicense?.detainDate &&
-            FormatDateTime(detainedLicense?.detainDate)
-          }
-        />
-        <Info title="Created By" text={detainedLicense?.createdByUserID} />
-      </InfoLine>
-      <InfoLine>
-        <Info
-          title="Fine Fees"
-          text={
-            detainedLicense?.fineFees &&
-            formatCurrency(detainedLicense?.fineFees)
-          }
-        />
-      </InfoLine>
+
+      <Info
+        title="Detained Id"
+        text={detainedLicense?.detainedId}
+        isInLine={true}
+      />
+      <Info title="License Id" text={licenseId} />
+
+      <Info
+        title="Detain Date"
+        text={
+          detainedLicense?.detainDate &&
+          FormatDateTime(detainedLicense?.detainDate)
+        }
+      />
+      <Info title="Created By" text={detainedLicense?.createdByUserID} />
+
+      <Info
+        title="Fine Fees"
+        text={
+          detainedLicense?.fineFees && formatCurrency(detainedLicense?.fineFees)
+        }
+      />
     </Card>
   );
 }

@@ -20,7 +20,7 @@ function Item({
         ? "btn-secondary"
         : "";
 
-  let styles = `cursor-pointer hover:bg-gray-200  transition-colors px-4 ${btnType} ${
+  let styles = `cursor-pointer hover:bg-gray-200  transition-colors px-4 ${btnType} w-full ${
     disabled ? "disabled" : ""
   } ${className ? className : ""}`;
 

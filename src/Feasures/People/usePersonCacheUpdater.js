@@ -9,6 +9,10 @@ function usePersonCacheUpdater() {
   function update(newPerson) {
     queryClient.invalidateQueries({ queryKey: peopleKeys.lists() });
 
+    queryClient.invalidateQueries({
+      queryKey: peopleKeys.lists(),
+    });
+
     queryClient.setQueriesData(
       { queryKey: peopleKeys.details() },
       (previous) =>

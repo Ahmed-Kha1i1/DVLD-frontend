@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import Spinner from "../../Core/ui/Spinner";
 import { useSearchParams } from "react-router-dom";
+import Error from "../../Core/ui/Error";
 
 function LicenseWithFilter({
   onSelect,
@@ -16,7 +17,7 @@ function LicenseWithFilter({
   let [searchParams, setSearchParams] = useSearchParams();
   const defaultLicenseId = searchParams.get("licenseId");
   const [licenseId, setLicenseId] = useState(defaultLicenseId);
-  const { isLoading, License } = useLicense(licenseId, 1);
+  const { isLoading, error, License } = useLicense(licenseId, 1);
   const [errorMessage, setErrorMessage] = useState("");
 
   const {
@@ -47,6 +48,8 @@ function LicenseWithFilter({
     if (message) setErrorMessage(message);
     else if (errorMessage) setErrorMessage("");
   }
+
+  if (error) return <Error message={error?.message} />;
 
   return (
     <div className="flex flex-col gap-6">

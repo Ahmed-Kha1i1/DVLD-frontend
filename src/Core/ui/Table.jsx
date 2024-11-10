@@ -5,11 +5,17 @@ import { useContextMenu } from "../Hooks/useContextMenu";
 import ContextMenu from "./ContextMenu";
 const TableContext = createContext();
 
-function Table({ children, columns }) {
+function Table({ children, columns, isSmall = false }) {
   return (
     <TableContext.Provider value={{ columns }}>
       <ContextMenu>
-        <div className="min-h-[660px] rounded-md bg-gray-100">{children}</div>
+        <div className="max-w-full overflow-x-auto">
+          <div
+            className={` ${isSmall ? "h-[330px] min-w-[1200px]" : "h-[660px] min-w-[1500px]"} overflow-scroll rounded-md bg-gray-100`}
+          >
+            {children}
+          </div>
+        </div>
       </ContextMenu>
     </TableContext.Provider>
   );
@@ -19,9 +25,10 @@ function Header({ children }) {
   const { columns } = useContext(TableContext);
   return (
     <div
-      className={`grid bg-HeaderColor px-6 py-3 ${columns} text-lg font-semibold`}
+      className={`grid grid-cols-[1fr_auto] bg-HeaderColor px-6 py-3 text-lg font-semibold`}
     >
-      {children}
+      <div className={`grid ${columns}`}>{children}</div>
+      <div className="hidden lg:block lg:w-4"></div>
     </div>
   );
 }

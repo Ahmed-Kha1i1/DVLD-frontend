@@ -15,21 +15,14 @@ export default function useDeleteApplication() {
       `Application with ID ${ref.current} has been successfully deleted.`,
     );
 
-    queryClient.setQueriesData(
-      { queryKey: applicationsKeys.lists() },
-      (previous) => {
-        return previous
-          ? previous.filter(
-              (Application) => Application.localApplicationId !== ref.current,
-            )
-          : [];
-      },
-    );
+    queryClient.invalidateQueries({
+      queryKey: applicationsKeys.lists(),
+    });
 
     queryClient.removeQueries({
       queryKey: applicationsKeys.details(),
       predicate: (query) => {
-        return query.state.data?.localApplicationId === ref.current;
+        return query.state.data?.localApplicationId == ref.current;
       },
     });
     navigate("/applications");

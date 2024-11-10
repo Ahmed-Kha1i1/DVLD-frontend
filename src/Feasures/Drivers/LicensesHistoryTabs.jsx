@@ -4,7 +4,6 @@ import DriverLicensesTable from "../License/DriverLicensesTable";
 import DriverInternationalLicensesTable from "../InternationalLicenses/DriverInternationalLicensesTable";
 
 function LicensesHistoryTabs({ driverId }) {
-  console.log(driverId);
   return (
     <NavigationTabs defaultTab="Local">
       <NavigationTabs.Tabs>

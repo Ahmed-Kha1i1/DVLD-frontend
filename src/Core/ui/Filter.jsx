@@ -35,6 +35,7 @@ function Filter({
     register,
     handleSubmit,
     formState: { errors },
+    clearErrors,
   } = useForm();
 
   function handleSelect(value) {
@@ -42,15 +43,18 @@ function Filter({
   }
 
   function handleSearch(values) {
-    onSearch(currentOption.optionValue, values.searchKey);
+    onSearch(currentOption.optionValue, values.searchKey.trim());
   }
   function handleAddSuccess(newPersonId) {
     OnAddSeccuss(newPersonId);
+    clearErrors("searchKey");
     Model.closeWindow();
   }
   return (
-    <div className="flex items-start justify-between">
-      <div className={`mb-10 flex ${isEditSession && "disabled"}`}>
+    <div className="relative grid grid-cols-[1fr_auto] items-start justify-between gap-4 lg:grid-cols-1">
+      <div
+        className={`mb-10 flex ${isEditSession && "disabled"} sm:flex-wrap sm:gap-4`}
+      >
         <Select
           options={options}
           onSelect={handleSelect}
@@ -70,13 +74,15 @@ function Filter({
       <Model>
         <Model.Open
           opens="add-person"
-          render={(open) =>
-            isEditSession ? (
-              <EditButton onClick={open} />
-            ) : (
-              <AddButton onClick={open} />
-            )
-          }
+          render={(open) => (
+            <div className="right-0 top-0 lg:row-start-1 sm:absolute">
+              {isEditSession ? (
+                <EditButton onClick={open} />
+              ) : (
+                <AddButton onClick={open} />
+              )}
+            </div>
+          )}
         />
         <Model.Window name="add-person" className="items-start">
           {isEditSession ? (

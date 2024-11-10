@@ -69,30 +69,34 @@ function DetainedLicensesTableTop({ defaultFilters, onFilter }) {
 
   return (
     <div>
-      <div className="mb-5 grid h-16 grid-cols-[auto_auto_1fr_auto_auto] gap-6">
-        <SortTable
-          items={detainedLicensesSortItems}
-          onSort={onSort}
-          defaultValue={formValues?.orderBy || "Id"}
-        />
-        <SortDirectionTable
-          onChangeDirection={onChangeDirection}
-          defaultValue={formValues?.orderDirection || "Asc"}
-        />
-        <SearchTable
-          onSearch={onSearch}
-          defaultValue={formValues?.searchQuery || ""}
-        />
-        <ReleaseButton />
-        <DetainButton />
+      <div className="table-top">
+        <div className="sort-bar">
+          <SortTable
+            items={detainedLicensesSortItems}
+            onSort={onSort}
+            defaultValue={formValues?.orderBy || "Id"}
+          />
+          <SortDirectionTable
+            onChangeDirection={onChangeDirection}
+            defaultValue={formValues?.orderDirection || "Asc"}
+          />
+        </div>
+        <div className="detained-search-bar">
+          <SearchTable
+            onSearch={onSearch}
+            defaultValue={formValues?.searchQuery || ""}
+          />
+          <div className="flex gap-6 sm:justify-end">
+            <ReleaseButton />
+            <DetainButton />
+          </div>
+        </div>
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="mb-5 grid h-16 grid-cols-[1fr_auto_auto] gap-4"
       >
-        <DetainedLicensesFilters control={control} />
-        <ClearButton onClear={onClear} />
-        <FilterButton />
+        <DetainedLicensesFilters control={control} onClear={onClear} />
       </form>
     </div>
   );

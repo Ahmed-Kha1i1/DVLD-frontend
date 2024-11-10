@@ -4,6 +4,7 @@ import EditDriverPerson from "../Pages/EditDriverPerson";
 import DriverLayout from "../../Feasures/Drivers/DriverLayout";
 import EditDriverContacts from "../Pages/EditDriverContacts";
 import DriverLicensesHistory from "../Pages/DriverLicensesHistory";
+import EmptyEmail from "./EmptyEmail";
 
 const driverRoutes = {
   path: "drivers",
@@ -36,7 +37,7 @@ const driverRoutes = {
             },
             {
               path: "send-email",
-              element: <DriverDetails />,
+              element: <EmptyEmail />,
             },
             {
               path: "delete",

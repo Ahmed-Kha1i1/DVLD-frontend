@@ -45,6 +45,7 @@ function RenewLicense() {
     <div>
       <PageTitle title="Renew License" />
       <LicenseWithFilter
+        key="Renew"
         onSelect={onSelect}
         filterEnable={!renewLicenseId}
         onSelectValidate={onSelectValidate}

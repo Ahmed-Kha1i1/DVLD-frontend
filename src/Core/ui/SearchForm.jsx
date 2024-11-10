@@ -4,7 +4,7 @@ import PrimaryBottun from "./PrimaryBottun";
 function SearchForm({ children, onSearch, text = "Search", disabled }) {
   return (
     <form
-      className={`relative flex w-[600px] gap-2 border border-gray-300 ${disabled ? "disabled" : ""}`}
+      className={`relative flex w-[600px] gap-2 border border-gray-300 ${disabled ? "disabled" : ""} lg:w-full`}
       onSubmit={onSearch}
     >
       {children}

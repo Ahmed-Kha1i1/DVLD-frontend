@@ -30,7 +30,11 @@ function UserContextMenu({ selectedUser }) {
         to={`${selectedUser.userId}/change-password`}
       />
       <hr />
-      <Item text="Send Email" icon={<FaIdCard />} />
+      <Item
+        text="Send Email"
+        icon={<FaIdCard />}
+        to={`${selectedUser.userId}/send-email`}
+      />
     </Menu>
   );
 }

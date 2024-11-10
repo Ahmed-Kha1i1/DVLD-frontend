@@ -11,7 +11,7 @@ function ContactForm({ personToEdit }) {
   return (
     <Form onSubmit={handleSubmit}>
       <ContactFields errors={errors} register={register} />
-      <hr className="col-span-2 my-12" />
+      <hr className="one-for-card-md my-12" />
       <SaveButton disabled={isLoading} />
     </Form>
   );

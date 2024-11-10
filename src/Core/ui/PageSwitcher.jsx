@@ -48,7 +48,7 @@ function PageSwitcher({ totalCount, pageSize, currentPage, onPageChange }) {
         onClick={movePrev}
         disabled={currentPage === 1}
       />
-      <div className="flex gap-2 rounded-full bg-gray-200 px-4">
+      <div className="flex flex-wrap gap-2 rounded-full bg-gray-200 px-4 md:rounded-none">
         {getPageNumbers().map((page, index) => {
           return page === "..." ? (
             <span

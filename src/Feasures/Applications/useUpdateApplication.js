@@ -19,7 +19,7 @@ export default function useUpdateApplication() {
       queryKey: applicationsKeys.details(),
       predicate: (query) => {
         return (
-          query.state.data?.localApplicationId === ref.current.applicationId
+          query.state.data?.localApplicationId == ref.current.applicationId
         );
       },
     });

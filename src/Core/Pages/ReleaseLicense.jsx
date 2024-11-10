@@ -37,6 +37,7 @@ function ReleaseLicense() {
     <div>
       <PageTitle title="Release Detained License" />
       <LicenseWithFilter
+        key="Release-License"
         onSelect={onSelect}
         filterEnable={!applicationId}
         onSelectValidate={onSelectValidate}

@@ -3,7 +3,7 @@ import { BsFillPersonVcardFill } from "react-icons/bs";
 import Card from "../../Core/ui/Card";
 import CardTitle from "../../Core/ui/CardTitle";
 import Empty from "../../Core/ui/Empty";
-import InfoLine from "../../Core/ui/InfoLine";
+import { applicationStatuses } from "../../Constants";
 import Info from "../../Core/ui/Info";
 import RedirectLink from "../../Core/ui/RedirectLink";
 import useActiveLicenseId from "./useActiveLicenseId";
@@ -20,26 +20,22 @@ function ApplicationCard({ application }) {
   return (
     <Card>
       <CardTitle text="Application Details" icon={<BsFillPersonVcardFill />} />
-      <InfoLine>
-        <Info title="Id" text={application.localApplicationId} />
-      </InfoLine>
-      <InfoLine>
-        <Info title="Applied For License" text={application.className} />
-        <Info title="Passed Tests" text={application.passedTestCount} />
-      </InfoLine>
-      <div className="flex gap-4">
-        <RedirectLink
-          path={`/licenses/${LicenseId}`}
-          text={`${isLoading ? "Loading..." : "Active License"}`}
-          disabled={isLoading || !LicenseId}
-        />
-        {application.passedTestCount != 3 && (
+      <Info title="Id" text={application.localApplicationId} isInLine={true} />
+      <Info title="Applied For License" text={application.className} />
+      <Info title="Passed Tests" text={application.passedTestCount} />
+      {application.passedTestCount != 3 &&
+        application.basicApplication.applicationStatus ===
+          applicationStatuses.New && (
           <RedirectLink
             path={`/applications/${application?.localApplicationId}/${determineNextTestRoute(application.passedTestCount)}`}
             text={`Sechdule The Next Test (${determineNextTestText(application.passedTestCount)} Test)`}
           />
         )}
-      </div>
+      <RedirectLink
+        path={`/licenses/${LicenseId}`}
+        text={`${isLoading ? "Loading..." : "Active License"}`}
+        disabled={isLoading || !LicenseId}
+      />
     </Card>
   );
 }

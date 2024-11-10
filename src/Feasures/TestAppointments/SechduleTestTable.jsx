@@ -21,7 +21,7 @@ function SechduleTestTable({ localApplicationId, testTypeId }) {
 
   if (error) return <Error message={error?.message} />;
   return (
-    <Table columns={columns}>
+    <Table columns={columns} isSmall={true}>
       <Table.Header>
         <div>Id</div>
         <div>Appointment Date</div>

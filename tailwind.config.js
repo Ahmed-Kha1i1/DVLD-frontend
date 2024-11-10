@@ -29,6 +29,9 @@ export default {
         "custom-blue": "1px 2px 7px 0px rgba(31,116,254,0.75)",
         "custom-gray": "1px 2px 7px 0px rgb(121 85 72 / 16%)",
       },
+      gridTemplateColumns: {
+        "auto-fill-min-1fr-350": "1fr repeat(auto-fill, minmax(350px, 1fr))",
+      },
     },
   },
   plugins: [],

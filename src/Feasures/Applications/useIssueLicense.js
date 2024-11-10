@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { IssueLicense as IssueLicenseApi } from "../../Core/Services/ApiApplications";
 import { useNavigate } from "react-router-dom";
 import { applicationsKeys } from "./applicationsKeys";
-import { applicationStatuses } from "../../Constants";
+import { driversKeys } from "../Drivers/driversKeys";
 import toast from "react-hot-toast";
 import { useRef } from "react";
 
@@ -16,18 +16,18 @@ export default function useIssueLicense() {
       `Application with ID ${ref.current} has been successfully issued with license Id ${licenseId}.`,
     );
 
-    queryClient.setQueryData(applicationsKeys.lists(), (previous) =>
-      previous.map((application) =>
-        application.localApplicationId === ref.current
-          ? { ...application, status: applicationStatuses.Completed }
-          : application,
-      ),
-    );
+    queryClient.invalidateQueries({
+      queryKey: applicationsKeys.lists(),
+    });
+
+    queryClient.invalidateQueries({
+      queryKey: driversKeys.lists(),
+    });
 
     queryClient.invalidateQueries({
       queryKey: applicationsKeys.details(),
       predicate: (query) => {
-        return query.state.data?.localApplicationId === ref.current;
+        return query.state.data?.localApplicationId == ref.current;
       },
     });
 

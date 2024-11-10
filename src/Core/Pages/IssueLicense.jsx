@@ -13,7 +13,7 @@ function IssueLicense() {
     <Card>
       <Model>
         <CardTitle text="Issue License" icon={<FaClipboardCheck />} />
-        <p className="py-8 text-xl text-TextColor">
+        <p className="one-for-card py-8 text-xl text-TextColor">
           You are about to issue a license for this application. Once issued,
           this action is permanent, and the application status will be updated
           accordingly. Please confirm if you'd like to proceed with issuing the
@@ -28,7 +28,7 @@ function IssueLicense() {
               icon={<MdCheckCircle />}
               bgColor="green-500"
               textColor="white"
-              styles="mt-8"
+              styles="mt-8 one-for-card mr-auto"
               onClick={open}
             />
           )}

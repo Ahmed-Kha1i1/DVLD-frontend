@@ -28,7 +28,7 @@ function ImageUploader({ accept, register, error, imageSrc, setImageSrc }) {
     }
   };
   return (
-    <div className="relative col-span-2 mb-5 flex items-center justify-center gap-10">
+    <div className="one-for-card-md relative mb-5 flex items-center justify-center gap-10 sm:flex-col">
       <div className="image-uploader abs-error flex flex-col gap-10">
         <FormRow label="Upload picture" isRequired={false} error={error}>
           <input
@@ -54,6 +54,7 @@ function ImageUploader({ accept, register, error, imageSrc, setImageSrc }) {
           styles="btn-primary bg-gray-300"
         />
       </div>
+
       <div className="flex h-[200px] w-[200px] items-center">
         <img
           src={imageSrc || "/default.png"}

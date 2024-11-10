@@ -11,13 +11,13 @@ export default function useUpdateTestType() {
       { queryKey: testTypesKeys.lists() },
       (previous) =>
         previous.map((testType) =>
-          testType.id === newtestType.id ? newtestType : testType,
+          testType.id == newtestType.id ? newtestType : testType,
         ),
     );
 
     queryClient.setQueriesData(
       { queryKey: testTypesKeys.details() },
-      (testType) => (testType?.id === newtestType.id ? newtestType : testType),
+      (testType) => (testType?.id == newtestType.id ? newtestType : testType),
     );
   }
   const { mutate: updateTestType, isPending: isUpdating } = useMutation({

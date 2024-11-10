@@ -16,68 +16,63 @@ function LicenseCard({ License }) {
   return (
     <Card>
       <CardTitle text="License Details" icon={<BsFillPersonVcardFill />} />
-      <div>
-        <Info title="Id" text={License?.licenseId || "????"} />
-      </div>
-      <InfoLine>
-        <Info title="Name" text={License?.fullName || "????"} />
-        <Info
-          title="National Number"
-          text={License?.nationalNumber || "????"}
-        />
-      </InfoLine>
-      <InfoLine>
-        <Info title="Class Name" text={License?.className || "????"} />
-        <Info
-          title="Is Active"
-          text={<Active active={License?.isActive} large={false} />}
-        />
-      </InfoLine>
-      <InfoLine>
-        <Info title="Gender" text={License?.gender || "????"} />
-        <Info
-          title="Birth Date"
-          text={
-            License?.dateOfBirth
-              ? FormatDateAsNumber(License.dateOfBirth)
-              : "????"
-          }
-        />
-      </InfoLine>
-      <InfoLine>
-        <Info
-          title="Issue Date"
-          text={License?.issueDate ? FormatDateTime(License.issueDate) : "????"}
-        />
-        <Info
-          title="Epiration Date"
-          text={
-            License?.expirationDate
-              ? FormatDateTime(License.expirationDate)
-              : "????"
-          }
-        />
-      </InfoLine>
-      <InfoLine>
-        <Info title="Driver Id" text={License?.driverId || "????"} />
-        <Info
-          title="Is Detained"
-          text={<BoolColumn value={License?.isDetained} />}
-        />
-      </InfoLine>
-      <div>
-        <Info title="Issue Reason" text={License?.issueReason || "????"} />
-      </div>
-      <div>
-        <Info
-          title="Notes"
-          text={
-            License?.notes || (
-              <span className="italic text-gray-600">No notes available</span>
-            )
-          }
-        />
-      </div>
+
+      <Info title="Id" text={License?.licenseId || "????"} isInLine={true} />
+
+      <Info title="Name" text={License?.fullName || "????"} />
+      <Info title="National Number" text={License?.nationalNumber || "????"} />
+
+      <Info title="Class Name" text={License?.className || "????"} />
+      <Info
+        title="Is Active"
+        text={<Active active={License?.isActive} large={false} />}
+      />
+
+      <Info title="Gender" text={License?.gender || "????"} />
+      <Info
+        title="Birth Date"
+        text={
+          License?.dateOfBirth
+            ? FormatDateAsNumber(License.dateOfBirth)
+            : "????"
+        }
+      />
+
+      <Info
+        title="Issue Date"
+        text={License?.issueDate ? FormatDateTime(License.issueDate) : "????"}
+      />
+      <Info
+        title="Epiration Date"
+        text={
+          License?.expirationDate
+            ? FormatDateTime(License.expirationDate)
+            : "????"
+        }
+      />
+
+      <Info title="Driver Id" text={License?.driverId || "????"} />
+      <Info
+        title="Is Detained"
+        text={<BoolColumn value={License?.isDetained} />}
+      />
+
+      <Info
+        title="Issue Reason"
+        text={License?.issueReason || "????"}
+        isInLine={true}
+      />
+
+      <Info
+        title="Notes"
+        text={
+          License?.notes || (
+            <span className="italic text-gray-600">No notes available</span>
+          )
+        }
+        isInLine={true}
+      />
+
       <RedirectLink
         path={`/drivers/${License?.driverId}/profile`}
         text="Driver Info"

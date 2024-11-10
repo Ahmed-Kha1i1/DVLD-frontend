@@ -7,6 +7,7 @@ import EditUser from "../Pages/EditUser";
 import EditUserPerson from "../Pages/EditUserPerson";
 import EditUserContacts from "../Pages/EditUserContacts";
 import ChangePassword from "../Pages/ChangePassword";
+import EmptyEmail from "./EmptyEmail";
 
 const usersRoutes = {
   path: "users",
@@ -43,7 +44,7 @@ const usersRoutes = {
             },
             {
               path: "send-email",
-              element: <UserDetails />,
+              element: <EmptyEmail />,
             },
             {
               path: "delete",

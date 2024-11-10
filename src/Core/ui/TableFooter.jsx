@@ -7,7 +7,7 @@ function TableFooter({ totalCount, pageSize, currentPage, onPageChange }) {
   const startItem = endItem === 0 ? 0 : (PageNumber - 1) * pageSize + 1;
 
   return (
-    <div className="mt-4 flex items-end justify-between">
+    <div className="mt-4 flex flex-wrap items-end justify-between gap-5">
       <div className="text-lg text-gray-600">
         Showing {startItem} - {endItem} of {totalCount} results
       </div>

@@ -11,6 +11,8 @@ import useTestAppointment from "../TestAppointments/useTestAppointment";
 import { formatCurrency } from "../../Core/Utils/FormatUtils";
 import { useEffect, useState } from "react";
 import { doesAttendTestType } from "../../Core/Services/ApiApplications";
+import CardTitle from "../../Core/ui/CardTitle";
+import { BsFillPersonVcardFill } from "react-icons/bs";
 function TestApointmentCard({
   localApplciationId,
   testTypeId,
@@ -54,55 +56,46 @@ function TestApointmentCard({
   return (
     <div>
       <Card>
-        <h4 className="mb-2">Local Application information</h4>
-        <InfoLine>
-          <Info
-            title="Local Application Id"
-            text={application.localApplicationId}
-          />
-        </InfoLine>
-        <InfoLine>
-          <Info title="Class Name" text={application.className} />
-        </InfoLine>
-        <InfoLine>
-          <Info title="Name" text={application.fullName} />
-        </InfoLine>
-        <InfoLine>
-          <Info title="Total Trails" text={application.trails} />
-        </InfoLine>
-        <InfoLine>
-          <Info
-            title="Paid fees"
-            text={formatCurrency(
-              isEditSession ? testAppointment.paidFees : testType.fees,
-            )}
-          />
-        </InfoLine>
+        <CardTitle
+          text="Local Application information"
+          icon={<BsFillPersonVcardFill />}
+        />
+        <Info
+          title="Local Application Id"
+          text={application.localApplicationId}
+          isInLine={true}
+        />
+        <Info title="Class Name" text={application.className} />
+        <Info title="Name" text={application.fullName} />
+        <Info title="Total Trails" text={application.trails} />
+        <Info
+          title="Paid fees"
+          text={formatCurrency(
+            isEditSession ? testAppointment.paidFees : testType.fees,
+          )}
+        />
       </Card>
       {hasAttended &&
         (testAppointment?.retakeTestApplication || !isEditSession) && (
           <Card>
-            <h4 className="mb-2">Retake Test information</h4>
-            <InfoLine>
-              <Info
-                title="Application Id"
-                text={
-                  isEditSession
-                    ? testAppointment.retakeTestApplicationID
-                    : "N/A"
-                }
-              />
-            </InfoLine>
-            <InfoLine>
-              <Info
-                title="Retake Paid fees"
-                text={formatCurrency(
-                  isEditSession
-                    ? testAppointment.retakeTestApplication.paidFees
-                    : applicationType.fees,
-                )}
-              />
-            </InfoLine>
+            <CardTitle
+              text="Retake Test information"
+              icon={<BsFillPersonVcardFill />}
+            />
+            <Info
+              title="Application Id"
+              text={
+                isEditSession ? testAppointment.retakeTestApplicationID : "N/A"
+              }
+            />
+            <Info
+              title="Retake Paid fees"
+              text={formatCurrency(
+                isEditSession
+                  ? testAppointment.retakeTestApplication.paidFees
+                  : applicationType.fees,
+              )}
+            />
           </Card>
         )}
     </div>

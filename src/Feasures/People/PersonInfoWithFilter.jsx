@@ -10,6 +10,7 @@ import Filter from "../../Core/ui/Filter";
 import Spinner from "../../Core/ui/Spinner";
 import PersonCard from "./PersonCard";
 import usePerson from "./usePerson";
+import Error from "../../Core/ui/Error";
 
 const PersonFilterOptions = [
   {
@@ -33,11 +34,12 @@ function PersonInfoWithFilter({
 }) {
   const [currentType, setCurrentType] = useState(typeRef.current);
   const [currentValue, setCurrentValue] = useState(valueRef.current);
-  const { isLoading, person } = usePerson(currentValue, currentType, 1);
+  const { isLoading, error, person } = usePerson(currentValue, currentType, 1);
 
   function onSearch(optionType, value) {
     valueRef.current = value;
     typeRef.current = optionType;
+
     setCurrentValue(value);
     setCurrentType(optionType);
   }
@@ -45,6 +47,8 @@ function PersonInfoWithFilter({
   useEffect(() => {
     onSelectPerson(person?.personID);
   }, [person]);
+
+  if (error) return <Error message={error?.message} />;
 
   return (
     <div className="space-y-14">

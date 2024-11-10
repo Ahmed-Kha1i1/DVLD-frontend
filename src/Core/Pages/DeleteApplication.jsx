@@ -12,7 +12,7 @@ function DeleteApplication() {
     <Card>
       <Model>
         <CardTitle text="Delete Person Account" icon={<FaUserTimes />} />
-        <p className="py-8 text-xl text-TextColor">
+        <p className="one-for-card one-for-card text-TextColorc py-8 text-xl">
           Deleting this application will permanently remove all related data. If
           you’re certain about this decision, please proceed by click delete.
         </p>
@@ -25,7 +25,7 @@ function DeleteApplication() {
               icon={<MdDelete />}
               bgColor="red-500"
               textColor="white"
-              styles="mt-8"
+              styles="mt-8  mr-auto one-for-card"
               onClick={open}
             />
           )}

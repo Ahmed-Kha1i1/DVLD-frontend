@@ -5,6 +5,7 @@ import EditContacts from "../Pages/EditContacts";
 import EditPerson from "../Pages/EditPerson";
 import People from "../Pages/People";
 import PersonDetails from "../Pages/PersonDetails";
+import EmptyEmail from "./EmptyEmail";
 
 const peopleRoutes = {
   path: "people",
@@ -37,7 +38,7 @@ const peopleRoutes = {
             },
             {
               path: "send-email",
-              element: <PersonDetails />,
+              element: <EmptyEmail />,
             },
             {
               path: "delete",

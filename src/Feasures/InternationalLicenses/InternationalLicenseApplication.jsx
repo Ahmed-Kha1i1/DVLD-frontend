@@ -71,7 +71,10 @@ function InternationalLicenseApplication({
       <InfoLine>
         <Info
           title="Application Fees"
-          text={formatCurrency(internationalApplication?.applicationFees)}
+          text={
+            internationalApplication?.applicationFees &&
+            formatCurrency(internationalApplication?.applicationFees)
+          }
         />
         <Info
           title="Created By"

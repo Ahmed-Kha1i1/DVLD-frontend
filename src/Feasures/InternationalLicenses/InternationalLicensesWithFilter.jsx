@@ -4,6 +4,7 @@ import TableFooter from "../../Core/ui/TableFooter";
 import InternationalLicensesTableTop from "./InternationalLicensesTableTop";
 import InternationalLicensesTable from "./InternationalLicensesTable";
 import useInternationalLicenses from "./useInternationalLicenses";
+import Spinner from "../../Core/ui/Spinner";
 
 function InternationalLicensesWithFilter() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -20,7 +21,7 @@ function InternationalLicensesWithFilter() {
   const defaultPageNumber = parseInt(searchParams.get("pageNumber") || "1", 10);
 
   const [filters, setFilters] = useState(defaultValues);
-  const { error, internationalLicenses } = useInternationalLicenses({
+  const { isLoading, error, internationalLicenses } = useInternationalLicenses({
     ...filters,
     pageNumber: defaultPageNumber,
   });
@@ -47,10 +48,14 @@ function InternationalLicensesWithFilter() {
         onFilter={onFilter}
         defaultFilters={filters}
       />
-      <InternationalLicensesTable
-        internationalLicenses={internationalLicenses}
-        error={error}
-      />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <InternationalLicensesTable
+          internationalLicenses={internationalLicenses}
+          error={error}
+        />
+      )}
       <TableFooter
         totalCount={internationalLicenses?.metadata?.totalCount}
         currentPage={pageNumber}

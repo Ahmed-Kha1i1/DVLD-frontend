@@ -6,7 +6,7 @@ function Popup({ children, referance, className, onClick }) {
       onClick={onClick}
       ref={referance}
     >
-      <div className="popup-enter shadow-all custom-scrollbar max-h-[calc(100vh-100px)] max-w-[calc(100vw-100px)] overflow-auto rounded-2xl bg-[#fffbff] p-10">
+      <div className="popup-enter shadow-all custom-scrollbar max-h-[calc(100vh-100px)] max-w-[calc(100vw-100px)] overflow-auto rounded-2xl bg-[#fffbff] p-10 sm:mx-4 sm:min-w-[calc(100%-2rem)] sm:p-3">
         {children}
       </div>
     </div>

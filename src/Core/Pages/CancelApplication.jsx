@@ -14,7 +14,7 @@ function CancelApplication() {
     <Card>
       <Model>
         <CardTitle text="Cancel License Application" icon={<FaBan />} />
-        <p className="py-8 text-xl text-TextColor">
+        <p className="one-for-card py-8 text-xl text-TextColor">
           Once this application is canceled, it cannot be reverted to "new" or
           moved forward in the process. If you're certain you want to cancel
           this application, please confirm below.
@@ -27,7 +27,7 @@ function CancelApplication() {
               text="Cancel"
               icon={<MdCancel />}
               textColor="black"
-              styles="mt-8 bg-yellow-500"
+              styles="mt-8 bg-yellow-500 one-for-card mr-auto"
               onClick={open}
             />
           )}

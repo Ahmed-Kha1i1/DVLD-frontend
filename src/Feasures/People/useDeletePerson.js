@@ -11,12 +11,9 @@ export default function useDeletePerson() {
   function onSuccess(personID) {
     toast.success(`Person  with ID ${personID} has been successfully deleted.`);
 
-    queryClient.setQueriesData({ queryKey: peopleKeys.lists() }, (previous) => {
-      return previous
-        ? previous.filter((person) => person.personID !== personID)
-        : [];
+    queryClient.invalidateQueries({
+      queryKey: peopleKeys.lists(),
     });
-
     queryClient.removeQueries({
       queryKey: peopleKeys.details(),
       predicate: (query) => {

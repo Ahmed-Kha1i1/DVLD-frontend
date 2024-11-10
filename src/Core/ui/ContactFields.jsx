@@ -17,7 +17,7 @@ function ContactFields({ errors, register }) {
         register={register}
         validation={validateAddressRule()}
         isRequired={true}
-        className="col-span-2"
+        className="one-for-card-md"
       />
 
       <TextInput

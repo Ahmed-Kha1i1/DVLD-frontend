@@ -3,6 +3,7 @@ import { cloneElement, useCallback, useState } from "react";
 import useOutsideClick from "../Hooks/useOutsideClick";
 import useScroll from "../Hooks/useScroll";
 import { useContextMenu, ContextMenuContext } from "../Hooks/useContextMenu";
+import { RxDotsVertical } from "react-icons/rx";
 
 function ContextMenu({ children }) {
   const [openId, setOpenId] = useState("");
@@ -33,12 +34,28 @@ function Row({ id, children, action }) {
     open(id);
     action?.();
   }
+  function handleOpenAtSmall(e) {
+    e.preventDefault();
+
+    setPosition({
+      left: e.clientX - 30,
+      top: e.clientY,
+    });
+
+    open(id);
+    action?.();
+  }
   return (
-    <li
-      // className={`${openId === id ? "bg-secondary" : ""}`}
-      onContextMenu={handleOpen}
-    >
-      {children}
+    <li onContextMenu={handleOpen}>
+      <div className="grid grid-cols-[1fr_auto]">
+        {children}
+        <div
+          className="hidden cursor-pointer items-center bg-white lg:flex"
+          onClick={handleOpenAtSmall}
+        >
+          <RxDotsVertical />
+        </div>
+      </div>
     </li>
   );
 }
@@ -76,7 +93,7 @@ function Menu({ children }) {
         refSize(node);
         ref.current = node;
       }}
-      className="fixed rounded-md bg-gray-100 shadow-lg"
+      className="fixed bg-gray-100 shadow-lg lg:bg-white"
       style={{
         left: `${leftPosition}px`,
         top: `${topPosition}px`,

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function RedirectLink({ path, text, disabled = false }) {
   return (
-    <div className="pt-3">
+    <div className="one-for-card p-2">
       <Link
         to={path}
         className={`text-xl text-primary underline ${disabled ? "disabled" : ""}`}

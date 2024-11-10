@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 function PrimaryBottun({ children, onClick, to, className, disabled }) {
-  const styles = `min-w-[60px] bg-primary p-4 text-lg text-white ${className} ${disabled ? "disabled" : ""}`;
+  const styles = `min-w-24 md:px-2 md:py-2 md:text-lg min-w-[60px] bg-primary p-4 text-lg text-white  ${className} ${disabled ? "disabled" : ""}`;
   if (to)
     return (
       <Link className={styles} onClick={(e) => onClick?.(e)} to={to}>

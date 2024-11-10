@@ -4,6 +4,7 @@ import PeopleTableTop from "./PeopleTableTop";
 import PeopleTable from "./PeopleTable";
 import usePeople from "./usePeople";
 import { useSearchParams } from "react-router-dom";
+import Spinner from "../../Core/ui/Spinner";
 
 function PeopleWithFilter() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -20,7 +21,7 @@ function PeopleWithFilter() {
   const defaultPageNumber = parseInt(searchParams.get("pageNumber") || "1", 10);
 
   const [filters, setFilters] = useState(defaultValues);
-  const { error, people } = usePeople({
+  const { isLoading, error, people } = usePeople({
     ...filters,
     pageNumber: defaultPageNumber,
   });
@@ -44,7 +45,7 @@ function PeopleWithFilter() {
   return (
     <div>
       <PeopleTableTop onFilter={onFilter} defaultFilters={filters} />
-      <PeopleTable people={people} error={error} />
+      {isLoading ? <Spinner /> : <PeopleTable people={people} error={error} />}
       <TableFooter
         totalCount={people?.metadata?.totalCount}
         currentPage={pageNumber}

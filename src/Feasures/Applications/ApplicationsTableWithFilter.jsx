@@ -4,6 +4,7 @@ import ApplicationsTableTop from "./ApplicationsTableTop";
 import ApplicationsTable from "./ApplicationsTable ";
 import useApplications from "./useApplications";
 import { useSearchParams } from "react-router-dom";
+import Spinner from "../../Core/ui/Spinner";
 
 function ApplicationsTableWithFilter() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -22,7 +23,7 @@ function ApplicationsTableWithFilter() {
   const defaultPageNumber = searchParams.get("pageNumber") || 1;
 
   const [filters, setFilters] = useState(defaultValues);
-  const { error, applications } = useApplications({
+  const { isLoading, error, applications } = useApplications({
     ...filters,
     pageNumber: defaultPageNumber,
   });
@@ -46,7 +47,11 @@ function ApplicationsTableWithFilter() {
   return (
     <div>
       <ApplicationsTableTop onFilter={onFilter} defaultFilters={filters} />
-      <ApplicationsTable applications={applications} error={error} />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <ApplicationsTable applications={applications} error={error} />
+      )}
       <TableFooter
         totalCount={applications?.metadata?.totalCount}
         currentPage={pageNumber}

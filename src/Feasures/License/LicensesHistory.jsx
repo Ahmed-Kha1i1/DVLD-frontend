@@ -25,7 +25,7 @@ function LicensesHistory() {
   if (personLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
-
+  console.log(person.personId);
   return (
     <div>
       <PageTitle title={`Licenses History (Person Id: ${personId})`} />

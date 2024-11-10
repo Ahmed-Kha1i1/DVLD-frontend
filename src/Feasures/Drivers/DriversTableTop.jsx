@@ -67,16 +67,18 @@ function DriversTableTop({ defaultFilters, onFilter }) {
 
   return (
     <div>
-      <div className="mb-5 grid h-16 grid-cols-[auto_auto_1fr] gap-6">
-        <SortTable
-          items={driversSortItems}
-          onSort={onSort}
-          defaultValue={formValues?.orderBy || "Id"}
-        />
-        <SortDirectionTable
-          onChangeDirection={onChangeDirection}
-          defaultValue={formValues?.orderDirection || "Asc"}
-        />
+      <div className="table-top">
+        <div className="sort-bar">
+          <SortTable
+            items={driversSortItems}
+            onSort={onSort}
+            defaultValue={formValues?.orderBy || "Id"}
+          />
+          <SortDirectionTable
+            onChangeDirection={onChangeDirection}
+            defaultValue={formValues?.orderDirection || "Asc"}
+          />
+        </div>
         <SearchTable
           onSearch={onSearch}
           defaultValue={formValues?.searchQuery || ""}
@@ -86,9 +88,7 @@ function DriversTableTop({ defaultFilters, onFilter }) {
         onSubmit={handleSubmit(onSubmit)}
         className="mb-5 grid h-16 grid-cols-[1fr_auto_auto] gap-4"
       >
-        <DriversFilters control={control} />
-        <ClearButton onClear={onClear} />
-        <FilterButton />
+        <DriversFilters control={control} onClear={onClear} />
       </form>
     </div>
   );

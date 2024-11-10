@@ -7,7 +7,12 @@ export default function SortDirectionTable({
   defaultValue,
 }) {
   return (
-    <FilterBase icon={<MdSort />} id="sort" label="Direction:">
+    <FilterBase
+      icon={<MdSort />}
+      id="sort"
+      label="Direction:"
+      // className="col-start-2 row-start-2"
+    >
       <select
         id="sort"
         value={defaultValue}

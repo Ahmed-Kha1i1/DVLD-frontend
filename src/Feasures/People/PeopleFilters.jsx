@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
+import FilterPopup from "../../Core/ui/FilterPopup";
 import SearchFilter from "../../Core/ui/SearchFilter";
 import SelectFilter from "../../Core/ui/SelectFilter";
 
-function PeopleFilters({ control }) {
+function PeopleFilters({ control, onClear }) {
   return (
-    <div className="flex gap-4">
+    <FilterPopup onClear={onClear}>
       <SearchFilter control={control} id="id" label="ID:" />
       <SearchFilter
         control={control}
@@ -21,7 +22,7 @@ function PeopleFilters({ control }) {
           { value: true, text: "Female" },
         ]}
       />
-    </div>
+    </FilterPopup>
   );
 }
 

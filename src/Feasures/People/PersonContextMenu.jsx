@@ -24,7 +24,11 @@ function PersonContextMenu({ selectedPerson }) {
         to={`${selectedPerson.personID}/delete`}
       />
       <hr />
-      <Item text="Send Email" icon={<FaIdCard />} />
+      <Item
+        text="Send Email"
+        icon={<FaIdCard />}
+        to={`${selectedPerson.personID}/send-email`}
+      />
     </Menu>
   );
 }

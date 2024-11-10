@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 export default function useCreatePerson() {
   const queryClient = useQueryClient();
 
-  function onSuccess(internationalLicenseId) {
+  function onSuccess() {
     toast.success("international License successfully created!");
 
     queryClient.invalidateQueries({

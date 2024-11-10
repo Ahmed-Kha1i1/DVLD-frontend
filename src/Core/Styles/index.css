@@ -27,6 +27,21 @@
 }
 
 @layer components {
+  .detained-search-bar {
+    @apply grid grid-cols-[1fr_auto] gap-6 sm:grid-cols-1;
+    & input[type="text"] {
+      @apply sm:col-span-2 sm:row-start-2;
+    }
+  }
+  .table-top {
+    @apply relative mb-5 grid grid-cols-[1fr_1fr] gap-6 lg:grid-cols-1 lg:gap-3;
+    & .sort-bar {
+      @apply grid grid-cols-[1fr_1fr] gap-4 lg:col-start-1 lg:row-start-2 sm:gap-1;
+    }
+    & .search-bar {
+      @apply grid grid-cols-[1fr_auto] gap-4 sm:gap-1;
+    }
+  }
   .has-arrow {
     position: relative;
   }
@@ -124,6 +139,16 @@
   }
 }
 @layer utilities {
+  .one-for-card {
+    @apply col-span-2 lg:col-span-1;
+  }
+  .one-for-card-md {
+    @apply col-span-2 md:col-span-1;
+  }
+  .custom-divide > :not(:last-child) {
+    border-bottom: 1px solid #e5e7eb;
+  }
+
   .custom-scrollbar::-webkit-scrollbar {
     width: 0; /* Hides scrollbar track */
     height: 0;

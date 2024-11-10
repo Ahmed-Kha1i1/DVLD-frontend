@@ -15,7 +15,7 @@ export default function useUpdateTestAppointment() {
       { queryKey: testAppointmentsKeys.lists() },
       (previous) =>
         previous.map((testAppointment) =>
-          testAppointment?.testAppointmentId === ref.current.testAppointmentId
+          testAppointment?.testAppointmentId == ref.current.testAppointmentId
             ? {
                 ...testAppointment,
                 appointmentDate: ref.current.appointmentDate,
@@ -27,7 +27,7 @@ export default function useUpdateTestAppointment() {
     queryClient.setQueriesData(
       { queryKey: testAppointmentsKeys.details() },
       (testAppointment) =>
-        testAppointment?.testAppointmentId === ref.current.testAppointmentId
+        testAppointment?.testAppointmentId == ref.current.testAppointmentId
           ? {
               ...testAppointment,
               appointmentDate: ref.current.appointmentDate,

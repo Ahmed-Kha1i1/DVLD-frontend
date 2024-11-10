@@ -23,7 +23,7 @@ function LicenseClassesSelector({ register, personId, errors }) {
   if (LicenseClassesLoading || personLoading) return <Spinner />;
 
   return (
-    <div className="flex">
+    <div className="flex flex-wrap gap-1">
       <label
         htmlFor="licenseClassId"
         className="basis-52 text-xl font-semibold"

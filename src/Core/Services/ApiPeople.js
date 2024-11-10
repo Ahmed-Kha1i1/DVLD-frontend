@@ -99,9 +99,8 @@ export async function updateContactPerson(id, contactPerson) {
 export async function isNationalNoUnique(nationalNo, id) {
   const queryParams = new URLSearchParams({
     nationalNumber: nationalNo,
-    id: id ? id.toString() : null,
   });
-
+  if (id) queryParams.append("id", id);
   const result = await fetchData(
     `${BASE_URL}/api/People/Unique/NationalNumber?${queryParams}`,
   );
@@ -112,8 +111,9 @@ export async function isNationalNoUnique(nationalNo, id) {
 export async function isEmailUnique(email, id) {
   const queryParams = new URLSearchParams({
     email: email,
-    id: id ? id.toString() : null,
   });
+  console.log(id);
+  if (id) queryParams.append("id", id);
 
   const result = await fetchData(
     `${BASE_URL}/api/People/Unique/Email?${queryParams}`,
@@ -125,9 +125,8 @@ export async function isEmailUnique(email, id) {
 export async function isPhoneUnique(phone, id) {
   const queryParams = new URLSearchParams({
     phone: phone,
-    id: id ? id.toString() : null,
   });
-
+  if (id) queryParams.append("id", id);
   const result = await fetchData(
     `${BASE_URL}/api/People/Unique/Phone?${queryParams}`,
   );

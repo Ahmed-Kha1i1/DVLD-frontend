@@ -20,47 +20,39 @@ function InternationalLicenseCard({ internationalLicense }) {
         text="International License Card"
         icon={<BsFillPersonVcardFill />}
       />
-      <InfoLine>
-        <Info title="Name" text={internationalLicense.fullName} />
-        <Info
-          title="Is Active"
-          text={<Active active={internationalLicense.isActive} />}
-        />
-      </InfoLine>
-      <InfoLine>
-        <Info
-          title="I.License Id"
-          text={internationalLicense.internationalLicenseId}
-        />
-        <Info
-          title="Application Id"
-          text={internationalLicense.applicationId}
-        />
-      </InfoLine>
-      <InfoLine>
-        <Info
-          title="National Number"
-          text={internationalLicense?.nationalNumber}
-        />
-        <Info
-          title="Birth Date"
-          text={FormatDateAsNumber(internationalLicense?.dateOfBirth)}
-        />
-      </InfoLine>
-      <InfoLine>
-        <Info title="Gender" text={internationalLicense.gender} />
-        <Info title="Driver Id" text={internationalLicense.driverId} />
-      </InfoLine>
-      <InfoLine>
-        <Info
-          title="Issue Date"
-          text={FormatDateTime(internationalLicense?.issueDate)}
-        />
-        <Info
-          title="expiration Date"
-          text={FormatDateTime(internationalLicense?.expirationDate)}
-        />
-      </InfoLine>
+
+      <Info title="Name" text={internationalLicense.fullName} />
+      <Info
+        title="Is Active"
+        text={<Active active={internationalLicense.isActive} />}
+      />
+
+      <Info
+        title="I.License Id"
+        text={internationalLicense.internationalLicenseId}
+      />
+      <Info title="Application Id" text={internationalLicense.applicationId} />
+
+      <Info
+        title="National Number"
+        text={internationalLicense?.nationalNumber}
+      />
+      <Info
+        title="Birth Date"
+        text={FormatDateAsNumber(internationalLicense?.dateOfBirth)}
+      />
+
+      <Info title="Gender" text={internationalLicense.gender} />
+      <Info title="Driver Id" text={internationalLicense.driverId} />
+
+      <Info
+        title="Issue Date"
+        text={FormatDateTime(internationalLicense?.issueDate)}
+      />
+      <Info
+        title="expiration Date"
+        text={FormatDateTime(internationalLicense?.expirationDate)}
+      />
     </Card>
   );
 }

@@ -19,7 +19,6 @@ function DriverContextMenu({ SelectedDriver }) {
         to={`${SelectedDriver.driverID}/edit`}
       />
       <hr />
-      <Item text="Issue Internatianal License" icon={<FaIdCard />} />
       <Item
         text="Licenses History"
         icon={<FaIdCard />}
@@ -27,7 +26,11 @@ function DriverContextMenu({ SelectedDriver }) {
       />
 
       <hr />
-      <Item text="Send Email" icon={<FaIdCard />} />
+      <Item
+        text="Send Email"
+        icon={<FaIdCard />}
+        to={`${SelectedDriver.driverID}/send-email`}
+      />
     </Menu>
   );
 }

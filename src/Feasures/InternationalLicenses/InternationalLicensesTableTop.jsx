@@ -62,26 +62,26 @@ function InternationalLicensesTableTop({ defaultFilters, onFilter }) {
 
   return (
     <div>
-      <div className="mb-5 grid h-16 grid-cols-[auto_auto_1fr] gap-6">
-        <SortTable
-          items={internationalLicensesSortItems}
-          onSort={onSort}
-          defaultValue={formValues?.orderBy || "Id"}
-        />
-        <SortDirectionTable
-          onChangeDirection={onChangeDirection}
-          defaultValue={formValues?.orderDirection || "Asc"}
-        />
-        <AddButton to="add-new" />
+      <div className="table-top">
+        <div className="sort-bar">
+          <SortTable
+            items={internationalLicensesSortItems}
+            onSort={onSort}
+            defaultValue={formValues?.orderBy || "Id"}
+          />
+          <SortDirectionTable
+            onChangeDirection={onChangeDirection}
+            defaultValue={formValues?.orderDirection || "Asc"}
+          />
+        </div>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="mb-5 flex justify-start gap-3"
+        >
+          <AddButton to="add-new" />
+          <InternationalLicensesFilters control={control} onClear={onClear} />
+        </form>
       </div>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="mb-5 grid h-16 grid-cols-[1fr_auto_auto] gap-4"
-      >
-        <InternationalLicensesFilters control={control} />
-        <ClearButton onClear={onClear} />
-        <FilterButton />
-      </form>
     </div>
   );
 }

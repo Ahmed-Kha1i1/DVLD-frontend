@@ -15,7 +15,7 @@ function Select({ options = [], onSelect, defaultValue }) {
 
   return (
     <select
-      className="input border border-r-0 px-4 text-lg"
+      className="input border border-r-0 px-4 text-lg sm:border-r-2 sm:py-3"
       onChange={onSelectOption}
       defaultValue={defaultValue}
     >

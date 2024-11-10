@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
+import FilterPopup from "../../Core/ui/FilterPopup";
 import SearchFilter from "../../Core/ui/SearchFilter";
 
-function DriversFilters({ control }) {
+function DriversFilters({ control, onClear }) {
   return (
-    <div className="flex gap-4">
+    <FilterPopup onClear={onClear}>
       <SearchFilter control={control} id="id" label="ID:" />
       <SearchFilter control={control} id="personId" label="Person Id:" />
       <SearchFilter
@@ -11,7 +12,7 @@ function DriversFilters({ control }) {
         id="nationalNumber"
         label="National Number:"
       />
-    </div>
+    </FilterPopup>
   );
 }
 

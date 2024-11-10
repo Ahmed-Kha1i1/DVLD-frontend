@@ -53,6 +53,7 @@ function ReplaceLicense() {
     <div>
       <PageTitle title="Replace License" />
       <LicenseWithFilter
+        key="Replace"
         onSelect={onSelect}
         filterEnable={!replacedLicenseId}
         onSelectValidate={onSelectValidate}

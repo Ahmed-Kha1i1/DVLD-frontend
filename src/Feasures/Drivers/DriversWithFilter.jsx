@@ -4,6 +4,7 @@ import DriversTableTop from "./DriversTableTop";
 import DriversTable from "./DriversTable";
 import useDrivers from "./useDrivers";
 import { useSearchParams } from "react-router-dom";
+import Spinner from "../../Core/ui/Spinner";
 
 function DriversWithFilter() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -20,7 +21,7 @@ function DriversWithFilter() {
   const defaultPageNumber = parseInt(searchParams.get("pageNumber") || "1", 10);
 
   const [filters, setFilters] = useState(defaultValues);
-  const { error, drivers } = useDrivers({
+  const { isLoading, error, drivers } = useDrivers({
     ...filters,
     pageNumber: defaultPageNumber,
   });
@@ -44,7 +45,11 @@ function DriversWithFilter() {
   return (
     <div>
       <DriversTableTop onFilter={onFilter} defaultFilters={filters} />
-      <DriversTable drivers={drivers} error={error} />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <DriversTable drivers={drivers} error={error} />
+      )}
       <TableFooter
         totalCount={drivers?.metadata?.totalCount}
         currentPage={pageNumber}

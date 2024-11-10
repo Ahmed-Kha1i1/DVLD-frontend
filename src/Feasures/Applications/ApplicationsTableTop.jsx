@@ -7,8 +7,6 @@ import SortTable from "../../Core/ui/SortTable";
 import SortDirectionTable from "../../Core/ui/SortDirectionTable";
 import AddButton from "../../Core/ui/AddButton";
 import ApplicationsFilters from "./ApplicationsFilters";
-import ClearButton from "../../Core/ui/ClearButton";
-import FilterButton from "../../Core/ui/FilterButton";
 
 function ApplicationsTableTop({ defaultFilters, onFilter }) {
   const [_, setSearchParams] = useSearchParams();
@@ -67,30 +65,29 @@ function ApplicationsTableTop({ defaultFilters, onFilter }) {
   }
 
   return (
-    <div>
-      <div className="mb-5 grid h-16 grid-cols-[auto_auto_1fr_auto] gap-6">
-        <SortTable
-          items={applicationsSortItems}
-          onSort={onSort}
-          defaultValue={formValues?.orderBy || "Id"}
-        />
-        <SortDirectionTable
-          onChangeDirection={onChangeDirection}
-          defaultValue={formValues?.orderDirection || "Asc"}
-        />
-        <SearchTable
-          onSearch={onSearch}
-          defaultValue={formValues?.searchQuery || ""}
-        />
-        <AddButton to="add-new" />
+    <div className="">
+      <div className="table-top">
+        <div className="sort-bar">
+          <SortTable
+            items={applicationsSortItems}
+            onSort={onSort}
+            defaultValue={formValues?.orderBy || "Id"}
+          />
+          <SortDirectionTable
+            onChangeDirection={onChangeDirection}
+            defaultValue={formValues?.orderDirection || "Asc"}
+          />
+        </div>
+        <div className="search-bar">
+          <SearchTable
+            onSearch={onSearch}
+            defaultValue={formValues?.searchQuery || ""}
+          />
+          <AddButton to="add-new" />
+        </div>
       </div>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="mb-5 grid h-16 grid-cols-[1fr_auto_auto] gap-4"
-      >
-        <ApplicationsFilters control={control} />
-        <ClearButton onClear={onClear} />
-        <FilterButton />
+      <form onSubmit={handleSubmit(onSubmit)} className="mb-5 h-16 gap-4">
+        <ApplicationsFilters control={control} onClear={onClear} />
       </form>
     </div>
   );

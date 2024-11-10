@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
 
+import useLicenseClasses from "../LicenseClasses/useLicenseClasses";
 import { statusesFilter } from "./ApplicationsConsts";
 import SearchFilter from "../../Core/ui/SearchFilter";
 import SelectFilter from "../../Core/ui/SelectFilter";
-import useLicenseClasses from "../LicenseClasses/useLicenseClasses";
+import FilterPopup from "../../Core/ui/FilterPopup";
 
-function ApplicationsFilters({ control }) {
+function ApplicationsFilters({ control, onClear }) {
   const { licenseClasses } = useLicenseClasses();
 
   return (
-    <div className="flex gap-4">
+    <FilterPopup onClear={onClear}>
       <SearchFilter control={control} id="id" label="ID:" />
       <SearchFilter control={control} id="personId" label="Person Id:" />
       <SearchFilter
@@ -29,7 +30,7 @@ function ApplicationsFilters({ control }) {
         label="Status:"
         items={statusesFilter}
       />
-    </div>
+    </FilterPopup>
   );
 }
 

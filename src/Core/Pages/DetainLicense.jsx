@@ -50,6 +50,7 @@ function DetainLicense() {
     <div>
       <PageTitle title="Detain License" />
       <LicenseWithFilter
+        key="Detain-License"
         onSelect={onSelect}
         filterEnable={!detainId}
         onSelectValidate={onSelectValidate}

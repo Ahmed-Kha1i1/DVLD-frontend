@@ -14,7 +14,7 @@ function DeletePersonCard({ id }) {
     <Card>
       <Model>
         <CardTitle text="Delete Person Account" icon={<FaUserTimes />} />
-        <p className="py-8 text-xl text-TextColor">
+        <p className="one-for-card py-8 text-xl text-TextColor">
           Before you delete this account, we would want you to know that this
           action will delete the data permanentaly. If that's what you want,
           please proceed with entering the text to confirm.
@@ -28,7 +28,7 @@ function DeletePersonCard({ id }) {
               icon={<MdDelete />}
               bgColor="red-500"
               textColor="white"
-              styles="mt-8"
+              styles="mt-8 one-for-card mr-auto"
               onClick={open}
             />
           )}

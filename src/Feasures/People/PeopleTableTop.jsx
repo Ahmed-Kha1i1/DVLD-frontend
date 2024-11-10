@@ -7,8 +7,6 @@ import SortTable from "../../Core/ui/SortTable";
 import SortDirectionTable from "../../Core/ui/SortDirectionTable";
 import AddButton from "../../Core/ui/AddButton";
 import PeopleFilters from "./PeopleFilters";
-import ClearButton from "../../Core/ui/ClearButton";
-import FilterButton from "../../Core/ui/FilterButton";
 
 function PeopleTableTop({ defaultFilters, onFilter }) {
   const [_, setSearchParams] = useSearchParams();
@@ -68,29 +66,31 @@ function PeopleTableTop({ defaultFilters, onFilter }) {
 
   return (
     <div>
-      <div className="mb-5 grid h-16 grid-cols-[auto_auto_1fr_auto] gap-6">
-        <SortTable
-          items={peopleSortItems}
-          onSort={onSort}
-          defaultValue={formValues?.orderBy || "Id"}
-        />
-        <SortDirectionTable
-          onChangeDirection={onChangeDirection}
-          defaultValue={formValues?.orderDirection || "Asc"}
-        />
-        <SearchTable
-          onSearch={onSearch}
-          defaultValue={formValues?.searchQuery || ""}
-        />
-        <AddButton to="add-new" />
+      <div className="table-top">
+        <div className="sort-bar">
+          <SortTable
+            items={peopleSortItems}
+            onSort={onSort}
+            defaultValue={formValues?.orderBy || "Id"}
+          />
+          <SortDirectionTable
+            onChangeDirection={onChangeDirection}
+            defaultValue={formValues?.orderDirection || "Asc"}
+          />
+        </div>
+        <div className="search-bar">
+          <SearchTable
+            onSearch={onSearch}
+            defaultValue={formValues?.searchQuery || ""}
+          />
+          <AddButton to="add-new" />
+        </div>
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="mb-5 grid h-16 grid-cols-[1fr_auto_auto] gap-4"
       >
-        <PeopleFilters control={control} />
-        <ClearButton onClear={onClear} />
-        <FilterButton />
+        <PeopleFilters control={control} onClear={onClear} />
       </form>
     </div>
   );

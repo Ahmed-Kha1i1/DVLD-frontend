@@ -7,7 +7,7 @@ function DetainedLicensesContextMenu({ selectedDetainedLicense }) {
   return (
     <Menu bgColor="bg-inherit">
       <Item
-        text="Show DriverId Details"
+        text="Show Driver Details"
         icon={<FaIdCard />}
         to={`/drivers/${selectedDetainedLicense.driverId}/profile`}
       />
