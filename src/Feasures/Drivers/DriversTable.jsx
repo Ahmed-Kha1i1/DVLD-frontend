@@ -8,7 +8,7 @@ import DriverRow from "./DriverRow.jsx";
 function DriversTable({ drivers, error }) {
   const [selectedDriver, setSelectedDriver] = useState(null);
 
-  const columns = "grid-cols-[0.5fr_0.6fr_0.6fr_2.3fr_1.7fr_1.5fr]";
+  const columns = "grid-cols-[0.8fr_0.8fr_0.8fr_3fr_2fr_1fr]";
 
   if (error) return <Error message={error?.message} />;
 

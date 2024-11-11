@@ -4,6 +4,7 @@ import { detainedLicensesKeys } from "./detainedLicensesKeys";
 import toast from "react-hot-toast";
 import { licensesKeys } from "../License/licensesKeys";
 import { useRef } from "react";
+import { statisticsKeys } from "../Dashboard/statisticsKeys";
 
 export default function useDetainLicense() {
   const queryClient = useQueryClient();
@@ -21,6 +22,9 @@ export default function useDetainLicense() {
           ? { ...license, isDetained: true }
           : license,
     );
+    queryClient.invalidateQueries({
+      queryKey: statisticsKeys.details(),
+    });
   }
 
   const { mutate: detain, isPending: isDetaining } = useMutation({

@@ -5,6 +5,7 @@ import { applicationsKeys } from "./applicationsKeys";
 import { driversKeys } from "../Drivers/driversKeys";
 import toast from "react-hot-toast";
 import { useRef } from "react";
+import { statisticsKeys } from "../Dashboard/statisticsKeys";
 
 export default function useIssueLicense() {
   const queryClient = useQueryClient();
@@ -22,6 +23,10 @@ export default function useIssueLicense() {
 
     queryClient.invalidateQueries({
       queryKey: driversKeys.lists(),
+    });
+
+    queryClient.invalidateQueries({
+      queryKey: statisticsKeys.details(),
     });
 
     queryClient.invalidateQueries({

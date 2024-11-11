@@ -46,6 +46,19 @@ export async function getDatainedLicense(
   }
 }
 
+export async function GetDetainedLIcenesStats(
+  startDate = null,
+  endDate = null,
+) {
+  const queryParams = new URLSearchParams();
+  if (startDate) queryParams.append("startDate", startDate);
+  if (endDate) queryParams.append("endDate", endDate);
+
+  return (
+    await fetchData(`${BASE_URL}/api/DetainedLicenses/stats?${queryParams}`)
+  ).data;
+}
+
 export async function getDatainedLicenseById(detainId) {
   return (await fetchData(`${BASE_URL}/api/DetainedLicenses/${detainId}`)).data;
 }

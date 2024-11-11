@@ -48,8 +48,6 @@ function PersonInfoWithFilter({
     onSelectPerson(person?.personID);
   }, [person]);
 
-  if (error) return <Error message={error?.message} />;
-
   return (
     <div className="space-y-14">
       <Filter

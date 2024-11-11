@@ -49,8 +49,6 @@ function LicenseWithFilter({
     else if (errorMessage) setErrorMessage("");
   }
 
-  if (error) return <Error message={error?.message} />;
-
   return (
     <div className="flex flex-col gap-6">
       <SearchForm onSearch={handleSubmit(onSubmit)} disabled={!filterEnable}>

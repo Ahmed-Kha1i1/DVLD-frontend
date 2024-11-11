@@ -7,9 +7,15 @@ function AccountSettingsMenu() {
   return (
     <Menus>
       <Menu>
-        <Item text="Account Details" icon={<MdManageHistory />} />
-        <Item text="Edit Account" icon={<MdManageHistory />} />
-        <Item text="Sign out" icon={<MdManageHistory />} />
+        <Item
+          text="Account Details (under development)"
+          icon={<MdManageHistory />}
+        />
+        <Item
+          text="Edit Account (under development)"
+          icon={<MdManageHistory />}
+        />
+        <Item text="Sign out (under development)" icon={<MdManageHistory />} />
       </Menu>
     </Menus>
   );

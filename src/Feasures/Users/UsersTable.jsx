@@ -8,7 +8,7 @@ import { useState } from "react";
 function UsersTable({ users, error }) {
   const [selectedUser, setSelectedUser] = useState(null);
 
-  const columns = "grid-cols-[0.4fr_0.4fr_2fr_0.5fr_0.6fr]";
+  const columns = "grid-cols-[1fr_1fr_2fr_1fr_1fr]";
 
   if (error) return <Error message={error?.message} />;
   return (

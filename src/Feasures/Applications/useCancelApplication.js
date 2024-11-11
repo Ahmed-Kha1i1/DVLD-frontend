@@ -4,6 +4,7 @@ import { cancelApplication as cancelApplicationApi } from "../../Core/Services/A
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
+import { statisticsKeys } from "../Dashboard/statisticsKeys";
 
 export default function useCancelApplication() {
   const queryClient = useQueryClient();
@@ -17,6 +18,10 @@ export default function useCancelApplication() {
 
     queryClient.invalidateQueries({
       queryKey: applicationsKeys.lists(),
+    });
+
+    queryClient.invalidateQueries({
+      queryKey: statisticsKeys.details(),
     });
 
     queryClient.invalidateQueries({

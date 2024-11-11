@@ -137,7 +137,13 @@
       }
     }
   }
+
+  .stat svg {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
 }
+
 @layer utilities {
   .one-for-card {
     @apply col-span-2 lg:col-span-1;

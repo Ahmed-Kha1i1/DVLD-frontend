@@ -9,7 +9,7 @@ import PersonRow from "./PersonRow.jsx";
 function PeopleTable({ people, error }) {
   const [selectedPerson, setSelectedPerson] = useState(null);
 
-  const columns = "grid-cols-[0.6fr_1fr_2fr_1.5fr_1fr_2fr_1.5fr_1.2fr_0.8fr]";
+  const columns = "grid-cols-[0.6fr_1fr_2fr_2fr_1.5fr_1.5fr_1fr_1fr_0.8fr]";
 
   if (error) return <Error message={error?.message} />;
   return (

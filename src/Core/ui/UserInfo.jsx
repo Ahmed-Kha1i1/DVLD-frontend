@@ -3,7 +3,7 @@ function UserInfo() {
     <div className="flex items-center gap-4 xs:justify-center">
       <div className="flex flex-col items-end">
         <span className="text-base font-semibold">Ahmed Magdy</span>
-        <span className="text-sm text-Darkgray">(Hard coded) Admin</span>
+        <span className="text-sm text-Darkgray">(under development) Admin</span>
       </div>
       <div>
         <img
