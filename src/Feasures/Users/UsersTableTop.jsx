@@ -5,8 +5,6 @@ import SearchTable from "../../Core/ui/TableSearch";
 import SortTable from "../../Core/ui/SortTable";
 import SortDirectionTable from "../../Core/ui/SortDirectionTable";
 import AddButton from "../../Core/ui/AddButton";
-import ClearButton from "../../Core/ui/ClearButton";
-import FilterButton from "../../Core/ui/FilterButton";
 import { usersSortItems } from "./UsersConts";
 import UsersFilters from "./UsersFilters";
 

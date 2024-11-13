@@ -21,7 +21,7 @@ function InternationalLicensesWithFilter() {
   const defaultPageNumber = parseInt(searchParams.get("pageNumber") || "1", 10);
 
   const [filters, setFilters] = useState(defaultValues);
-  const { isLoading, error, internationalLicenses } = useInternationalLicenses({
+  const { isLoading, internationalLicenses } = useInternationalLicenses({
     ...filters,
     pageNumber: defaultPageNumber,
   });
@@ -53,7 +53,6 @@ function InternationalLicensesWithFilter() {
       ) : (
         <InternationalLicensesTable
           internationalLicenses={internationalLicenses}
-          error={error}
         />
       )}
       <TableFooter

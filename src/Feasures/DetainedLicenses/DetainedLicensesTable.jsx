@@ -1,17 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import Error from "../../Core/ui/Error.jsx";
 import Table from "../../Core/ui/Table.jsx";
 import ContextMenu from "../../Core/ui/ContextMenu.jsx";
 import DetainedLicensesContextMenu from "./DetainedLicensesContextMenu.jsx";
 import DetainedLicenseRow from "./DetainedLicenseRow.jsx";
 
-function DetainedLicensesTable({ detainedLicenses, error }) {
+function DetainedLicensesTable({ detainedLicenses }) {
   const [selectedDetainedLicense, setSelectedDetainedLicense] = useState(null);
 
   const columns = "grid-cols-[0.5fr_0.6fr_1fr_0.5fr_0.6fr_1.5fr_0.7fr_1fr_1fr]";
 
-  if (error) return <Error message={error?.message} />;
   return (
     <Table columns={columns}>
       <Table.Header>

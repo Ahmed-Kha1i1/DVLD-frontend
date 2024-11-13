@@ -5,7 +5,7 @@ import SelectFilter from "../../Core/ui/SelectFilter";
 function DetainedLicensesFilters({ control, onClear }) {
   return (
     <FilterPopup onClear={onClear}>
-      <SearchFilter control={control} id="id" label="ID:" />
+      <SearchFilter control={control} id="id" label="ID:" isId={true} />
       <SearchFilter
         control={control}
         id="nationalNumber"

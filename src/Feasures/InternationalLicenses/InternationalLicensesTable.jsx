@@ -6,13 +6,11 @@ import ContextMenu from "../../Core/ui/ContextMenu";
 import InternationalLicenseRow from "./InternationalLicenseRow";
 import InternationalLicensesContextMenu from "./InternationalLicensesContextMenu";
 
-function InternationalLicensesTable({ internationalLicenses, error }) {
+function InternationalLicensesTable({ internationalLicenses }) {
   const [selectedInternationalLicense, setSelectedInternationalLicense] =
     useState(null);
   const columns =
     "grid-cols-[0.5fr_0.7fr_0.5fr_0.5fr_0.5fr_1.5fr_1.5fr_0.7fr_1fr]";
-
-  if (error) return <Error message={error?.message} />;
 
   return (
     <Table columns={columns}>

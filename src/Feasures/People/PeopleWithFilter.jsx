@@ -21,7 +21,7 @@ function PeopleWithFilter() {
   const defaultPageNumber = parseInt(searchParams.get("pageNumber") || "1", 10);
 
   const [filters, setFilters] = useState(defaultValues);
-  const { isLoading, error, people } = usePeople({
+  const { isLoading, people } = usePeople({
     ...filters,
     pageNumber: defaultPageNumber,
   });
@@ -45,7 +45,7 @@ function PeopleWithFilter() {
   return (
     <div>
       <PeopleTableTop onFilter={onFilter} defaultFilters={filters} />
-      {isLoading ? <Spinner /> : <PeopleTable people={people} error={error} />}
+      {isLoading ? <Spinner /> : <PeopleTable people={people} />}
       <TableFooter
         totalCount={people?.metadata?.totalCount}
         currentPage={pageNumber}

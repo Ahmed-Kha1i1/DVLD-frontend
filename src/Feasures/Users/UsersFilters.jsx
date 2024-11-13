@@ -6,8 +6,13 @@ import SelectFilter from "../../Core/ui/SelectFilter";
 function UsersFilters({ control, onClear }) {
   return (
     <FilterPopup onClear={onClear}>
-      <SearchFilter control={control} id="id" label="ID:" />
-      <SearchFilter control={control} id="personId" label="Person Id:" />
+      <SearchFilter control={control} id="id" label="ID:" isId={true} />
+      <SearchFilter
+        control={control}
+        id="personId"
+        label="Person Id:"
+        isId={true}
+      />
       <SearchFilter control={control} id="username" label="Username:" />
       <SelectFilter
         control={control}

@@ -5,9 +5,19 @@ import SelectFilter from "../../Core/ui/SelectFilter";
 function InternationalLicensesFilters({ control, onClear }) {
   return (
     <FilterPopup onClear={onClear}>
-      <SearchFilter control={control} id="id" label="ID:" />
-      <SearchFilter control={control} id="driverId" label="Driver Id:" />
-      <SearchFilter control={control} id="licenseId" label="License Id:" />
+      <SearchFilter control={control} id="id" label="ID:" isId={true} />
+      <SearchFilter
+        control={control}
+        id="driverId"
+        label="Driver Id:"
+        isId={true}
+      />
+      <SearchFilter
+        control={control}
+        id="licenseId"
+        label="License Id:"
+        isId={true}
+      />
       <SelectFilter
         control={control}
         id="isActive"

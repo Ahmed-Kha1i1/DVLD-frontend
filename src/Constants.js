@@ -1,4 +1,4 @@
-export const BASE_URL = "https://localhost:7004";
+export const BASE_URL = "https://dvldapi.runasp.net";
 
 export const applicationStatuses = {
   New: "New",

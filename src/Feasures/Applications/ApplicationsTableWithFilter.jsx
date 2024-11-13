@@ -23,7 +23,7 @@ function ApplicationsTableWithFilter() {
   const defaultPageNumber = searchParams.get("pageNumber") || 1;
 
   const [filters, setFilters] = useState(defaultValues);
-  const { isLoading, error, applications } = useApplications({
+  const { isLoading, applications } = useApplications({
     ...filters,
     pageNumber: defaultPageNumber,
   });
@@ -50,7 +50,7 @@ function ApplicationsTableWithFilter() {
       {isLoading ? (
         <Spinner />
       ) : (
-        <ApplicationsTable applications={applications} error={error} />
+        <ApplicationsTable applications={applications} />
       )}
       <TableFooter
         totalCount={applications?.metadata?.totalCount}

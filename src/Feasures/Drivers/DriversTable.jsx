@@ -1,16 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import Error from "../../Core/ui/Error.jsx";
 import Table from "../../Core/ui/Table.jsx";
 import ContextMenu from "../../Core/ui/ContextMenu.jsx";
 import DriverContextMenu from "./DriverContextMenu.jsx";
 import DriverRow from "./DriverRow.jsx";
-function DriversTable({ drivers, error }) {
+function DriversTable({ drivers }) {
   const [selectedDriver, setSelectedDriver] = useState(null);
 
   const columns = "grid-cols-[0.8fr_0.8fr_0.8fr_3fr_2fr_1fr]";
-
-  if (error) return <Error message={error?.message} />;
 
   return (
     <Table columns={columns}>

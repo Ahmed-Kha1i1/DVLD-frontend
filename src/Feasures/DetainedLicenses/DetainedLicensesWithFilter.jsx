@@ -21,7 +21,7 @@ function DetainedLicensesWithFilter() {
   const defaultPageNumber = parseInt(searchParams.get("pageNumber") || "1", 10);
 
   const [filters, setFilters] = useState(defaultValues);
-  const { isLoading, error, detainedLicenses } = useDetainedLicenses({
+  const { isLoading, detainedLicenses } = useDetainedLicenses({
     ...filters,
     pageNumber: defaultPageNumber,
   });
@@ -48,10 +48,7 @@ function DetainedLicensesWithFilter() {
       {isLoading ? (
         <Spinner />
       ) : (
-        <DetainedLicensesTable
-          detainedLicenses={detainedLicenses}
-          error={error}
-        />
+        <DetainedLicensesTable detainedLicenses={detainedLicenses} />
       )}
       <TableFooter
         totalCount={detainedLicenses?.metadata?.totalCount}

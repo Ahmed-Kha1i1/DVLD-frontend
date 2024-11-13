@@ -21,7 +21,7 @@ function DriversWithFilter() {
   const defaultPageNumber = parseInt(searchParams.get("pageNumber") || "1", 10);
 
   const [filters, setFilters] = useState(defaultValues);
-  const { isLoading, error, drivers } = useDrivers({
+  const { isLoading, drivers } = useDrivers({
     ...filters,
     pageNumber: defaultPageNumber,
   });
@@ -45,11 +45,7 @@ function DriversWithFilter() {
   return (
     <div>
       <DriversTableTop onFilter={onFilter} defaultFilters={filters} />
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <DriversTable drivers={drivers} error={error} />
-      )}
+      {isLoading ? <Spinner /> : <DriversTable drivers={drivers} />}
       <TableFooter
         totalCount={drivers?.metadata?.totalCount}
         currentPage={pageNumber}

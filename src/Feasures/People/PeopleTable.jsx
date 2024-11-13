@@ -1,17 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import Error from "../../Core/ui/Error.jsx";
 import Table from "../../Core/ui/Table.jsx";
 import ContextMenu from "../../Core/ui/ContextMenu.jsx";
 import PersonContextMenu from "./PersonContextMenu.jsx";
 import PersonRow from "./PersonRow.jsx";
 
-function PeopleTable({ people, error }) {
+function PeopleTable({ people }) {
   const [selectedPerson, setSelectedPerson] = useState(null);
 
   const columns = "grid-cols-[0.6fr_1fr_2fr_2fr_1.5fr_1.5fr_1fr_1fr_0.8fr]";
 
-  if (error) return <Error message={error?.message} />;
   return (
     <Table columns={columns}>
       <Table.Header>
