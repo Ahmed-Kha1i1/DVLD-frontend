@@ -8,8 +8,7 @@
   - ✅**Architecture:** Feasure based
   - ✅**Framwork:** React
   - ✅**Language:** JavaScript
-  - ✅**API Handling:** React Router
-  - ✅**libraries:** React Hook Form - Recharts
+  - ✅**libraries:** React Router - React Query -React Hook Form - Recharts
   - ✅**Style:** Tailwind CSS
   - ✅**Build Tool:** Vite
   
