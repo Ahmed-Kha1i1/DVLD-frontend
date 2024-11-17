@@ -69,7 +69,7 @@ function PeopleTableTop({ defaultFilters, onFilter }) {
       <div className="table-top">
         <div className="sort-bar">
           <SortTable
-            items={peopleSortItems}
+            items={peopleSortItems} 
             onSort={onSort}
             defaultValue={formValues?.orderBy || "Id"}
           />

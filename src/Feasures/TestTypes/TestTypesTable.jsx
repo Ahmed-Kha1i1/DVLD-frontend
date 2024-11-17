@@ -27,7 +27,7 @@ function TestTypesTable() {
         <Table.Body
           items={TestTypes}
           render={(TestType, IsDark) => (
-            <Table.Row isDark={IsDark} id={TestType.id}>
+            <Table.Row isDark={IsDark} id={TestType.id} key={TestType.id}>
               <TestTypeRow
                 TestType={TestType}
                 setSelectedTestType={setSelectedTestType}

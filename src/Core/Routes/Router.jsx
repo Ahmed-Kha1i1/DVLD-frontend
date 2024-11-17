@@ -12,11 +12,17 @@ import internationalLicensesRoutes from "./internationalLicensesRoutes";
 import detainLicensesRoutes from "./DetainLicensesRoutes";
 import licensesRoutes from "./licensesRoutes";
 import PageNotFound from "../Pages/PageNotFound";
+import Login from "../Pages/Login";
+import ProtectedRoute from "../../Feasures/Auth/ProtectedRoute";
 
 function Router() {
   const routes = [
     {
-      element: <AppLayout />,
+      element: (
+        <ProtectedRoute>
+          <AppLayout />
+        </ProtectedRoute>
+      ),
       children: [
         {
           index: true,
@@ -40,6 +46,10 @@ function Router() {
         usersRoutes,
         driversRoutes,
       ],
+    },
+    {
+      path: "login",
+      element: <Login />,
     },
     {
       path: "*",
