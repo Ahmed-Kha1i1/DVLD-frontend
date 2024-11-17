@@ -11,6 +11,8 @@
   - ✅**libraries:** React Router - React Query -React Hook Form - Recharts
   - ✅**Style:** Tailwind CSS
   - ✅**Build Tool:** Vite
+  - ✅**Authentication:** JWT
+  - ✅**Authorization:** Role Based Authorization
   
 ## Features
   1. Manages applications for local licenses, international renewals, license replacements, test appointments, license release, and retake tests.
@@ -25,8 +27,6 @@
 
 
 ## Features under development
-  - **Authentication:** Using JWT
-  - **Authorization:** Using Role Based Authorization
   - **Email service**
   
 ## Usage
