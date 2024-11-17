@@ -16,7 +16,6 @@ function EditTestType({ testType, onCloseModal }) {
   const { isUpdating, updateTestType } = useUpdateTestType();
 
   function OnSubmit(testType) {
-    //console.log(testType);
     updateTestType({ editId, newTestType: testType });
   }
   return (

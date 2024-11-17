@@ -48,7 +48,6 @@ export async function validatePersonUniques(person, editId, setError) {
     // Return false if any errors were found
     return !(hasNationalNoError || hasEmailError || hasPhoneError);
   } catch (error) {
-    console.log(error);
     toast.error(
       "Internal Server Error: Please contact your system administrator.",
     );

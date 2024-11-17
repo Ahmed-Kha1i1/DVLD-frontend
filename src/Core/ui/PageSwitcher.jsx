@@ -27,7 +27,7 @@ function PageSwitcher({ totalCount, pageSize, currentPage, onPageChange }) {
           "...",
         );
       }
-      console.log(pageNumbers);
+
       pageNumbers.push(totalPages);
     }
 

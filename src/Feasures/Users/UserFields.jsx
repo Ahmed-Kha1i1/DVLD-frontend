@@ -17,13 +17,14 @@ function UserFields({ errors, register, getValues, isEditSession }) {
         isRequired={true}
         className="col-span-2"
       />
-      {!isEditSession && (
-        <PasswordFields
-          errors={errors}
-          register={register}
-          getValues={getValues}
-        />
-      )}
+
+      <PasswordFields
+        errors={errors}
+        register={register}
+        getValues={getValues}
+        isEditSession={isEditSession}
+      />
+
       <div className="text-lg text-gray-700">
         <input
           id="isActive"

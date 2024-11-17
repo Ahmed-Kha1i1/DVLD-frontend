@@ -14,7 +14,7 @@ const usersKeys = {
     ...(isFull ? usersKeys.fullDetails() : usersKeys.prefDetails()),
     { type, value },
   ],
-  currentUser: () => [...usersKeys.all, "current-user"],
+  currentUser: () => [...usersKeys.fullDetails(), "current-user"],
 };
 
 export { usersKeys, userdetailTypes };

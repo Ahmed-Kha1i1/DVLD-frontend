@@ -69,9 +69,7 @@ function useUserForm(personId, userToEdit = {}, onSaveData) {
     );
   }
 
-  function OnError(errors) {
-    console.log(errors);
-  }
+  function OnError(errors) {}
 
   return {
     register,

@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 function SelectorMenu({ options, OnSelect, referance, renderOption }) {
-  // console.log()
   // const internalRef = useRef(null); // Create a fallback ref if not provided
   // const finalRef = ref || internalRef; // Use the provided ref or the fallback one
 

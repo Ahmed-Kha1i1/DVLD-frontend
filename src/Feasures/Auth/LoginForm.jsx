@@ -18,7 +18,9 @@ function LoginForm() {
     register,
     handleSubmit,
     reset,
-  } = useForm();
+  } = useForm({
+    defaultValues: { email: "newEmail2233@gmai.com", password: "AAAWWWe23#" },
+  });
 
   useEffect(() => {
     const currentSession = localStorage.getItem(sessoin);

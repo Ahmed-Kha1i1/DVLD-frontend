@@ -6,20 +6,22 @@ import {
   validatePasswordRule,
 } from "../../Core/Utils/validationRules";
 
-function PasswordFields({ errors, register, getValues }) {
+function PasswordFields({ errors, register, getValues, isEditSession = true }) {
   return (
     <>
-      <TextInput
-        id="currentPassword"
-        label="Current Password"
-        placeholder="Current Password"
-        type="password"
-        error={errors?.currentPassword?.message}
-        register={register}
-        validation={required("Current Password")}
-        isRequired={true}
-        className="col-span-2"
-      />
+      {isEditSession && (
+        <TextInput
+          id="currentPassword"
+          label="Current Password"
+          placeholder="Current Password"
+          type="password"
+          error={errors?.currentPassword?.message}
+          register={register}
+          validation={required("Current Password")}
+          isRequired={true}
+          className="col-span-2"
+        />
+      )}
       <TextInput
         id="newPassword"
         label="New Password"

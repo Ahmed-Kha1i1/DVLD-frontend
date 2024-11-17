@@ -78,7 +78,6 @@ export async function addNewPerson(person) {
 }
 
 export async function updatePerson(PersonId, person) {
-  console.log(person);
   let formData = createFormData(person);
   formData.append("PersonId", PersonId);
   const result = await fetchData(`${BASE_URL}/api/People`, {
@@ -112,7 +111,7 @@ export async function isEmailUnique(email, id) {
   const queryParams = new URLSearchParams({
     email: email,
   });
-  console.log(id);
+
   if (id) queryParams.append("id", id);
 
   const result = await fetchData(

@@ -62,9 +62,7 @@ function usePersonForm(personToEdit, updateNavigate, onAddSuccess) {
     }
   }
 
-  function OnError(errors) {
-    console.log(errors);
-  }
+  function OnError(errors) {}
 
   function resetForm() {
     reset();

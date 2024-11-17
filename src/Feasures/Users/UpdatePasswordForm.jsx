@@ -39,9 +39,7 @@ function UpdatePasswordForm({ userId }) {
     }
   }
 
-  function OnError(errors) {
-    console.log(errors);
-  }
+  function OnError(errors) {}
 
   return (
     <Form onSubmit={handleSubmit(OnSubmit, OnError)}>

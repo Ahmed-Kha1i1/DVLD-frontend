@@ -4,7 +4,7 @@ import Item from "../../Core/ui/Item";
 import Menu from "../../Core/ui/Menu";
 
 function DriverContextMenu({ SelectedDriver }) {
-  console.log(SelectedDriver);
+  
   return (
     <Menu bgColor="bg-inherit">
       <Item

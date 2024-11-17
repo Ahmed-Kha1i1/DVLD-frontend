@@ -15,6 +15,7 @@ export function generateNewUser(user, personId) {
     personID: personId,
     username: user.username.trim(),
     isActive: user.isActive === "true" ? true : false,
+    password: user.newPassword,
   };
 
   if (user?.password) {

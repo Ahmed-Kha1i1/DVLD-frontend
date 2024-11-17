@@ -65,7 +65,6 @@ function useApplicationForm(personId, applicationToEdit = {}, onSaveData) {
   }
 
   function SetLicenseError(message) {
-    console.log();
     setError("licenseClassId", {
       type: "manual",
       message,

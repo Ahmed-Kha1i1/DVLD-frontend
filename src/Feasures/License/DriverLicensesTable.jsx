@@ -17,7 +17,7 @@ function DriverLicensesTable({ driverId }) {
   if (isLoading) return <Spinner />;
 
   if (error) return <Error message={error?.message} />;
-  console.log("Driver license");
+
   return (
     <Table columns={columns} isSmall={true}>
       <Table.Header>
