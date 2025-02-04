@@ -5,7 +5,6 @@
   comprehensive system designed to streamline vehicle licensing and registration processes. This project manages applications, licenses, driver data, user data, basic personal information, licensing tests, test appointments, and international licenses, all in a centralized solution for efficient and       organized data management.By providing streamlined tools for managing licensing, renewing, replacing , detaining licenses.
 
 ## Technologies
-  - ✅**Architecture:** Feasure based
   - ✅**Framwork:** React
   - ✅**Language:** JavaScript
   - ✅**libraries:** React Router - React Query -React Hook Form - Recharts
